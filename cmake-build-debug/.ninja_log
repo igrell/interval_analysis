@@ -1,0 +1,23 @@
+# ninja log v5
+2057	2133	1670418596540591607	interval_arithmetic	ecca003860c95bd
+2	3805	1670418580676320907	CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o	6ccdc51a69d5fd48
+2	29	1670340642929895030	CMakeFiles/interval_arithmetic.dir/Mapping.cpp.o	35dc9f2b2afb04d0
+2	3803	1670418580676320907	CMakeFiles/interval_arithmetic.dir/TSet.cpp.o	3b47c1ae9d0b00f3
+2	4003	1670418113268188886	CMakeFiles/interval_arithmetic.dir/Interval.cpp.o	776e4f14cf3e96ab
+0	1107	1665949291754191205	CMakeFiles/interval_arithmetic.dir/Tuple.cpp.o	67b8bf52f6d0498b
+0	22	1670419704173837054	build.ninja	41d54fd65935a825
+1	2057	1670418596468590473	CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o	e477a6d4b5358398
+2	3262	1670418580132310852	CMakeFiles/interval_arithmetic.dir/sivia.cpp.o	a0bf03263cbf0842
+1850	1959	6820328377743483	interval_arithmetic.exe	6dad84b03e141c16
+1	1087	1665306287544657860	CMakeFiles/interval_arithmetic.dir/main.cpp.o	cc0286fbd77f89a1
+1	2086	1667491041034336946	CMakeFiles/interval_arithmetic.dir/rossler.cpp.o	14edf1247a5d7e8d
+2	3463	1670418580336314623	CMakeFiles/interval_arithmetic.dir/Rossler.cpp.o	f5d978dfbcf36302
+1	72	1670489958455093686	CMakeFiles/interval_arithmetic.dir/sivia.cpp.o	a0bf03263cbf0842
+1	76	1670489958459093694	CMakeFiles/interval_arithmetic.dir/main.cpp.o	872641f8b5d4ff21
+1	2417	1670489960799098207	CMakeFiles/interval_arithmetic.dir/TSet.cpp.o	3b47c1ae9d0b00f3
+1	2435	1670489960819098246	CMakeFiles/interval_arithmetic.dir/Rossler.cpp.o	f5d978dfbcf36302
+1	2560	1670489960943098484	CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o	6ccdc51a69d5fd48
+1	2811	1670489961195098962	CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o	e477a6d4b5358398
+2811	2902	1670489961283099129	interval_arithmetic	459a0a25c20c4216
+1	2577	1670489972179118819	CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o	e477a6d4b5358398
+2577	2662	1670489972263118962	interval_arithmetic	459a0a25c20c4216
