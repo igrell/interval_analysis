@@ -125,8 +125,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug",
-		"source" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic"
+		"build" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug",
+		"source" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
 	},
 	"version" : 
 	{

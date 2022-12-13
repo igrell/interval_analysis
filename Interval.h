@@ -1,3 +1,6 @@
+#ifndef _Interval_
+#define _Interval_ 1
+
 #include <iostream>
 #include "algorithm"
 #include <cfenv>
@@ -38,7 +41,7 @@ public:
 
     void set_label(string new_label) { label = std::move(new_label); }
 
-    double width() const;
+    [[nodiscard]] double width() const;
 
     Interval operator+(const Interval &) const;
 
@@ -82,3 +85,5 @@ ostream &operator<<(ostream &ostream, const Interval &interval);
 
 template<typename T>
 ostream &operator<<(ostream &, const pair<T, T> &);
+
+#endif

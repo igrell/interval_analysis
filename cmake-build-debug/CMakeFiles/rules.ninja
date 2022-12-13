@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: interval_arithmetic
+# Project: interval_analysis
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /app/extra/clion/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic -B/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug
+  command = /app/extra/clion/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis -B/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug"
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -591,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic"
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "interval_arithmetic"
+			"value" : "interval_analysis"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1114,6 +1114,42 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "interval_analysis_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug"
+		},
+		{
+			"name" : "interval_analysis_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "interval_analysis_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
+		},
+		{
 			"name" : "interval_arithmetic_BINARY_DIR",
 			"properties" : 
 			[
@@ -1123,7 +1159,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug"
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug"
 		},
 		{
 			"name" : "interval_arithmetic_IS_TOP_LEVEL",
@@ -1147,7 +1183,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic"
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
 		}
 	],
 	"kind" : "cache",

@@ -1,3 +1,6 @@
+#ifndef _ROSSLER_
+#define _ROSSLER_ 1
+
 #include "TSet.h"
 #include "Mapping.h"
 #include "vector"
@@ -5,39 +8,40 @@
 
 using std::pair, std::vector, std::abs;
 
-class Rossler {
-    Interval coeff_1;
-    Interval coeff_2;
-    Interval coeff_3;
-    Interval coeff_4;
-    Interval coeff_5;
+template<typename T>
+class Rossler : public Mapping<T> {
+    T coeff_1;
+    T coeff_2;
+    T coeff_3;
+    T coeff_4;
+    T coeff_5;
 
-    template<typename T>
-    T r1(T &x, T &y) const;
-//
-//    template<typename T>
-//    T map_1(T &x, T &y) {
-//
-//    }
+    [[nodiscard]] T map_1(const T &x, const T &y) const override;
 
-
-
-    template<typename T>
-    T r2(T &x, T &y) const;
-
-    template<typename T>
-    pair<T, T> r(T &x, T &y) const;
-
-    template<class T>
-    pair<T, T> r_thrice(T &x, T &y) const;
-
-    IPoint r_thrice(IPoint &) const;
+    [[nodiscard]] T map_2(const T &x, const T &y) const override;
 
 public:
 
-    Rossler(const Interval &coeff_1, const Interval &coeff_2, const Interval &coeff_3, const Interval &coeff_4,
-            const Interval &coeff_5);
-
-    IPoint operator()(IPoint &iPoint) const;
+    Rossler(const T &coeff_1, const T &coeff_2, const T &coeff_3, const T &coeff_4,
+            const T &coeff_5, int composition_constant);
 
 };
+
+template<typename T>
+Rossler<T>::Rossler(const T &coeff_1, const T &coeff_2, const T &coeff_3, const T &coeff_4,
+                    const T &coeff_5, int composition_constant) : Mapping<T>(composition_constant), coeff_1(coeff_1), coeff_2(coeff_2),
+                                                                  coeff_3(coeff_3), coeff_4(coeff_4),
+                                                                  coeff_5(coeff_5)  {
+}
+
+template<typename T>
+T Rossler<T>::map_1(const T &x, const T &y) const {
+    return ((coeff_1 * x) * (1 - x) - (coeff_2 * y));
+}
+
+template<typename T>
+T Rossler<T>::map_2(const T &x, const T &y) const {
+    return (coeff_3 * (y - coeff_4) * (1 - (coeff_5 * x)));
+}
+
+#endif

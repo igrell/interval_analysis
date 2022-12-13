@@ -1,3 +1,6 @@
+#ifndef _TSET_H
+#define _TSET_H 1
+
 #include "IPoint.h"
 #include "vector"
 
@@ -32,3 +35,5 @@ Segment &operator+(Segment &segment, double eps);
 ostream &operator<<(ostream &, const TSet &);
 
 ostream &operator<<(ostream &, const Segment &);
+
+#endif

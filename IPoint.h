@@ -1,3 +1,6 @@
+#ifndef _IPOINT_
+#define _IPOINT_ 1
+
 #include "Interval.h"
 
 typedef pair<double, double> Point;
@@ -20,8 +23,10 @@ public:
 
     [[nodiscard]] double width() const;
 
-    pair<IPoint,IPoint> bisect() const; //bisecting the horizontal interval by half
+    [[nodiscard]] pair<IPoint,IPoint> bisect() const; //bisecting the horizontal interval by half
 
 };
 
 bool emptyIntersection(const IPoint &,const IPoint &);
+
+#endif

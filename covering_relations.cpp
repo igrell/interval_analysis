@@ -1,18 +1,19 @@
 #include "Rossler.h"
+#include "Henon.h"
 #include "deque"
 
-using std::deque, std::function;
-#define GRID_PRECISION 1000
+using std::deque, std::function, std::ofstream;
+#define GRID_PRECISION 100
 
 //line from segment ab, checking condition for point c
 // 1 - point left of line, -1 - point right of line, 0 - colinear
 template<typename T>
-int pointRelativeToLine(pair<T, T> &a, pair<T, T> &b, pair<T, T> c) {
+int pointRelativeToLine(const pair<T, T> &a, const pair<T, T> &b, const pair<T, T> c) {
     double det = ((b.first - a.first) * (c.second - a.second) - (b.second - a.second) * (c.first - a.first));
     return det == 0 ? 0 : (det > 0 ? 1 : -1);
 }
 
-bool isIPointLeftOfSegment(Segment segment, const IPoint &iPoint) {
+bool isIPointLeftOfSegment(const Segment segment, const IPoint &iPoint) {
     int res_1 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_lo()});
     int res_2 = pointRelativeToLine(segment.first, segment.second,
@@ -24,7 +25,7 @@ bool isIPointLeftOfSegment(Segment segment, const IPoint &iPoint) {
     return res_1 == 1 and res_2 == 1 and res_3 == 1 and res_4 == 1;
 }
 
-bool isIPointRightOfSegment(Segment segment, const IPoint &iPoint) {
+bool isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
     int res_1 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_lo()});
     int res_2 = pointRelativeToLine(segment.first, segment.second,
@@ -37,7 +38,7 @@ bool isIPointRightOfSegment(Segment segment, const IPoint &iPoint) {
 }
 
 template<class T>
-bool mappingInside(TSet &tSet1, TSet &tSet2, T &mapping) { //TODO
+bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) { //TODO
     bool up = true;
     bool down = true;
     bool up_inverted = true;
@@ -54,8 +55,8 @@ bool mappingInside(TSet &tSet1, TSet &tSet2, T &mapping) { //TODO
            or (up_inverted and down_inverted);
 }
 
-template<class T>
-bool edgesOnTheOutside(TSet &tSet1, TSet &tSet2, T &mapping) {
+template<typename T>
+bool edgesOnTheOutside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
     bool tset1_N_l_rossler_left_of_tset2_N_l = true;
     bool tset1_N_r_rossler_right_of_tSet2_N_r = true;
     //or
@@ -77,10 +78,9 @@ bool edgesOnTheOutside(TSet &tSet1, TSet &tSet2, T &mapping) {
 
 //testing whether tSet1 => tSet2 with mapping transform
 template<class T>
-bool isCovering(TSet &tSet1, TSet &tSet2, T &mapping) {
+bool isCovering(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
     return edgesOnTheOutside(tSet1, tSet2, mapping)
-//           and mappingInside(tSet1, tSet2, mapping)
-            ;
+           and mappingInside(tSet1, tSet2, mapping);
 }
 
 void display_TSet_grid(const std::string &label, TSet &tSet) {
@@ -192,7 +192,7 @@ int main() {
     Interval coeff_3 = Interval(2) / Interval(10);
     Interval coeff_4 = Interval(12) / Interval(10);
     Interval coeff_5 = Interval(19) / Interval(10);
-    Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5);
+    Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5, 3);
 
 //    display_TSet_grid_mapped("N0", rossler, N0);
 
@@ -201,14 +201,16 @@ int main() {
 //    display_TSet_grid_mapped("N2", rossler, N2);
 
     // results
-//    cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
-//    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
-//    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
-//    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
-//    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
+    cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
+    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
+    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
+    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
+    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
 
+//    Interval coeff_a = Interval(14) / Interval(10);
+//    Interval coeff_b = Interval(3) / Interval(10);
+//    Henon henon(coeff_a, coeff_b, 7);
 
 
     return 0;
 }
-

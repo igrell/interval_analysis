@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: interval_arithmetic
+# Project: interval_analysis
 # Configurations: Debug
 # =============================================================================
 
@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug/
+cmake_ninja_workdir = /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target interval_arithmetic
 
@@ -49,49 +49,31 @@ cmake_ninja_workdir = /home/igor/Documents/Kod/Tutorial/Validated_numerics/inter
 
 build cmake_object_order_depends_target_interval_arithmetic: phony || CMakeFiles/interval_arithmetic.dir
 
-build CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/covering_relations.cpp || cmake_object_order_depends_target_interval_arithmetic
+build CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
 
-build CMakeFiles/interval_arithmetic.dir/Interval.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/Interval.cpp || cmake_object_order_depends_target_interval_arithmetic
+build CMakeFiles/interval_arithmetic.dir/Interval.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/Interval.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/Interval.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
 
-build CMakeFiles/interval_arithmetic.dir/Rossler.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/Rossler.cpp || cmake_object_order_depends_target_interval_arithmetic
-  DEP_FILE = CMakeFiles/interval_arithmetic.dir/Rossler.cpp.o.d
-  FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
-  OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
-
-build CMakeFiles/interval_arithmetic.dir/TSet.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/TSet.cpp || cmake_object_order_depends_target_interval_arithmetic
+build CMakeFiles/interval_arithmetic.dir/TSet.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/TSet.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/TSet.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
 
-build CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/IPoint.cpp || cmake_object_order_depends_target_interval_arithmetic
+build CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/IPoint.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
 
-build CMakeFiles/interval_arithmetic.dir/Mapping.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/Mapping.cpp || cmake_object_order_depends_target_interval_arithmetic
-  DEP_FILE = CMakeFiles/interval_arithmetic.dir/Mapping.cpp.o.d
-  FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
-  OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
-
-build CMakeFiles/interval_arithmetic.dir/sivia.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/sivia.cpp || cmake_object_order_depends_target_interval_arithmetic
-  DEP_FILE = CMakeFiles/interval_arithmetic.dir/sivia.cpp.o.d
-  FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
-  OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir
-
-build CMakeFiles/interval_arithmetic.dir/main.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/main.cpp || cmake_object_order_depends_target_interval_arithmetic
+build CMakeFiles/interval_arithmetic.dir/main.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/main.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
@@ -105,7 +87,7 @@ build CMakeFiles/interval_arithmetic.dir/main.cpp.o: CXX_COMPILER__interval_arit
 #############################################
 # Link the executable interval_arithmetic
 
-build interval_arithmetic: CXX_EXECUTABLE_LINKER__interval_arithmetic_Debug CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o CMakeFiles/interval_arithmetic.dir/Interval.cpp.o CMakeFiles/interval_arithmetic.dir/Rossler.cpp.o CMakeFiles/interval_arithmetic.dir/TSet.cpp.o CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o CMakeFiles/interval_arithmetic.dir/Mapping.cpp.o CMakeFiles/interval_arithmetic.dir/sivia.cpp.o CMakeFiles/interval_arithmetic.dir/main.cpp.o
+build interval_arithmetic: CXX_EXECUTABLE_LINKER__interval_arithmetic_Debug CMakeFiles/interval_arithmetic.dir/covering_relations.cpp.o CMakeFiles/interval_arithmetic.dir/Interval.cpp.o CMakeFiles/interval_arithmetic.dir/TSet.cpp.o CMakeFiles/interval_arithmetic.dir/IPoint.cpp.o CMakeFiles/interval_arithmetic.dir/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   POST_BUILD = :
@@ -118,7 +100,7 @@ build interval_arithmetic: CXX_EXECUTABLE_LINKER__interval_arithmetic_Debug CMak
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug && /app/extra/clion/bin/cmake/linux/bin/ccmake -S/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic -B/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug
+  COMMAND = cd /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug && /app/extra/clion/bin/cmake/linux/bin/ccmake -S/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis -B/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -130,7 +112,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug && /app/extra/clion/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic -B/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug
+  COMMAND = cd /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug && /app/extra/clion/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis -B/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -146,7 +128,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_arithmetic/cmake-build-debug
+# Folder: /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
 
 build all: phony interval_arithmetic
 

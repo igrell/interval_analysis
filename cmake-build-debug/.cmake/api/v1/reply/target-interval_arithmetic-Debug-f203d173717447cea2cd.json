@@ -54,12 +54,9 @@
 			[
 				1,
 				2,
-				3,
-				6,
-				8,
-				9,
-				11,
-				12
+				5,
+				7,
+				9
 			]
 		}
 	],
@@ -93,9 +90,10 @@
 			"sourceIndexes" : 
 			[
 				0,
+				3,
 				4,
-				5,
-				7,
+				6,
+				8,
 				10
 			]
 		},
@@ -105,12 +103,9 @@
 			[
 				1,
 				2,
-				3,
-				6,
-				8,
-				9,
-				11,
-				12
+				5,
+				7,
+				9
 			]
 		}
 	],
@@ -131,12 +126,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Interval.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Rossler.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -168,26 +157,19 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Mapping.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"path" : "Mapping.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "sivia.cpp",
+			"path" : "main.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
-			"sourceGroupIndex" : 1
+			"path" : "Henon.h",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"
