@@ -1,0 +1,24 @@
+#!/bin/bash
+
+myFunction () {
+	cd pseudorandomNumbers
+	g++ -Werror pseudorandom.cpp -o pseudorandom
+	if [[ $? == 0 ]]; then
+		./pseudorandom $1 $2 $3 $4 $5 $6
+	fi
+	cd ..
+	python3 ./numPlot/main.py
+	mv ./results/plot.png ./results/plot$6.png
+ }
+
+# $1 - multiplyBy
+# $2 - incrementBy
+# $3 - modulus
+# $4 - seed
+# $5 - sequenceLength
+# $6 - number of plot
+
+myFunction 5 0 12 1 20 1
+myFunction 17 0 512 1 20 2
+myFunction 22695477 1 4294967296 1 20 3
+myFunction 142935 5 134972 16 100 4
