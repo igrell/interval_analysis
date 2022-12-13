@@ -1,5 +1,5 @@
-#ifndef INTERVAL_ANALYSIS_HENON_H
-#define INTERVAL_ANALYSIS_HENON_H 1
+#ifndef _HENON_H_
+#define _HENON_H_
 
 #include "Mapping.h"
 #include "TSet.h"

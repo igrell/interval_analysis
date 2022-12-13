@@ -1,5 +1,5 @@
-#ifndef _IPOINT_
-#define _IPOINT_ 1
+#ifndef _IPOINT_H_
+#define _IPOINT_H_
 
 #include "Interval.h"
 

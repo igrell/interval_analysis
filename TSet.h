@@ -1,5 +1,5 @@
-#ifndef _TSET_H
-#define _TSET_H 1
+#ifndef _TSET_H_
+#define _TSET_H_
 
 #include "IPoint.h"
 #include "vector"

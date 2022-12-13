@@ -1,5 +1,5 @@
-#ifndef _Interval_
-#define _Interval_ 1
+#ifndef _INTERVAL_H_
+#define _INTERVAL_H_
 
 #include <iostream>
 #include "algorithm"

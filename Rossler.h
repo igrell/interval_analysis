@@ -1,5 +1,5 @@
-#ifndef _ROSSLER_
-#define _ROSSLER_ 1
+#ifndef _ROSSLER_H_
+#define _ROSSLER_H_
 
 #include "TSet.h"
 #include "Mapping.h"

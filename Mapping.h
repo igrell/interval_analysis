@@ -1,5 +1,5 @@
 #ifndef _MAPPING_H_
-#define _MAPPING_H_ 1
+#define _MAPPING_H_
 
 using std::vector, std::pair;
 
