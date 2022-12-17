@@ -94,7 +94,8 @@
 				4,
 				6,
 				8,
-				10
+				10,
+				11
 			]
 		},
 		{
@@ -169,6 +170,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Henon.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DrawPolicy.h",
 			"sourceGroupIndex" : 0
 		}
 	],

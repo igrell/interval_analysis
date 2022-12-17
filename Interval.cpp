@@ -165,23 +165,13 @@ Interval operator*(double a, Interval b) {
 }
 
 // explicit instantiation of <<
-template<> std::ostream &operator
-<<<Interval>(
-std::ostream &ostream,
-const std::pair<Interval, Interval> &pair
-) {
-ostream << "( " << pair.first << " ; " << pair.second << " )\n";
-return
-ostream;
+template<> std::ostream &operator<<<Interval>(std::ostream &ostream,const std::pair<Interval, Interval> &pair) {
+ostream << "{ " << pair.first << " ; " << pair.second << " }\n";
+return ostream;
 }
 
-template<> std::ostream &operator
-<<<double>(
-std::ostream &ostream,
-const std::pair<double, double> &pair
-) {
-ostream << "( " << pair.first << " ; " << pair.second << " )\n";
-return
-ostream;
+template<> std::ostream &operator<<<double>(std::ostream &ostream,const std::pair<double, double> &pair) {
+ostream << "[ " << pair.first << " ; " << pair.second << " ]\n";
+return ostream;
 }
 

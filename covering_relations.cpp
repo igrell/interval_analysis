@@ -1,9 +1,13 @@
 #include "Rossler.h"
-#include "Henon.h"
+//#include "Henon.h"
 #include "deque"
+#include "iostream"
+#include "DrawPolicy.h"
+#include "fstream"
 
-using std::deque, std::function, std::ofstream;
-#define GRID_PRECISION 100
+using std::deque, std::function, std::ofstream, std::string;
+#define GRID_PRECISION 1000
+#define DRAW_POLICY FileDrawPolicy
 
 //line from segment ab, checking condition for point c
 // 1 - point left of line, -1 - point right of line, 0 - colinear
@@ -83,47 +87,52 @@ bool isCovering(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
            and mappingInside(tSet1, tSet2, mapping);
 }
 
+template<class DrawPolicy>
 void display_TSet_grid(const std::string &label, TSet &tSet) {
     cout << "\n" << label << "' N_l:\n";
     for (const IPoint &iPoint: tSet.gridLeftEdge(GRID_PRECISION)) {
-        cout << iPoint.area.first << ", " << iPoint.area.second << "\n";
+        DrawPolicy::drawIPoint(iPoint);
     }
     cout << "\n" << label << "' N_r:\n";
     for (const IPoint &iPoint: tSet.gridRightEdge(GRID_PRECISION)) {
-        cout << iPoint.area.first << ", " << iPoint.area.second << "\n";
+        DrawPolicy::drawIPoint(iPoint);
     }
-    cout << "\n" << label << "' N_u:\n";
-    for (const IPoint &iPoint: tSet.gridUpEdge(GRID_PRECISION)) {
-        cout << iPoint.area.first << ", " << iPoint.area.second << "\n";
-    }
-    cout << "\n" << label << "' N_d:\n";
-    for (const IPoint &iPoint: tSet.gridDownEdge(GRID_PRECISION)) {
-        cout << iPoint.area.first << ", " << iPoint.area.second << "\n";
-    }
+//    cout << "\n" << label << "' N_u:\n";
+//    for (const IPoint &iPoint: tSet.gridUpEdge(GRID_PRECISION)) {
+//        DrawPolicy::drawIPoint(iPoint);
+//    }
+//    cout << "\n" << label << "' N_d:\n";
+//    for (const IPoint &iPoint: tSet.gridDownEdge(GRID_PRECISION)) {
+//        DrawPolicy::drawIPoint(iPoint);
+//    }
 }
 
-template<class T>
+template<class DrawPolicy, class T>
 void display_TSet_grid_mapped(const std::string &label, T &mapping, TSet &tSet) {
     cout << "\n" << label << "' N_l:\n";
     for (IPoint iPoint: tSet.gridLeftEdge(GRID_PRECISION)) {
         IPoint res = mapping(iPoint);
-        cout << res.area.first << ", " << res.area.second << "\n";
+        DrawPolicy::drawIPoint(res);
+//        cout << res.area.first << ", " << res.area.second << "\n";
     }
     cout << "\n" << label << "' N_r:\n";
     for (IPoint iPoint: tSet.gridRightEdge(GRID_PRECISION)) {
         IPoint res = mapping(iPoint);
-        cout << res.area.first << ", " << res.area.second << "\n";
+        DrawPolicy::drawIPoint(res);
+//        cout << res.area.first << ", " << res.area.second << "\n";
     }
-    cout << "\n" << label << "' N_u:\n";
-    for (IPoint iPoint: tSet.gridUpEdge(GRID_PRECISION)) {
-        IPoint res = mapping(iPoint);
-        cout << res.area.first << ", " << res.area.second << "\n";
-    }
-    cout << "\n" << label << "' N_d:\n";
-    for (IPoint iPoint: tSet.gridDownEdge(GRID_PRECISION)) {
-        IPoint res = mapping(iPoint);
-        cout << res.area.first << ", " << res.area.second << "\n";
-    }
+//    cout << "\n" << label << "' N_u:\n";
+//    for (IPoint iPoint: tSet.gridUpEdge(GRID_PRECISION)) {
+//        IPoint res = mapping(iPoint);
+//        DrawPolicy::drawIPoint(res);
+//        cout << res.area.first << ", " << res.area.second << "\n";
+//    }
+//    cout << "\n" << label << "' N_d:\n";
+//    for (IPoint iPoint: tSet.gridDownEdge(GRID_PRECISION)) {
+//        IPoint res = mapping(iPoint);
+//        DrawPolicy::drawIPoint(res);
+//        cout << res.area.first << ", " << res.area.second << "\n";
+//    }
 }
 
 
@@ -147,8 +156,13 @@ vector<deque<IPoint>> sivia(const function<IPoint(IPoint)> &F, const IPoint &Y, 
     return {S, N, U};
 }
 
+template<class DrawPolicy>
+void emptyFile() {
+    DrawPolicy::emptyFile();
+}
 
 int main() {
+
     //data
     Point a0 = {0.6230, 0.1000};
     Point b0 = {0.6590, 0.0920};
@@ -194,23 +208,25 @@ int main() {
     Interval coeff_5 = Interval(19) / Interval(10);
     Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5, 3);
 
-//    display_TSet_grid_mapped("N0", rossler, N0);
+    emptyFile<DRAW_POLICY>();
 
-//    display_TSet_grid_mapped("N1", rossler, N1);
+    display_TSet_grid<DRAW_POLICY>("N0",N0);
 
-//    display_TSet_grid_mapped("N2", rossler, N2);
+    display_TSet_grid<DRAW_POLICY>("N1",N1);
+
+    display_TSet_grid<DRAW_POLICY>("N2",N2);
+
+//    display_TSet_grid_mapped<DRAW_POLICY>("N0", rossler, N0);
+
+//    display_TSet_grid_mapped<DRAW_POLICY>("N1", rossler, N1);
+
+//    display_TSet_grid_mapped<DRAW_POLICY>("N2", rossler, N2);
 
     // results
-    cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
-    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
-    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
-    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
-    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
-
-//    Interval coeff_a = Interval(14) / Interval(10);
-//    Interval coeff_b = Interval(3) / Interval(10);
-//    Henon henon(coeff_a, coeff_b, 7);
-
-
+//    cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
+//    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
+//    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
+//    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
+//    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
     return 0;
 }

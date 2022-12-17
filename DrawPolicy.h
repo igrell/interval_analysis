@@ -1,8 +1,66 @@
-//
-// Created by igor on 12/13/22.
-//
-
 #ifndef INTERVAL_ANALYSIS_DRAWPOLICY_H
 #define INTERVAL_ANALYSIS_DRAWPOLICY_H
 
-#endif //INTERVAL_ANALYSIS_DRAWPOLICY_H
+#include "fstream"
+#include "iostream"
+#include "IPoint.h"
+
+using std::ofstream;
+
+struct EmptyDrawPolicy {
+    static void drawIPoint(const IPoint &iPoint) {}
+
+    static void emptyFile() {}
+};
+
+struct FileDrawPolicy {
+    static ofstream file;
+
+    static void drawIPoint(const IPoint &iPoint) {
+        file.open("output.txt", std::ios::out | std::ios::app);
+//        if (!file) {
+//            cout << "No file!\n";
+//            return;
+//        }
+
+        file << "(" << iPoint.area.first << " , " << iPoint.area.second << ")\n";
+        file.close();
+    }
+
+    static void emptyFile() {
+        file.open("output.txt", std::ios::out);
+        file.close();
+    }
+};
+
+ofstream FileDrawPolicy::file = ofstream();
+
+struct PrintDrawPolicy {
+    static void drawIPoint(const IPoint &iPoint) {
+        cout << "(" << iPoint.area.first << ", " << iPoint.area.second << ")\n";
+    }
+};
+
+struct PrintAndFileDrawPolicy {
+    static ofstream file;
+
+    static void drawIPoint(const IPoint &iPoint) {
+        file.open("output.txt", std::ios::out | std::ios::app);
+        if (!file) {
+            cout << "No file!\n";
+            return;
+        }
+        file << iPoint.area.first << " , " << iPoint.area.second << "\n";
+        file.close();
+        cout << iPoint.area.first << ", " << iPoint.area.second << "\n";
+    }
+
+    static void emptyFile() {
+        file.open("output.txt", std::ios::out);
+        file.close();
+    }
+};
+
+ofstream PrintAndFileDrawPolicy::file = ofstream();
+
+#endif
