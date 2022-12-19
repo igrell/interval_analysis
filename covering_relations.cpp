@@ -3,7 +3,7 @@
 #include "deque"
 #include "iostream"
 #include "DrawPolicy.h"
-#include "fstream"
+//#include "fstream"
 
 using std::deque, std::function, std::ofstream, std::string;
 #define GRID_PRECISION 1000
@@ -43,20 +43,14 @@ bool isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
 
 template<class T>
 bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) { //TODO
-    bool up = true;
-    bool down = true;
-    bool up_inverted = true;
-    bool down_inverted = true;
+
     for (IPoint iPoint: tSet1.gridUpEdge(GRID_PRECISION)) {
-        if (!isIPointRightOfSegment(tSet2.getUpEdge(), mapping(iPoint))) up = false;
-        if (!isIPointLeftOfSegment(tSet2.getDownEdge(), mapping(iPoint))) up_inverted = false;
+
     }
     for (IPoint iPoint: tSet1.gridDownEdge(GRID_PRECISION)) {
-        if (!isIPointLeftOfSegment(tSet2.getDownEdge(), mapping(iPoint))) down = false;
-        if (!isIPointRightOfSegment(tSet2.getUpEdge(), mapping(iPoint))) down_inverted = false;
+
     }
-    return (up and down)
-           or (up_inverted and down_inverted);
+    return false;
 }
 
 template<typename T>
@@ -210,11 +204,11 @@ int main() {
 
     emptyFile<DRAW_POLICY>();
 
-    display_TSet_grid<DRAW_POLICY>("N0",N0);
+    display_TSet_grid<DRAW_POLICY>("N0", N0);
 
-    display_TSet_grid<DRAW_POLICY>("N1",N1);
+    display_TSet_grid<DRAW_POLICY>("N1", N1);
 
-    display_TSet_grid<DRAW_POLICY>("N2",N2);
+    display_TSet_grid<DRAW_POLICY>("N2", N2);
 
 //    display_TSet_grid_mapped<DRAW_POLICY>("N0", rossler, N0);
 

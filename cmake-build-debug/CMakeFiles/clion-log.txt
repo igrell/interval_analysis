@@ -1,4 +1,0 @@
-/app/extra/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/app/extra/clion/bin/ninja/linux/ninja -G Ninja -S /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis -B /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
