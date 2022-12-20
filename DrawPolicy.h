@@ -23,7 +23,7 @@ struct FileDrawPolicy {
 //            return;
 //        }
 
-        file << "(" << iPoint.area.first << " , " << iPoint.area.second << ")\n";
+        file << iPoint;
         file.close();
     }
 
@@ -37,7 +37,7 @@ ofstream FileDrawPolicy::file = ofstream();
 
 struct PrintDrawPolicy {
     static void drawIPoint(const IPoint &iPoint) {
-        cout << "(" << iPoint.area.first << ", " << iPoint.area.second << ")\n";
+        cout << iPoint;
     }
 };
 
@@ -50,9 +50,9 @@ struct PrintAndFileDrawPolicy {
             cout << "No file!\n";
             return;
         }
-        file << iPoint.area.first << " , " << iPoint.area.second << "\n";
+        file << iPoint;
         file.close();
-        cout << iPoint.area.first << ", " << iPoint.area.second << "\n";
+        cout << iPoint;
     }
 
     static void emptyFile() {

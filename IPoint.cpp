@@ -33,13 +33,26 @@ double IPoint::width() const {
     return max(area.first.width(), area.second.width());
 }
 
-pair<IPoint, IPoint> IPoint::bisect() const {
-    IPoint part_1(Interval(area.first.get_lo(), area.first.get_lo() + (width() / 2)), area.second);
-    IPoint part_2(Interval(area.first.get_lo() + (width() / 2), area.first.get_hi()), area.second);
-    return {part_1, part_2};
+vector<IPoint> IPoint::bisect() const {
+    double x_diff = area.first.width() / 2;
+    double y_diff = area.second.width() / 2;
+    IPoint part_1(Interval(area.first.get_lo(), area.first.get_lo() + x_diff),
+                  Interval(area.second.get_lo(), area.second.get_lo() + y_diff));
+    IPoint part_2(Interval(area.first.get_lo() + x_diff, area.first.get_hi()),
+                  Interval(area.second.get_lo(), area.second.get_lo() + y_diff));
+    IPoint part_3(Interval(area.first.get_lo(), area.first.get_lo() + x_diff),
+                  Interval(area.second.get_lo() + y_diff, area.second.get_hi()));
+    IPoint part_4(Interval(area.first.get_lo() + x_diff, area.first.get_hi()),
+                  Interval(area.second.get_lo() + y_diff, area.second.get_hi()));
+    return {part_1, part_2, part_3, part_4};
 }
 
 bool emptyIntersection(const IPoint &a, const IPoint &b) {
     IPoint inter = a && b;
     return (inter.area.first == Interval(0) and inter.area.second == Interval(0));
+}
+
+ostream &operator<<(ostream &ostream, const IPoint &iPoint) {
+    ostream << iPoint.area.first << " , " << iPoint.area.second << "\n";
+    return ostream;
 }

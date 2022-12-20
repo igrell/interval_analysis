@@ -3,7 +3,9 @@
 
 #include "Interval.h"
 
+
 typedef pair<double, double> Point;
+using std::vector;
 
 class IPoint {
 public:
@@ -23,10 +25,13 @@ public:
 
     [[nodiscard]] double width() const;
 
-    [[nodiscard]] pair<IPoint,IPoint> bisect() const; //bisecting the horizontal interval by half
+    [[nodiscard]] vector<IPoint> bisect() const; //bisecting the horizontal interval by half
 
 };
 
 bool emptyIntersection(const IPoint &,const IPoint &);
+
+ostream& operator<<(ostream& ostream, const IPoint& iPoint);
+
 
 #endif

@@ -8,13 +8,13 @@
 
 using std::deque, std::function, std::ofstream, std::string, std::stack;
 #define GRID_PRECISION 100
-#define TOLERANCE 0.00001
+#define TOLERANCE 0.00000000000000001
 #define DRAW_POLICY FileDrawPolicy
 
 //line from segment ab, checking condition for point c
 // 1 - point left of line, -1 - point right of line, 0 - colinear
 template<typename T>
-int pointRelativeToLine(const pair <T, T> &a, const pair <T, T> &b, const pair <T, T> c) {
+int pointRelativeToLine(const pair<T, T> &a, const pair<T, T> &b, const pair<T, T> c) {
     double det = ((b.first - a.first) * (c.second - a.second) - (b.second - a.second) * (c.first - a.first));
     return det == 0 ? 0 : (det > 0 ? 1 : -1);
 }
@@ -67,7 +67,7 @@ bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) { //T
     int left_check;
     int right_check;
     int ribbon_check;
-    pair<IPoint,IPoint> iPoint_bisected;
+    vector<IPoint> iPoint_bisected;
     while (!mapped_iPoints.empty()) {
         iPoint = mapped_iPoints.top();
         mapped_iPoints.pop();
@@ -82,9 +82,13 @@ bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) { //T
             inTheRibbon = false; // found at least one iPoint on the left
         if (left_check == 0 or right_check == 0 or ribbon_check == 0) { // ambiguities
             iPoint_bisected = iPoint.bisect();
-            if (iPoint_bisected.first.width() < TOLERANCE or iPoint_bisected.second.width() < TOLERANCE) return false;
-            mapped_iPoints.push(iPoint_bisected.first);
-            mapped_iPoints.push(iPoint_bisected.second);
+            cout << iPoint;
+            for (const auto &bisection_el : iPoint_bisected) {
+                if (bisection_el.width() < TOLERANCE) return false;
+                cout << bisection_el;
+                mapped_iPoints.push(bisection_el);
+            }
+            cout << "\n";
         }
     }
     return onTheLeft or onTheRight or inTheRibbon;
@@ -128,7 +132,7 @@ template<class T>
 bool isCovering(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
     return edgesOnTheOutside(tSet1, tSet2, mapping)
            and mappingInside(tSet1, tSet2, mapping)
-            ;
+           ;
 }
 
 template<class DrawPolicy>
@@ -157,71 +161,48 @@ void display_TSet_grid_mapped(const std::string &label, T &mapping, TSet &tSet) 
     for (IPoint iPoint: tSet.gridLeftEdge(GRID_PRECISION)) {
         IPoint res = mapping(iPoint);
         DrawPolicy::drawIPoint(res);
-//        cout << res.area.first << ", " << res.area.second << "\n";
+//        cout << res;
     }
     cout << "\n" << label << "' N_r:\n";
     for (IPoint iPoint: tSet.gridRightEdge(GRID_PRECISION)) {
         IPoint res = mapping(iPoint);
         DrawPolicy::drawIPoint(res);
-//        cout << res.area.first << ", " << res.area.second << "\n";
+//        cout << res;
     }
 //    cout << "\n" << label << "' N_u:\n";
 //    for (IPoint iPoint: tSet.gridUpEdge(GRID_PRECISION)) {
 //        IPoint res = mapping(iPoint);
 //        DrawPolicy::drawIPoint(res);
-//        cout << res.area.first << ", " << res.area.second << "\n";
+//        cout << res;
 //    }
 //    cout << "\n" << label << "' N_d:\n";
 //    for (IPoint iPoint: tSet.gridDownEdge(GRID_PRECISION)) {
 //        IPoint res = mapping(iPoint);
 //        DrawPolicy::drawIPoint(res);
-//        cout << res.area.first << ", " << res.area.second << "\n";
+//        cout << res;
 //    }
 }
 
 
-vector <deque<IPoint>> sivia(const function<IPoint(IPoint)> &F, const IPoint &Y, const IPoint &x0, double TOL) {
-deque<IPoint> S; // solution set
-deque<IPoint> N; // non-solution set
-deque<IPoint> U; // unidentified set
-deque<IPoint> T = {x0}; // temporary set of analyzed IPoints
-while (!T.
-
-empty()
-
-) {
-IPoint x = T.front();
-T.
-
-pop_front();
-
-if (
-F(x)
-< Y) S.
-push_front(x);
-else if ((
-emptyIntersection(F(x), Y
-))) N.
-push_front(x);
-else if (x.
-
-width()
-
-< TOL) U.
-push_front(x);
-else {
-pair <IPoint, IPoint> x_bisected = x.bisect();
-T.
-push_front(x_bisected
-.first);
-T.
-push_front(x_bisected
-.second);
-}
-}
-return {
-S, N, U};
-}
+//vector<deque<IPoint>> sivia(const function<IPoint(IPoint)> &F, const IPoint &Y, const IPoint &x0, double TOL) {
+//    deque<IPoint> S; // solution set
+//    deque<IPoint> N; // non-solution set
+//    deque<IPoint> U; // unidentified set
+//    deque<IPoint> T = {x0}; // temporary set of analyzed IPoints
+//    while (!T.empty()) {
+//        IPoint x = T.front();
+//        T.pop_front();
+//        if (F(x) < Y) S.push_front(x);
+//        else if ((emptyIntersection(F(x), Y))) N.push_front(x);
+//        else if (x.width() < TOL) U.push_front(x);
+//        else {
+//            pair<IPoint, IPoint> x_bisected = x.bisect();
+//            T.push_front(x_bisected.first);
+//            T.push_front(x_bisected.second);
+//        }
+//    }
+//    return {S, N, U};
+//}
 
 template<class DrawPolicy>
 void emptyFile() {
@@ -291,10 +272,10 @@ int main() {
 
     // results
     cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
-    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
-    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
-    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
-    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
+//    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
+//    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
+//    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
+//    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
     return 0;
 }
 
