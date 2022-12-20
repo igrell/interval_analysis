@@ -3,21 +3,24 @@
 #include "deque"
 #include "iostream"
 #include "DrawPolicy.h"
+#include "stack"
 //#include "fstream"
 
-using std::deque, std::function, std::ofstream, std::string;
-#define GRID_PRECISION 1000
+using std::deque, std::function, std::ofstream, std::string, std::stack;
+#define GRID_PRECISION 100
+#define TOLERANCE 0.00001
 #define DRAW_POLICY FileDrawPolicy
 
 //line from segment ab, checking condition for point c
 // 1 - point left of line, -1 - point right of line, 0 - colinear
 template<typename T>
-int pointRelativeToLine(const pair<T, T> &a, const pair<T, T> &b, const pair<T, T> c) {
+int pointRelativeToLine(const pair <T, T> &a, const pair <T, T> &b, const pair <T, T> c) {
     double det = ((b.first - a.first) * (c.second - a.second) - (b.second - a.second) * (c.first - a.first));
     return det == 0 ? 0 : (det > 0 ? 1 : -1);
 }
 
-bool isIPointLeftOfSegment(const Segment segment, const IPoint &iPoint) {
+// 1 - iPoint left of segment, -1 - iPoint right of segment, 0 - in-between
+int isIPointLeftOfSegment(const Segment segment, const IPoint &iPoint) {
     int res_1 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_lo()});
     int res_2 = pointRelativeToLine(segment.first, segment.second,
@@ -26,10 +29,12 @@ bool isIPointLeftOfSegment(const Segment segment, const IPoint &iPoint) {
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_hi()});
     int res_4 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_hi(), iPoint.area.second.get_hi()});
-    return res_1 == 1 and res_2 == 1 and res_3 == 1 and res_4 == 1;
+    return (res_1 == 1 and res_2 == 1 and res_3 == 1 and res_4 == 1) ? 1 : // if all corners on the left
+           (res_1 != 1 and res_2 != 1 and res_3 != 1 and res_4 != 1) ? -1 : 0; // if all corners NOT on the left
 }
 
-bool isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
+// 1 - iPoint right of segment, -1 - iPoint left of segment, 0 - in-between
+int isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
     int res_1 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_lo()});
     int res_2 = pointRelativeToLine(segment.first, segment.second,
@@ -38,19 +43,51 @@ bool isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_hi()});
     int res_4 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_hi(), iPoint.area.second.get_hi()});
-    return res_1 == -1 and res_2 == -1 and res_3 == -1 and res_4 == -1;
+    return (res_1 == -1 and res_2 == -1 and res_3 == -1 and res_4 == -1) ? 1 : // if all corners on the right
+           (res_1 != -1 and res_2 != -1 and res_3 != -1 and res_4 != -1) ? -1 : 0; // if all corners NOT on the right
+}
+
+int isIPointInTheRibbon(const Segment up_edge, const Segment down_edge, const IPoint &iPoint) {
+    int res_1 = isIPointRightOfSegment(up_edge, iPoint);
+    int res_2 = isIPointLeftOfSegment(down_edge, iPoint);
+    return (res_1 == 1 and res_2 == 1) ? 1 : (res_1 == 0 or res_2 == 0) ? 0 : -1;
 }
 
 template<class T>
 bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) { //TODO
-
-    for (IPoint iPoint: tSet1.gridUpEdge(GRID_PRECISION)) {
-
+    bool onTheLeft = true;
+    bool onTheRight = true;
+    bool inTheRibbon = true; // 'ribbon' refering to the space between N_u and N_d of tSet2
+    stack<IPoint> mapped_iPoints;
+    for (IPoint iPoint: tSet1.gridLeftEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
+    for (IPoint iPoint: tSet1.gridRightEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
+    for (IPoint iPoint: tSet1.gridUpEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
+    for (IPoint iPoint: tSet1.gridDownEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
+    IPoint iPoint;
+    int left_check;
+    int right_check;
+    int ribbon_check;
+    pair<IPoint,IPoint> iPoint_bisected;
+    while (!mapped_iPoints.empty()) {
+        iPoint = mapped_iPoints.top();
+        mapped_iPoints.pop();
+        left_check = isIPointLeftOfSegment(tSet2.N_l, iPoint);
+        right_check = isIPointRightOfSegment(tSet2.N_r, iPoint);
+        ribbon_check = isIPointInTheRibbon(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
+        if (onTheLeft and left_check == -1)
+            onTheLeft = false; // found at least one iPoint on the right
+        if (onTheRight and right_check == -1)
+            onTheRight = false; // found at least one iPoint on the left
+        if (inTheRibbon and ribbon_check == -1)
+            inTheRibbon = false; // found at least one iPoint on the left
+        if (left_check == 0 or right_check == 0 or ribbon_check == 0) { // ambiguities
+            iPoint_bisected = iPoint.bisect();
+            if (iPoint_bisected.first.width() < TOLERANCE or iPoint_bisected.second.width() < TOLERANCE) return false;
+            mapped_iPoints.push(iPoint_bisected.first);
+            mapped_iPoints.push(iPoint_bisected.second);
+        }
     }
-    for (IPoint iPoint: tSet1.gridDownEdge(GRID_PRECISION)) {
-
-    }
-    return false;
+    return onTheLeft or onTheRight or inTheRibbon;
 }
 
 template<typename T>
@@ -62,12 +99,24 @@ bool edgesOnTheOutside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
     bool tset1_N_r_rossler_left_of_tSet2_N_l = true;
 
     for (IPoint iPoint: tSet1.gridLeftEdge(GRID_PRECISION)) {
-        if (!isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint))) tset1_N_l_rossler_left_of_tset2_N_l = false;
-        if (!isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)))tset1_N_l_rossler_right_of_tSet2_N_r = false;
+        if (not tset1_N_l_rossler_left_of_tset2_N_l and not tset1_N_l_rossler_right_of_tSet2_N_r)
+            break; // nothing left to check
+        if (tset1_N_l_rossler_left_of_tset2_N_l and
+            isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint)) != 1)
+            tset1_N_l_rossler_left_of_tset2_N_l = false;
+        if (tset1_N_l_rossler_right_of_tSet2_N_r and
+            isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)) != 1)
+            tset1_N_l_rossler_right_of_tSet2_N_r = false;
     }
     for (IPoint iPoint: tSet1.gridRightEdge(GRID_PRECISION)) {
-        if (!isIPointRightOfSegment(tSet2.N_r, mapping(iPoint))) tset1_N_r_rossler_right_of_tSet2_N_r = false;
-        if (!isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint))) tset1_N_r_rossler_left_of_tSet2_N_l = false;
+        if (not tset1_N_r_rossler_right_of_tSet2_N_r and not tset1_N_r_rossler_left_of_tSet2_N_l)
+            break; // nothing left to check
+        if (tset1_N_r_rossler_right_of_tSet2_N_r and
+            isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)) != 1)
+            tset1_N_r_rossler_right_of_tSet2_N_r = false;
+        if (tset1_N_r_rossler_left_of_tSet2_N_l and
+            isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint)) != 1)
+            tset1_N_r_rossler_left_of_tSet2_N_l = false;
     }
     return (tset1_N_l_rossler_left_of_tset2_N_l and tset1_N_r_rossler_right_of_tSet2_N_r) or
            (tset1_N_l_rossler_right_of_tSet2_N_r and
@@ -78,7 +127,8 @@ bool edgesOnTheOutside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
 template<class T>
 bool isCovering(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
     return edgesOnTheOutside(tSet1, tSet2, mapping)
-           and mappingInside(tSet1, tSet2, mapping);
+           and mappingInside(tSet1, tSet2, mapping)
+            ;
 }
 
 template<class DrawPolicy>
@@ -130,24 +180,47 @@ void display_TSet_grid_mapped(const std::string &label, T &mapping, TSet &tSet) 
 }
 
 
-vector<deque<IPoint>> sivia(const function<IPoint(IPoint)> &F, const IPoint &Y, const IPoint &x0, double TOL) {
-    deque<IPoint> S; // solution set
-    deque<IPoint> N; // non-solution set
-    deque<IPoint> U; // unidentified set
-    deque<IPoint> T = {x0}; // temporary set of analyzed IPoints
-    while (!T.empty()) {
-        IPoint x = T.front();
-        T.pop_front();
-        if (F(x) < Y) S.push_front(x);
-        else if ((emptyIntersection(F(x), Y))) N.push_front(x);
-        else if (x.width() < TOL) U.push_front(x);
-        else {
-            pair<IPoint, IPoint> x_bisected = x.bisect();
-            T.push_front(x_bisected.first);
-            T.push_front(x_bisected.second);
-        }
-    }
-    return {S, N, U};
+vector <deque<IPoint>> sivia(const function<IPoint(IPoint)> &F, const IPoint &Y, const IPoint &x0, double TOL) {
+deque<IPoint> S; // solution set
+deque<IPoint> N; // non-solution set
+deque<IPoint> U; // unidentified set
+deque<IPoint> T = {x0}; // temporary set of analyzed IPoints
+while (!T.
+
+empty()
+
+) {
+IPoint x = T.front();
+T.
+
+pop_front();
+
+if (
+F(x)
+< Y) S.
+push_front(x);
+else if ((
+emptyIntersection(F(x), Y
+))) N.
+push_front(x);
+else if (x.
+
+width()
+
+< TOL) U.
+push_front(x);
+else {
+pair <IPoint, IPoint> x_bisected = x.bisect();
+T.
+push_front(x_bisected
+.first);
+T.
+push_front(x_bisected
+.second);
+}
+}
+return {
+S, N, U};
 }
 
 template<class DrawPolicy>
@@ -217,10 +290,22 @@ int main() {
 //    display_TSet_grid_mapped<DRAW_POLICY>("N2", rossler, N2);
 
     // results
-//    cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
-//    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
-//    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
-//    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
-//    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
+    cout << "N1 => N0 : " << isCovering(N1, N0, rossler) << "\n";
+    cout << "N2 => N0 : " << isCovering(N2, N0, rossler) << "\n";
+    cout << "N1 => N1 : " << isCovering(N1, N1, rossler) << "\n";
+    cout << "N2 => N1 : " << isCovering(N2, N1, rossler) << "\n";
+    cout << "N0 => N2 : " << isCovering(N0, N2, rossler) << "\n";
     return 0;
 }
+
+//int main() {
+//    Segment Nl({0, 0}, {0, 1});
+//    Segment Nr({1, 0}, {1, 1});
+//    TSet N(Nl, Nr);
+//    Interval x(0, 1);
+//    Interval y(0, 1);
+//    IPoint iPoint(x, y);
+//    Segment up({-2, 2}, {2, 2});
+//    Segment down({-2, 0.9}, {2, 0.9});
+//    cout << isIPointInTheRibbon(up, down, iPoint);
+//}
