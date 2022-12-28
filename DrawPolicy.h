@@ -3,7 +3,7 @@
 
 #include "fstream"
 #include "iostream"
-#include "IPoint.h"
+#include "interval_arithmetic_tools/IPoint.h"
 
 using std::ofstream;
 
