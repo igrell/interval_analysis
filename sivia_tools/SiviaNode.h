@@ -3,14 +3,14 @@
 
 #include "../interval_arithmetic_tools/Interval.h"
 
+// respectively + , - , * , / , no operator
 enum Operator {
-    add, sub, mul, dv
+    add, sub, mul, dv, nil
 };
 
 class SiviaNode {
     Interval val = Interval();
-    Operator parents_operator = Operator(-1);
-//    double constant = INT_MIN; // useful when doing a unary operation by a constant
+    Operator parents_operator = nil;
     SiviaNode *left_parent = nullptr;
     SiviaNode *right_parent = nullptr;
 
@@ -18,45 +18,36 @@ public:
 
     SiviaNode() = default;
 
-    explicit SiviaNode(const Operator &prev_operator) : parents_operator(prev_operator) {}
+    explicit SiviaNode(const Interval &val);
 
-    SiviaNode(SiviaNode *prev_left, SiviaNode *prev_right, Operator prev_operator);
+    SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator);
 
     ~SiviaNode() = default;
 
-//    /* assumption - when changing by a constant, we make changing node the left parent */
-//    SiviaNode(SiviaNode *prev_left, double constant, Operator prev_operator);
+    Interval evaluate();
 
-    void setValue(const Interval);
+    Interval getValue();
 
-    void setValue(const double);
+    void setValue(double);
 
-    void setValue(const double, const double);
+    void setValue(const Interval &);
 
-    void evaluate();
+    void setValue(double, double);
 
     void contract();
 
-    SiviaNode operator+(const SiviaNode &) const;
-
-    SiviaNode operator-(const SiviaNode &) const;
-
-    SiviaNode operator*(const SiviaNode &) const;
-
-    SiviaNode operator/(const SiviaNode &) const;
-
-    SiviaNode operator+(SiviaNode *) const;
-
-    SiviaNode operator-(const SiviaNode *) const;
-
-    SiviaNode operator*(const SiviaNode *) const;
-
-    SiviaNode operator/(const SiviaNode *) const;
-
-    friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
+//    friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
 
 };
 
-ostream &operator<<(ostream &ostream, Operator prev_operator);
+SiviaNode &operator+(SiviaNode &, SiviaNode &);
+
+SiviaNode &operator-(SiviaNode &, SiviaNode &);
+
+SiviaNode &operator*(SiviaNode &, SiviaNode &);
+
+SiviaNode &operator/(SiviaNode &, SiviaNode &);
+
+ostream &operator<<(ostream &ostream, Operator parent_operator);
 
 #endif //INTERVAL_ANALYSIS_SIVIANODE_H

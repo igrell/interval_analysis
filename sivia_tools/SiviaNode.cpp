@@ -1,23 +1,25 @@
 #include "SiviaNode.h"
 
-//ostream &operator<<(ostream &ostream, const Operator prev_operator) {
-//    switch (prev_operator) {
-//        case add:
-//            ostream << " + ";
-//            break;
-//        case sub:
-//            ostream << " - ";
-//            break;
-//        case mul:
-//            ostream << " * ";
-//            break;
-//        case dv:
-//            ostream << " / ";
-//            break;
-//    }
-//    return ostream;
-//}
-//
+ostream &operator<<(ostream &ostream, const Operator parent_operator) {
+    switch (parent_operator) {
+        case nil:
+            break;
+        case add:
+            ostream << " + ";
+            break;
+        case sub:
+            ostream << " - ";
+            break;
+        case mul:
+            ostream << " * ";
+            break;
+        case dv:
+            ostream << " / ";
+            break;
+    }
+    return ostream;
+}
+
 //ostream &operator<<(ostream &ostream, const SiviaNode &node) {
 //    bool left_null = node.left_parent == nullptr;
 //    bool right_null = node.right_parent == nullptr;
@@ -36,70 +38,19 @@
 //    }
 //    return ostream;
 //}
-//
-//SiviaNode::SiviaNode(SiviaNode *prev_left, SiviaNode *prev_right, const Operator prev_operator) :
-//        left_parent(prev_left), right_parent(prev_right), parents_operator(prev_operator) {
-//    switch (prev_operator) {
-//        case add:
-//            val = (*prev_left).val + (*prev_right).val;
-//            break;
-//        case sub:
-//            val = (*prev_left).val - (*prev_right).val;
-//            break;
-//        case mul:
-//            val = (*prev_left).val * (*prev_right).val;
-//            break;
-//        case dv:
-//            val = (*prev_left).val / (*prev_right).val;
-//            break;
-//    }
-//
-//}
-//
-//SiviaNode::SiviaNode(SiviaNode *prev_left, double constant, Operator prev_operator) :
-//        left_parent(prev_left), parents_operator(prev_operator), constant(constant) {
-//    switch (prev_operator) {
-//        case add:
-//            val = (*prev_left).val + constant;
-//            break;
-//        case sub:
-//            val = (*prev_left).val - constant;
-//            break;
-//        case mul:
-//            val = (*prev_left).val * constant;
-//            break;
-//        case dv:
-//            val = (*prev_left).val / constant;
-//            break;
-//    }
-//}
-//
-//SiviaNode SiviaNode::operator+(const SiviaNode &node) const {
-//    return SiviaNode(val + node.val);
-//}
-//
-//SiviaNode SiviaNode::operator-(const SiviaNode &node) const {
-//    return SiviaNode(val - node.val);
-//}
-//
-//SiviaNode SiviaNode::operator*(const SiviaNode &node) const {
-//    return SiviaNode(val * node.val);
-//}
-//
-//SiviaNode SiviaNode::operator/(const SiviaNode &node) const {
-//    return SiviaNode(val / node.val);
-//}
 
-//SiviaNode *SiviaNode::operator+(const SiviaNode *node_ptr) const {
-//    return SiviaNode(val + node_ptr->val);
-//}
 
-void SiviaNode::setValue(const Interval val) {
-    this->val = val;
+SiviaNode::SiviaNode(const Interval &val) : val(val) {}
+
+SiviaNode::SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator) :
+        left_parent(left_parent), right_parent(right_parent), parents_operator(parents_operator) {}
+
+void SiviaNode::setValue(const Interval &interval) {
+    val = interval;
 }
 
-void SiviaNode::setValue(const double val) {
-    setValue(Interval(val));
+void SiviaNode::setValue(const double value) {
+    setValue(Interval(value));
 }
 
 void SiviaNode::setValue(const double lo, const double hi) {
@@ -107,14 +58,34 @@ void SiviaNode::setValue(const double lo, const double hi) {
 
 }
 
-void SiviaNode::evaluate() {
-
+Interval SiviaNode::evaluate() {
+    switch (parents_operator) {
+        case nil:
+            return this->val;
+        case add:
+            return this->val = left_parent->evaluate() + right_parent->evaluate();
+        case sub:
+            return this->val = left_parent->evaluate() - right_parent->evaluate();
+        case mul:
+            return this->val = left_parent->evaluate() * right_parent->evaluate();
+        case dv:
+            return this->val = left_parent->evaluate() / right_parent->evaluate();
+    }
 }
 
 void SiviaNode::contract() {
 
+
 }
 
-SiviaNode SiviaNode::operator+(SiviaNode *node_ptr) const {
-    return (*this) + (*node_ptr);
+Interval SiviaNode::getValue() {
+    return val;
 }
+
+SiviaNode &operator+(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, add); }
+
+SiviaNode &operator-(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, sub); }
+
+SiviaNode &operator*(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, mul); }
+
+SiviaNode &operator/(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, dv); }

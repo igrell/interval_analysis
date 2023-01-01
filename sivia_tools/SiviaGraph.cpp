@@ -1,11 +1,11 @@
 #include "SiviaGraph.h"
 
 
-ostream &operator<<(ostream &ostream, const SiviaGraph &siviaGraph) { //TODO
-    SiviaNode node = siviaGraph.expression;
-    ostream << node;
-    return ostream;
-}
+//ostream &operator<<(ostream &ostream, const SiviaGraph &siviaGraph) { //TODO
+//    SiviaNode node = siviaGraph.expression;
+//    ostream << node;
+//    return ostream;
+//}
 
 ostream &operator<<(ostream &ostream, const Restriction &restriction) {
     switch (restriction) {
