@@ -36,7 +36,7 @@ public:
 
     void contract();
 
-//    friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
+    friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
 
 };
 

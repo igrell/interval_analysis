@@ -20,24 +20,15 @@ ostream &operator<<(ostream &ostream, const Operator parent_operator) {
     return ostream;
 }
 
-//ostream &operator<<(ostream &ostream, const SiviaNode &node) {
-//    bool left_null = node.left_parent == nullptr;
-//    bool right_null = node.right_parent == nullptr;
-//    if (left_null and right_null) ostream << node.val << "\n"; // leaf
-//    else if (left_null) ostream << node.right_parent->val << "\n";
-//    else if (right_null) {
-//        if (node.constant != INT_MIN) { // there is a constant to display
-//            ostream << node.left_parent->val << node.parents_operator << node.constant << " = "
-//                    << node.val << "\n";
-//        } else {
-//            ostream << node.left_parent->val << "\n";
-//        }
-//    } else {
-//        ostream << node.left_parent->val << node.parents_operator << node.right_parent->val
-//                << " = " << node.val << "\n";
-//    }
-//    return ostream;
-//}
+ostream &operator<<(ostream &ostream, const SiviaNode &node) {
+    bool left_null = node.left_parent == nullptr;
+    bool right_null = node.right_parent == nullptr;
+    if (!left_null) ostream << node.left_parent->getValue();
+    ostream << node.parents_operator;
+    if (!right_null) ostream << node.right_parent->getValue();
+    ostream << " = " << node.val;
+    return ostream;
+}
 
 
 SiviaNode::SiviaNode(const Interval &val) : val(val) {}
@@ -73,7 +64,39 @@ Interval SiviaNode::evaluate() {
     }
 }
 
+/* Backwards propagating constrains to narrow down the solution intervals */
 void SiviaNode::contract() {
+    cout << this->getValue() << "\n";
+    switch (parents_operator) {
+        case nil:
+            return;
+        case add:
+//            cout << "before: " << left_parent << right_parent << "\n";
+            left_parent->setValue(left_parent->getValue() && (val - right_parent->getValue()));
+            right_parent->setValue(right_parent->getValue() && (val - left_parent->getValue()));
+//            cout << "after: " << left_parent << right_parent << "\n";
+            left_parent->contract();
+            right_parent->contract();
+            break;
+        case sub:
+            left_parent->setValue(left_parent->getValue() && (val + right_parent->getValue()));
+            right_parent->setValue(right_parent->getValue() && (left_parent->getValue() - val));
+            left_parent->contract();
+            right_parent->contract();
+            break;
+        case mul:
+            left_parent->setValue(left_parent->getValue() && (val / right_parent->getValue()));
+            right_parent->setValue(right_parent->getValue() && (val / left_parent->getValue()));
+            left_parent->contract();
+            right_parent->contract();
+            break;
+        case dv:
+            left_parent->setValue(left_parent->getValue() && (right_parent->getValue() * val));
+            right_parent->setValue(right_parent->getValue() && (right_parent->getValue() / val));
+            left_parent->contract();
+            right_parent->contract();
+            break;
+    }
 
 
 }

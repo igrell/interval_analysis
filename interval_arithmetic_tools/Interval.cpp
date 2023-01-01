@@ -41,7 +41,7 @@ Interval Interval::operator*(const Interval &b) const {
 
 Interval Interval::operator/(const Interval &b) const {
     if ((b.lo <= 0 and b.hi >= 0) or (b.lo >= 0 and b.hi <= 0)) { //if 'b' contains 0
-        cout << "Division by interval containing zero.";
+        cout << "Division by interval containing zero.\n";
         return {0, 0, "error"};
     }
     const int originalRounding = fegetround();
@@ -106,7 +106,7 @@ bool Interval::operator<=(const Interval &a) const {
 
 Interval Interval::operator&&(const Interval &a) const {
     if (get_hi() < a.get_lo() || get_lo() > a.get_hi()) {
-        cout << "Warning: empty intersection.";
+        cout << "Warning: empty intersection.\n";
         return Interval(0);
     }
     return {max(get_lo(), a.get_lo()), min(get_hi(), a.get_hi())};

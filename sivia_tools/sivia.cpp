@@ -14,10 +14,13 @@ int main() {
     d.setValue(-3, -2);
 
     SiviaNode &det = (a * d) - (b * c);
-    cout << det.getValue() << "\n";
-    cout << det.evaluate() << "\n";
-    cout << det.getValue() << "\n";
+    det.evaluate();
 
-//    det.evaluate();
-//    det.setValue(1);
+    det.setValue(1);
+    det.contract();
+    cout << "a " << a << "\n";
+    cout << "b " << b << "\n";
+    cout << "c " << c << "\n";
+    cout << "d " << d << "\n"; // TODO should be [-3,-2]; maybe try to catch an error?
+
 }
