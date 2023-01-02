@@ -1,5 +1,6 @@
 #include "SiviaNode.h"
 #include "../exceptions/EmptyIntersectionWarning.h"
+#include "../exceptions/DivisionByZeroIntervalWarning.h"
 
 ostream &operator<<(ostream &ostream, const Operator parent_operator) {
     switch (parent_operator) {
@@ -16,7 +17,6 @@ ostream &operator<<(ostream &ostream, const Operator parent_operator) {
             break;
         case dv:
             ostream << " / ";
-            break;
     }
     return ostream;
 }
@@ -67,6 +67,7 @@ Interval SiviaNode::evaluate() {
 
 /* Backwards propagating constrains to narrow down the solution intervals */
 void SiviaNode::contract() {
+//    cout << this->val << "\n";
     switch (parents_operator) {
         case nil:
             return;
@@ -76,13 +77,16 @@ void SiviaNode::contract() {
             catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "left add\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
             try { right_parent->setValue(right_parent->getValue() && (val - left_parent->getValue())); }
             catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "right add\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
-//            cout << "after: " << left_parent << right_parent << "\n";
             left_parent->contract();
             right_parent->contract();
             break;
@@ -91,25 +95,35 @@ void SiviaNode::contract() {
             catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "left sub\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
             try { right_parent->setValue(right_parent->getValue() && (left_parent->getValue() - val)); }
             catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "right sub\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
             left_parent->contract();
             right_parent->contract();
             break;
         case mul:
-            try { left_parent->setValue(left_parent->getValue() && (val / right_parent->getValue())); }
-            catch (EmptyIntersectionWarning &warning) {
+            try {
+                left_parent->setValue(left_parent->getValue() && (val / right_parent->getValue()));
+            } catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "left mul\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
-            try { right_parent->setValue(right_parent->getValue() && (val / left_parent->getValue())); }
-            catch (EmptyIntersectionWarning &warning) {
+            try { // TODO DIVISION BY ZERO HERE - division a*d / a
+                right_parent->setValue(right_parent->getValue() && (val / left_parent->getValue()));
+            } catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "right mul\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
             left_parent->contract();
             right_parent->contract();
@@ -119,15 +133,20 @@ void SiviaNode::contract() {
             catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "left div\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
-            try { right_parent->setValue(right_parent->getValue() && (right_parent->getValue() / val)); }
+            try {
+                right_parent->setValue(right_parent->getValue() && (right_parent->getValue() / val));
+            }
             catch (EmptyIntersectionWarning &warning) {
                 warning.warning_message();
 //                cout << "right div\n";
+            } catch (DivisionByZeroIntervalWarning &warning) {
+//                warning.warning_message();
             }
             left_parent->contract();
             right_parent->contract();
-            break;
     }
 
 

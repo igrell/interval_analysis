@@ -12,8 +12,9 @@ Interval Interval::operator-(const Interval &b) const {
     fesetround(FE_UPWARD);
     double new_hi = this->hi - b.lo;
     fesetround(originalRounding);
-    std::string new_label = this->label + " - " + b.label;
-    return {new_lo, new_hi, new_label};
+//    std::string new_label = this->label + " - " + b.label;
+//    return {new_lo, new_hi, new_label};
+    return {new_lo, new_hi};
 }
 
 Interval Interval::operator+(const Interval &b) const {
@@ -23,8 +24,9 @@ Interval Interval::operator+(const Interval &b) const {
     fesetround(FE_UPWARD);
     double new_hi = this->hi + b.hi;
     fesetround(originalRounding);
-    std::string new_label = this->label + " + " + b.label;
-    return {new_lo, new_hi, new_label};
+//    std::string new_label = this->label + " + " + b.label;
+//    return {new_lo, new_hi, new_label};
+    return {new_lo, new_hi};
 }
 
 Interval Interval::operator*(const Interval &b) const {
@@ -38,14 +40,16 @@ Interval Interval::operator*(const Interval &b) const {
     fesetround(FE_UPWARD);
     double new_hi = max(res1, std::max(res2, std::max(res3, res4)));
     fesetround(originalRounding);
-    std::string new_label = this->label + " * " + b.label;
-    return {new_lo, new_hi, new_label};
+//    std::string new_label = this->label + " * " + b.label;
+//    return {new_lo, new_hi, new_label};
+    return {new_lo, new_hi};
 }
 
 Interval Interval::operator/(const Interval &b) const {
     if ((b.lo <= 0 and b.hi >= 0) or (b.lo >= 0 and b.hi <= 0)) { //if 'b' contains 0
-        cout << "Division by interval containing zero.\n";
-        return {0, 0, "error"};
+        throw DivisionByZeroIntervalWarning(*this, b);
+//        cout << "Division by interval containing zero: " << *this << " , " << b << "\n";
+//        return Interval(0);
     }
     const int originalRounding = fegetround();
     fesetround(FE_DOWNWARD);
@@ -61,34 +65,36 @@ Interval Interval::operator/(const Interval &b) const {
     res4 = this->hi / b.hi;
     double new_hi = max(res1, max(res2, max(res3, res4)));
     fesetround(originalRounding);
-    std::string new_label = this->label + " / " + b.label;
-    return {new_lo, new_hi, new_label};
+//    std::string new_label = this->label + " / " + b.label;
+//    return {new_lo, new_hi, new_label};
+    return {new_lo, new_hi};
 }
 
-Interval Interval::operator+(const double &a) {
-    return {get_lo() + a, get_hi() + a, get_label()};
+Interval Interval::operator+(const double &a) const {
+//    return {get_lo() + a, get_hi() + a, get_label()};
+    return {get_lo() + a, get_hi() + a};
 }
 
-Interval Interval::operator-(const double &a) {
-    return {get_lo() - a, get_hi() - a, get_label()};
+Interval Interval::operator-(const double &a) const {
+//    return {get_lo() - a, get_hi() - a, get_label()};
+    return {get_lo() - a, get_hi() - a};
 }
 
-Interval Interval::operator*(const double &a) { //not sure if it should work like that
-    return {get_lo() * a, get_hi() * a, this->get_label()};
+Interval Interval::operator*(const double &a) const { //not sure if it should work like that
+//    return {get_lo() * a, get_hi() * a, this->get_label()};
+    return {get_lo() * a, get_hi() * a};
 }
 
 Interval Interval::operator/(const double &a) {
-    if (a == 0) {
-        cout << "Division by zero.";
-        return {0, 0, "null"};
-    }
+    if (a == 0) throw DivisionByZeroIntervalWarning(*this, Interval(a));
     const int originalRounding = fegetround();
     fesetround(FE_DOWNWARD);
     double new_lo = get_lo() / a;
     fesetround(FE_UPWARD);
     double new_hi = get_hi() / a;
     fesetround(originalRounding);
-    return {new_lo, new_hi, get_label()};
+//    return {new_lo, new_hi, get_label()};
+    return {new_lo, new_hi};
 }
 
 bool Interval::operator==(const Interval &a) const {
@@ -113,12 +119,8 @@ Interval Interval::operator&&(const Interval &a) const {
 }
 
 Interval Interval::operator||(const Interval &a) const {
-    if ((get_lo() < a.get_lo() and get_hi() < a.get_lo()) or (a.get_hi() < get_lo())) {
-//        cout << "Warning: empty intersection for intervals " << *this << " , " << a << "\n";
-        return Interval(0);
-    }
-//    cout << "min of lows: " << min(get_lo(),a.get_lo()) << "\n";
-//    cout << "max of highs: "<< max(get_hi(),a.get_hi()) << "\n";
+    if ((get_lo() < a.get_lo() and get_hi() < a.get_lo()) or (a.get_hi() < get_lo()))
+        throw EmptyIntersectionWarning(*this, a);
     return {min(get_lo(), a.get_lo()), max(get_hi(), a.get_hi())};
 }
 
@@ -131,12 +133,12 @@ Interval::Interval(double lo, double hi) : lo(lo), hi(hi) {
 //    }
 }
 
-Interval::Interval(double lo, double hi, std::string label) : lo(lo), hi(hi), label(std::move(label)) {
-//    if (lo > hi and (lo > 0 and hi > 0)) {
-//        std::cout << "The endpoints of interval: " << *this << "do not define an interval." << std::endl;
-//        return;
-//    }
-}
+//Interval::Interval(double lo, double hi, std::string label) : lo(lo), hi(hi), label(std::move(label)) {
+////    if (lo > hi and (lo > 0 and hi > 0)) {
+////        std::cout << "The endpoints of interval: " << *this << "do not define an interval." << std::endl;
+////        return;
+////    }
+//}
 
 Interval Interval::operator-() const {
     return {(-1) * get_hi(), (-1) * get_lo()};
@@ -157,11 +159,14 @@ std::ostream &operator<<(std::ostream &stream, const Interval &a) {
 }
 
 Interval operator-(double b, Interval a) {
-    return {b - a.get_lo(), b - a.get_hi(), a.get_label()};
+//    return {b - a.get_lo(), b - a.get_hi(), a.get_label()};
+    return {b - a.get_lo(), b - a.get_hi()};
 }
 
 Interval operator*(double a, Interval b) {
-    return {a * b.get_lo(), a * b.get_hi(), b.get_label()};
+//    return {a * b.get_lo(), a * b.get_hi(), b.get_label()};
+    return {a * b.get_lo(), a * b.get_hi()};
+
 }
 
 // explicit instantiation of <<
