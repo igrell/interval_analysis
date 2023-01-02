@@ -1,4 +1,5 @@
 #include "SiviaNode.h"
+#include "../exceptions/EmptyIntersectionWarning.h"
 
 ostream &operator<<(ostream &ostream, const Operator parent_operator) {
     switch (parent_operator) {
@@ -66,33 +67,64 @@ Interval SiviaNode::evaluate() {
 
 /* Backwards propagating constrains to narrow down the solution intervals */
 void SiviaNode::contract() {
-    cout << this->getValue() << "\n";
     switch (parents_operator) {
         case nil:
             return;
         case add:
 //            cout << "before: " << left_parent << right_parent << "\n";
-            left_parent->setValue(left_parent->getValue() && (val - right_parent->getValue()));
-            right_parent->setValue(right_parent->getValue() && (val - left_parent->getValue()));
+            try { left_parent->setValue(left_parent->getValue() && (val - right_parent->getValue())); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "left add\n";
+            }
+            try { right_parent->setValue(right_parent->getValue() && (val - left_parent->getValue())); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "right add\n";
+            }
 //            cout << "after: " << left_parent << right_parent << "\n";
             left_parent->contract();
             right_parent->contract();
             break;
         case sub:
-            left_parent->setValue(left_parent->getValue() && (val + right_parent->getValue()));
-            right_parent->setValue(right_parent->getValue() && (left_parent->getValue() - val));
+            try { left_parent->setValue(left_parent->getValue() && (val + right_parent->getValue())); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "left sub\n";
+            }
+            try { right_parent->setValue(right_parent->getValue() && (left_parent->getValue() - val)); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "right sub\n";
+            }
             left_parent->contract();
             right_parent->contract();
             break;
         case mul:
-            left_parent->setValue(left_parent->getValue() && (val / right_parent->getValue()));
-            right_parent->setValue(right_parent->getValue() && (val / left_parent->getValue()));
+            try { left_parent->setValue(left_parent->getValue() && (val / right_parent->getValue())); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "left mul\n";
+            }
+            try { right_parent->setValue(right_parent->getValue() && (val / left_parent->getValue())); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "right mul\n";
+            }
             left_parent->contract();
             right_parent->contract();
             break;
         case dv:
-            left_parent->setValue(left_parent->getValue() && (right_parent->getValue() * val));
-            right_parent->setValue(right_parent->getValue() && (right_parent->getValue() / val));
+            try { left_parent->setValue(left_parent->getValue() && (right_parent->getValue() * val)); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "left div\n";
+            }
+            try { right_parent->setValue(right_parent->getValue() && (right_parent->getValue() / val)); }
+            catch (EmptyIntersectionWarning &warning) {
+                warning.warning_message();
+//                cout << "right div\n";
+            }
             left_parent->contract();
             right_parent->contract();
             break;

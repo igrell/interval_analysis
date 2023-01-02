@@ -1,6 +1,9 @@
 #include "Interval.h"
+#include "../exceptions/EmptyIntersectionWarning.h"
+#include "../exceptions/DivisionByZeroIntervalWarning.h"
 
 using std::min, std::max, std::abs;
+
 
 Interval Interval::operator-(const Interval &b) const {
     const int originalRounding = fegetround();
@@ -105,10 +108,7 @@ bool Interval::operator<=(const Interval &a) const {
 }
 
 Interval Interval::operator&&(const Interval &a) const {
-    if (get_hi() < a.get_lo() || get_lo() > a.get_hi()) {
-        cout << "Warning: empty intersection.\n";
-        return Interval(0);
-    }
+    if (get_hi() < a.get_lo() || get_lo() > a.get_hi()) throw EmptyIntersectionWarning(*this, a);
     return {max(get_lo(), a.get_lo()), min(get_hi(), a.get_hi())};
 }
 
@@ -165,13 +165,23 @@ Interval operator*(double a, Interval b) {
 }
 
 // explicit instantiation of <<
-template<> std::ostream &operator<<<Interval>(std::ostream &ostream,const std::pair<Interval, Interval> &pair) {
+template<> std::ostream &operator
+<<<Interval>(
+std::ostream &ostream,
+const std::pair<Interval, Interval> &pair
+) {
 ostream << "{ " << pair.first << " ; " << pair.second << " }\n";
-return ostream;
+return
+ostream;
 }
 
-template<> std::ostream &operator<<<double>(std::ostream &ostream,const std::pair<double, double> &pair) {
+template<> std::ostream &operator
+<<<double>(
+std::ostream &ostream,
+const std::pair<double, double> &pair
+) {
 ostream << "[ " << pair.first << " ; " << pair.second << " ]\n";
-return ostream;
+return
+ostream;
 }
 
