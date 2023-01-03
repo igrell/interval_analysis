@@ -30,12 +30,16 @@ IPoint IPoint::operator&&(const IPoint &a) const {
 }
 
 double IPoint::width() const {
+//    return min(area.first.width(), area.second.width());
     return max(area.first.width(), area.second.width());
 }
 
 vector<IPoint> IPoint::bisect() const {
     double x_diff = area.first.width() / 2;
     double y_diff = area.second.width() / 2;
+//    IPoint part_1(Interval(area.first.get_lo(),area.first.get_lo() + x_diff),Interval(area.second.get_lo(),area.second.get_hi()));
+//    IPoint part_2(Interval(area.first.get_lo() + x_diff,area.first.get_hi()),Interval(area.second.get_lo(),area.second.get_hi()));
+//    return {part_1,part_2};
     IPoint part_1(Interval(area.first.get_lo(), area.first.get_lo() + x_diff),
                   Interval(area.second.get_lo(), area.second.get_lo() + y_diff));
     IPoint part_2(Interval(area.first.get_lo() + x_diff, area.first.get_hi()),

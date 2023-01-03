@@ -38,12 +38,13 @@ vector<IPoint> TSet::gridDownEdge(int grid_precision) const {
     return gridEdge(&down_edge, grid_precision);
 }
 
+// TODO - are absolute values of diffs important ?
 vector<IPoint> TSet::gridEdge(const Segment *N_ptr, int grid_precision) {
     vector<IPoint> grid;
     Interval x_interval;
     Interval y_interval;
-    double x_diff = abs(N_ptr->second.first - N_ptr->first.first) / grid_precision;
-    double y_diff = abs(N_ptr->second.second - N_ptr->first.second) / grid_precision;
+    double x_diff = (N_ptr->second.first - N_ptr->first.first) / grid_precision;
+    double y_diff = (N_ptr->second.second - N_ptr->first.second) / grid_precision;
     for (int i = 0; i < grid_precision; i++) {
         x_interval = Interval(N_ptr->first.first + i * x_diff, N_ptr->first.first + (i + 1) * x_diff);
         y_interval = Interval(N_ptr->first.second + i * y_diff, N_ptr->first.second + (i + 1) * y_diff);

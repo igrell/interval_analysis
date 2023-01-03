@@ -14,7 +14,7 @@ def plot_rectangles(rectangles):
     # ax = plt.gca()
     for rectangle in rectangles:
         plt.fill_between(x=rectangle[0], y1=(rectangle[1][1], rectangle[1][1]), y2=(rectangle[1][0], rectangle[1][0]), color="blue", alpha=0.1)
-    plt.savefig("out.png")
+    plt.savefig("out.png",dpi=1000)
     plt.show()
 
 if __name__ == '__main__':
