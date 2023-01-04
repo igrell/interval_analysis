@@ -3,7 +3,7 @@
 
 #include "fstream"
 #include "iostream"
-#include "interval_arithmetic_tools/IPoint.h"
+#include "IPoint.h"
 #include "sstream"
 
 using std::ofstream, std::ostringstream;
@@ -11,23 +11,13 @@ using std::ofstream, std::ostringstream;
 struct EmptyDrawPolicy {
     static void drawIPoint(const IPoint &iPoint) {}
 
-    static void emptyFile() {}
 };
 
 struct MemoryDrawPolicy {
     static ostringstream file;
 
     static void drawIPoint(const IPoint &iPoint) {
-//        file.open("output.txt", std::ios::out | std::ios::app);
-//        if (!file) {
-//            cout << "No file!\n";
-//            return;
-//        }
         file << iPoint;
-//        file.close();
-    }
-
-    static void emptyFile() {
     }
 
     static void saveToFile(std::string &filename) {
@@ -45,17 +35,7 @@ struct FileDrawPolicy {
 
     static void drawIPoint(const IPoint &iPoint) {
         if (!file.is_open()) file.open("output.txt", std::ios::out | std::ios::app);
-//        if (!file) {
-//            cout << "No file!\n";
-//            return;
-//        }
-
         file << iPoint;
-        file.close();
-    }
-
-    static void emptyFile() {
-        file.open("output.txt", std::ios::out);
         file.close();
     }
 };
@@ -72,22 +52,13 @@ struct PrintAndFileDrawPolicy {
     static ofstream file;
 
     static void drawIPoint(const IPoint &iPoint) {
-        file.open("output.txt", std::ios::out | std::ios::app);
-        if (!file) {
-            cout << "No file!\n";
-            return;
-        }
+        if (!file.is_open()) file.open("output.txt", std::ios::out | std::ios::app);
         file << iPoint;
         file.close();
         cout << iPoint;
     }
-
-    static void emptyFile() {
-        file.open("output.txt", std::ios::out);
-        file.close();
-    }
 };
 
-ofstream PrintAndFileDrawPolicy::file = ofstream();
+ofstream PrintAndFileDrawPolicy::file = ofstream("output.txt", std::ios::out);
 
 #endif

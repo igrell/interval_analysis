@@ -1,6 +1,6 @@
 #include "SiviaNode.h"
-#include "../exceptions/EmptyIntersectionException.h"
-#include "../exceptions/DivisionByZeroIntervalException.h"
+#include "EmptyIntersectionException.h"
+#include "DivisionByZeroIntervalException.h"
 
 ostream &operator<<(ostream &ostream, const Operator parent_operator) {
     switch (parent_operator) {

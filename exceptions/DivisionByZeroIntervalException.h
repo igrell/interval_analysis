@@ -1,7 +1,7 @@
 #ifndef INTERVAL_ANALYSIS_DIVISIONBYZEROINTERVALEXCEPTION_H
 #define INTERVAL_ANALYSIS_DIVISIONBYZEROINTERVALEXCEPTION_H
 
-#include "../interval_arithmetic_tools/Interval.h"
+#include "Interval.h"
 
 class DivisionByZeroIntervalException : public std::exception {
     Interval a = Interval();

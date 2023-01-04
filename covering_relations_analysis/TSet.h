@@ -1,7 +1,7 @@
 #ifndef _TSET_H_
 #define _TSET_H_
 
-#include "../interval_arithmetic_tools/IPoint.h"
+#include "IPoint.h"
 #include "vector"
 
 using std::vector;

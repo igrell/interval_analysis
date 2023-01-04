@@ -1,7 +1,6 @@
 #ifndef _ROSSLER_H_
 #define _ROSSLER_H_
 
-#include "../covering_relations_analysis/TSet.h"
 #include "Mapping.h"
 #include "vector"
 #include "cmath"

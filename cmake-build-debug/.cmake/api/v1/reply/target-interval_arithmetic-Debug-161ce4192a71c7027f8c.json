@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -26,6 +27,12 @@
 				"file" : 0,
 				"line" : 6,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
 			}
 		]
 	},
@@ -39,6 +46,33 @@
 				},
 				{
 					"fragment" : "-std=gnu++20"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/."
 				}
 			],
 			"language" : "CXX",

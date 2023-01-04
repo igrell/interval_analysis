@@ -2,7 +2,6 @@
 #define _HENON_H_
 
 #include "Mapping.h"
-#include "../covering_relations_analysis/TSet.h"
 
 template<typename T>
 class Henon : public Mapping<T> {

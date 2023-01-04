@@ -1,7 +1,7 @@
 #ifndef INTERVAL_ANALYSIS_EMPTYINTERSECTIONEXCEPTION_H
 #define INTERVAL_ANALYSIS_EMPTYINTERSECTIONEXCEPTION_H
 
-#include "../interval_arithmetic_tools/Interval.h"
+#include "Interval.h"
 
 class EmptyIntersectionException : public std::exception {
     Interval a = Interval();

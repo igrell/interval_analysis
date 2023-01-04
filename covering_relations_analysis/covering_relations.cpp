@@ -1,8 +1,8 @@
-#include "../mappings/Rossler.h"
+#include "Rossler.h"
 //#include "Henon.h"
 #include "deque"
 #include "iostream"
-#include "../DrawPolicy.h"
+#include "DrawPolicy.h"
 #include "stack"
 //#include "fstream"
 
@@ -60,7 +60,6 @@ PositionStrip isIPointInTheStrip(const Segment up_edge, const Segment down_edge,
     Position res_1 = isIPointRightOfSegment(up_edge, iPoint);
     Position res_2 = isIPointLeftOfSegment(down_edge, iPoint);
     return ((res_1 == rightOf and res_2 == leftOf) or (res_1 == leftOf and res_2 == rightOf)) ? inStrip : (res_1 == indet or res_2 == indet) ? indetStrip : notInStrip;
-//    return (res_1 == 1 and res_2 == 1) ? 1 : (res_1 == 0 or res_2 == 0) ? 0 : -1;
 }
 
 /* TODO - z obserwacji wykresu wynika, że już prawy górny segment przy pokrywaniu N0 nie daje się podzielić tak by przechodziło (w końcu przekracza tolerancję) */
@@ -91,8 +90,6 @@ bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
             onTheRight = false; // found at least one iPoint on the left
         if (inTheStrip and strip_check == notInStrip)
             inTheStrip = false; // found at least one iPoint on the left
-//        if ((left_check == 0 and right_check == 0) or (left_check == 0 and strip_check == 0) or
-//            (right_check == 0 and strip_check == 0)) {
         if (!onTheLeft and !onTheRight and !inTheStrip) return false; // no ambiguities - can terminate check now
         if (left_check != leftOf and right_check != rightOf and strip_check != inStrip) { // ambiguities // TODO czy to dobra logika?
             iPoint_bisected = iPoint.bisect();
@@ -147,7 +144,7 @@ bool isCovering(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
 }
 
 template<class DrawPolicy>
-void display_TSet_grid(const std::string &label, TSet &tSet) {
+void display_TSet_grid(TSet &tSet) {
 //    cout << "\n" << label << "' N_l:\n";
     for (const IPoint &iPoint: tSet.gridLeftEdge(GRID_PRECISION)) {
         DrawPolicy::drawIPoint(iPoint);
@@ -167,7 +164,7 @@ void display_TSet_grid(const std::string &label, TSet &tSet) {
 }
 
 template<class DrawPolicy, class T>
-void display_TSet_grid_mapped(const std::string &label, T &mapping, TSet &tSet) {
+void display_TSet_grid_mapped(T &mapping, TSet &tSet) {
 //    cout << "\n" << label << "' N_l:\n";
     for (IPoint iPoint: tSet.gridLeftEdge(GRID_PRECISION)) {
         IPoint res = mapping(iPoint);
@@ -188,11 +185,6 @@ void display_TSet_grid_mapped(const std::string &label, T &mapping, TSet &tSet) 
 //        IPoint res = mapping(iPoint);
 //        DrawPolicy::drawIPoint(res);
 //    }
-}
-
-template<class DrawPolicy>
-void emptyFile() {
-    DrawPolicy::emptyFile();
 }
 
 int main() {
@@ -234,7 +226,6 @@ int main() {
     cout << "N1:\n" << N1 << "\n";
     cout << "N2:\n" << N2 << "\n";
 
-//    Rossler rossler(3.8, 0.1, 0.2, 1.2, 1.9);
     Interval coeff_1 = Interval(38) / Interval(10);
     Interval coeff_2 = Interval(1) / Interval(10);
     Interval coeff_3 = Interval(2) / Interval(10);
@@ -242,17 +233,13 @@ int main() {
     Interval coeff_5 = Interval(19) / Interval(10);
     Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5, 3);
 
-    display_TSet_grid<DRAW_POLICY>("N0", N0);
+    display_TSet_grid<DRAW_POLICY>(N0);
+    display_TSet_grid<DRAW_POLICY>(N1);
+    display_TSet_grid<DRAW_POLICY>(N2);
 
-    display_TSet_grid<DRAW_POLICY>("N1", N1);
-
-    display_TSet_grid<DRAW_POLICY>("N2", N2);
-
-    display_TSet_grid_mapped<DRAW_POLICY>("N0", rossler, N0);
-
-    display_TSet_grid_mapped<DRAW_POLICY>("N1", rossler, N1);
-
-    display_TSet_grid_mapped<DRAW_POLICY>("N2", rossler, N2);
+    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N0);
+    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N1);
+    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N2);
 
     // results
     cout << "N1 => N0 : " << isCovering<FileDrawPolicy>(N1, N0, rossler) << "\n";

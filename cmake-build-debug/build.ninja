@@ -52,42 +52,49 @@ build cmake_object_order_depends_target_interval_arithmetic: phony || CMakeFiles
 build CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/covering_relations.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis/covering_relations.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/covering_relations.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/covering_relations_analysis
 
 build CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/Interval.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/Interval.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/Interval.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools
 
 build CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/TSet.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis/TSet.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/TSet.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/covering_relations_analysis
 
 build CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/IPoint.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/IPoint.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/IPoint.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools
 
 build CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaNode.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaNode.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaNode.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/sivia_tools
 
 build CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaGraph.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaGraph.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaGraph.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/sivia_tools
 
 build CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o: CXX_COMPILER__interval_arithmetic_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/sivia.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/sivia_tools
 

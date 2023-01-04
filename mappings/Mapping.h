@@ -1,6 +1,8 @@
 #ifndef _MAPPING_H_
 #define _MAPPING_H_
 
+#include "TSet.h"
+
 using std::vector, std::pair;
 
 // abstraction of R2 -> R2 mapping

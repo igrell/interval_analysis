@@ -1,7 +1,7 @@
 #ifndef INTERVAL_ANALYSIS_SIVIANODE_H
 #define INTERVAL_ANALYSIS_SIVIANODE_H
 
-#include "../interval_arithmetic_tools/Interval.h"
+#include "Interval.h"
 
 // respectively + , - , * , / , no operator
 enum Operator {

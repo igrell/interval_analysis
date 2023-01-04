@@ -1,6 +1,6 @@
 #include "Interval.h"
-#include "../exceptions/EmptyIntersectionException.h"
-#include "../exceptions/DivisionByZeroIntervalException.h"
+#include "EmptyIntersectionException.h"
+#include "DivisionByZeroIntervalException.h"
 
 using std::min, std::max, std::abs;
 
