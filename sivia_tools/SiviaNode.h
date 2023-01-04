@@ -10,9 +10,9 @@ enum Operator {
 
 class SiviaNode {
     Interval val = Interval();
-    Operator parents_operator = nil;
-    SiviaNode *left_parent = nullptr;
-    SiviaNode *right_parent = nullptr;
+    Operator operation = nil;
+    SiviaNode *left = nullptr;
+    SiviaNode *right = nullptr;
 
 public:
 

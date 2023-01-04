@@ -1,4 +1,5 @@
 //#include "SiviaNode.h"
+////#include "../war"
 //
 //int main() {
 //
@@ -14,7 +15,11 @@
 //    SiviaNode &det = (a * d) - (b * c); // computation path
 //    cout << "Graph evaluation: " << det.evaluate() << "\n";
 //    det.setValue(1);
+////    try {
 //    det.contract();
+////    } catch (EmptyIntersectionException &warning) {
+//
+////    }
 //    cout << "Constrains: \n";
 //    cout << "a " << a << "\n";
 //    cout << "b " << b << "\n";

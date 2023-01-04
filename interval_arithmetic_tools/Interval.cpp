@@ -1,6 +1,6 @@
 #include "Interval.h"
-#include "../exceptions/EmptyIntersectionWarning.h"
-#include "../exceptions/DivisionByZeroIntervalWarning.h"
+#include "../exceptions/EmptyIntersectionException.h"
+#include "../exceptions/DivisionByZeroIntervalException.h"
 
 using std::min, std::max, std::abs;
 
@@ -47,7 +47,7 @@ Interval Interval::operator*(const Interval &b) const {
 
 Interval Interval::operator/(const Interval &b) const {
     if ((b.lo <= 0 and b.hi >= 0) or (b.lo >= 0 and b.hi <= 0)) { //if 'b' contains 0
-        throw DivisionByZeroIntervalWarning(*this, b);
+        throw DivisionByZeroIntervalException(*this, b);
 //        cout << "Division by interval containing zero: " << *this << " , " << b << "\n";
 //        return Interval(0);
     }
@@ -86,7 +86,7 @@ Interval Interval::operator*(const double &a) const { //not sure if it should wo
 }
 
 Interval Interval::operator/(const double &a) {
-    if (a == 0) throw DivisionByZeroIntervalWarning(*this, Interval(a));
+    if (a == 0) throw DivisionByZeroIntervalException(*this, Interval(a));
     const int originalRounding = fegetround();
     fesetround(FE_DOWNWARD);
     double new_lo = get_lo() / a;
@@ -114,13 +114,13 @@ bool Interval::operator<=(const Interval &a) const {
 }
 
 Interval Interval::operator&&(const Interval &a) const {
-    if (get_hi() < a.get_lo() || get_lo() > a.get_hi()) throw EmptyIntersectionWarning(*this, a);
+    if (get_hi() < a.get_lo() || get_lo() > a.get_hi()) throw EmptyIntersectionException(*this, a);
     return {max(get_lo(), a.get_lo()), min(get_hi(), a.get_hi())};
 }
 
 Interval Interval::operator||(const Interval &a) const {
     if ((get_lo() < a.get_lo() and get_hi() < a.get_lo()) or (a.get_hi() < get_lo()))
-        throw EmptyIntersectionWarning(*this, a);
+        throw EmptyIntersectionException(*this, a);
     return {min(get_lo(), a.get_lo()), max(get_hi(), a.get_hi())};
 }
 

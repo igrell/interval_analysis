@@ -11,47 +11,55 @@ using std::deque, std::function, std::ofstream, std::string, std::stack;
 #define TOLERANCE 0.000001
 #define DRAW_POLICY FileDrawPolicy
 
+enum Position {
+    leftOf, rightOf, inBetween, indet // indet - indeterminate
+};
+
+enum PositionStrip {
+    inStrip, notInStrip, indetStrip
+};
+
 //line from segment ab, checking condition for point c
 // 1 - point left of line, -1 - point right of line, 0 - colinear
 template<typename T>
-int pointRelativeToLine(const pair<T, T> &a, const pair<T, T> &b, const pair<T, T> c) {
+Position pointRelativeToLine(const pair<T, T> &a, const pair<T, T> &b, const pair<T, T> c) {
     double det = ((b.first - a.first) * (c.second - a.second) - (b.second - a.second) * (c.first - a.first));
-    return det == 0 ? 0 : (det > 0 ? 1 : -1);
+    return det == 0 ? inBetween : (det > 0 ? leftOf : rightOf);
 }
 
 // 1 - iPoint left of segment, -1 - iPoint right of segment, 0 - in-between
-int isIPointLeftOfSegment(const Segment segment, const IPoint &iPoint) {
-    int res_1 = pointRelativeToLine(segment.first, segment.second,
+Position isIPointLeftOfSegment(const Segment segment, const IPoint &iPoint) {
+    Position res_1 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_lo()});
-    int res_2 = pointRelativeToLine(segment.first, segment.second,
+    Position res_2 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_hi(), iPoint.area.second.get_lo()});
-    int res_3 = pointRelativeToLine(segment.first, segment.second,
+    Position res_3 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_hi()});
-    int res_4 = pointRelativeToLine(segment.first, segment.second,
+    Position res_4 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_hi(), iPoint.area.second.get_hi()});
-    return (res_1 == 1 and res_2 == 1 and res_3 == 1 and res_4 == 1) ? 1 : // if all corners on the left
-           (res_1 != 1 and res_2 != 1 and res_3 != 1 and res_4 != 1) ? -1 : 0; // if all corners NOT on the left
+    return (res_1 == leftOf and res_2 == leftOf and res_3 == leftOf and res_4 == leftOf) ? leftOf : // if all corners on the left
+           (res_1 != leftOf and res_2 != leftOf and res_3 != leftOf and res_4 != leftOf) ? rightOf : indet; // if all corners NOT on the left
 }
 
 // 1 - iPoint right of segment, -1 - iPoint left of segment, 0 - in-between
-int isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
-    int res_1 = pointRelativeToLine(segment.first, segment.second,
+Position isIPointRightOfSegment(const Segment segment, const IPoint &iPoint) {
+    Position res_1 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_lo()});
-    int res_2 = pointRelativeToLine(segment.first, segment.second,
+    Position res_2 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_hi(), iPoint.area.second.get_lo()});
-    int res_3 = pointRelativeToLine(segment.first, segment.second,
+    Position res_3 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_lo(), iPoint.area.second.get_hi()});
-    int res_4 = pointRelativeToLine(segment.first, segment.second,
+    Position res_4 = pointRelativeToLine(segment.first, segment.second,
                                     {iPoint.area.first.get_hi(), iPoint.area.second.get_hi()});
-    return (res_1 == -1 and res_2 == -1 and res_3 == -1 and res_4 == -1) ? 1 : // if all corners on the right
-           (res_1 != -1 and res_2 != -1 and res_3 != -1 and res_4 != -1) ? -1 : 0; // if all corners NOT on the right
+    return (res_1 == rightOf and res_2 == rightOf and res_3 == rightOf and res_4 == rightOf) ? rightOf : // if all corners on the right
+           (res_1 != rightOf and res_2 != rightOf and res_3 != rightOf and res_4 != rightOf) ? leftOf : indet; // if all corners NOT on the right
 }
 
 /* TODO - czy return powinien taki być dla odwróconych współrzędnych (N2)? */
-int isIPointInTheRibbon(const Segment up_edge, const Segment down_edge, const IPoint &iPoint) {
-    int res_1 = isIPointRightOfSegment(up_edge, iPoint);
-    int res_2 = isIPointLeftOfSegment(down_edge, iPoint);
-    return ((res_1 == 1 and res_2 == 1) or (res_1 == -1 and res_2 == -1)) ? 1 : (res_1 == 0 or res_2 == 0) ? 0 : -1;
+PositionStrip isIPointInTheStrip(const Segment up_edge, const Segment down_edge, const IPoint &iPoint) {
+    Position res_1 = isIPointRightOfSegment(up_edge, iPoint);
+    Position res_2 = isIPointLeftOfSegment(down_edge, iPoint);
+    return ((res_1 == rightOf and res_2 == leftOf) or (res_1 == leftOf and res_2 == rightOf)) ? inStrip : (res_1 == indet or res_2 == indet) ? indetStrip : notInStrip;
 //    return (res_1 == 1 and res_2 == 1) ? 1 : (res_1 == 0 or res_2 == 0) ? 0 : -1;
 }
 
@@ -60,34 +68,33 @@ template<class DrawPolicy, class T>
 bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
     bool onTheLeft = true;
     bool onTheRight = true;
-    bool inTheRibbon = true; // 'ribbon' refering to the space between N_u and N_d of tSet2
+    bool inTheStrip = true; // 'ribbon' refering to the space between N_u and N_d of tSet2
     stack<IPoint> mapped_iPoints;
-    for (IPoint iPoint: tSet1.gridLeftEdge(GRID_PRECISION))
-        mapped_iPoints.push(mapping(iPoint)); // push all segments to the stack
+    for (IPoint iPoint: tSet1.gridLeftEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
     for (IPoint iPoint: tSet1.gridRightEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
     for (IPoint iPoint: tSet1.gridUpEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
     for (IPoint iPoint: tSet1.gridDownEdge(GRID_PRECISION)) mapped_iPoints.push(mapping(iPoint));
     IPoint iPoint;
-    int left_check;
-    int right_check;
-    int ribbon_check;
+    Position left_check;
+    Position right_check;
+    PositionStrip strip_check;
     vector<IPoint> iPoint_bisected;
     while (!mapped_iPoints.empty()) {
         iPoint = mapped_iPoints.top();
         mapped_iPoints.pop();
         left_check = isIPointLeftOfSegment(tSet2.N_l, iPoint);
         right_check = isIPointRightOfSegment(tSet2.N_r, iPoint);
-        ribbon_check = isIPointInTheRibbon(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
-        if (onTheLeft and left_check == -1)
+        strip_check = isIPointInTheStrip(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
+        if (onTheLeft and left_check == rightOf)
             onTheLeft = false; // found at least one iPoint on the right
-        if (onTheRight and right_check == -1)
+        if (onTheRight and right_check == rightOf)
             onTheRight = false; // found at least one iPoint on the left
-        if (inTheRibbon and ribbon_check == -1)
-            inTheRibbon = false; // found at least one iPoint on the left
-//        if ((left_check == 0 and right_check == 0) or (left_check == 0 and ribbon_check == 0) or
-//            (right_check == 0 and ribbon_check == 0)) {
-        if (!onTheLeft and !onTheRight and !inTheRibbon) return false; // no ambiguities - can terminate check now
-        if (left_check != 1 and right_check != 1 and ribbon_check != 1) { // ambiguities // TODO czy to dobra logika?
+        if (inTheStrip and strip_check == notInStrip)
+            inTheStrip = false; // found at least one iPoint on the left
+//        if ((left_check == 0 and right_check == 0) or (left_check == 0 and strip_check == 0) or
+//            (right_check == 0 and strip_check == 0)) {
+        if (!onTheLeft and !onTheRight and !inTheStrip) return false; // no ambiguities - can terminate check now
+        if (left_check != leftOf and right_check != rightOf and strip_check != inStrip) { // ambiguities // TODO czy to dobra logika?
             iPoint_bisected = iPoint.bisect();
             for (const auto &bisection_el: iPoint_bisected) {
                 if (bisection_el.width() < TOLERANCE) return false; // couldn't resolve the covering
@@ -96,7 +103,7 @@ bool mappingInside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
             }
         }
     }
-    return (onTheLeft or onTheRight or inTheRibbon);
+    return (onTheLeft or onTheRight or inTheStrip);
 }
 
 template<typename T>
@@ -111,20 +118,20 @@ bool edgesOnTheOutside(const TSet &tSet1, const TSet &tSet2, const T &mapping) {
         if (not tset1_N_l_rossler_left_of_tset2_N_l and not tset1_N_l_rossler_right_of_tSet2_N_r)
             break; // nothing left to check
         if (tset1_N_l_rossler_left_of_tset2_N_l and
-            isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint)) != 1)
+            isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint)) != leftOf)
             tset1_N_l_rossler_left_of_tset2_N_l = false;
         if (tset1_N_l_rossler_right_of_tSet2_N_r and
-            isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)) != 1)
+            isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)) != rightOf)
             tset1_N_l_rossler_right_of_tSet2_N_r = false;
     }
     for (IPoint iPoint: tSet1.gridRightEdge(GRID_PRECISION)) {
         if (not tset1_N_r_rossler_right_of_tSet2_N_r and not tset1_N_r_rossler_left_of_tSet2_N_l)
             break; // nothing left to check
         if (tset1_N_r_rossler_right_of_tSet2_N_r and
-            isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)) != 1)
+            isIPointRightOfSegment(tSet2.N_r, mapping(iPoint)) != rightOf)
             tset1_N_r_rossler_right_of_tSet2_N_r = false;
         if (tset1_N_r_rossler_left_of_tSet2_N_l and
-            isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint)) != 1)
+            isIPointLeftOfSegment(tSet2.N_l, mapping(iPoint)) != leftOf)
             tset1_N_r_rossler_left_of_tSet2_N_l = false;
     }
     return (tset1_N_l_rossler_left_of_tset2_N_l and tset1_N_r_rossler_right_of_tSet2_N_r) or
@@ -235,8 +242,6 @@ int main() {
     Interval coeff_5 = Interval(19) / Interval(10);
     Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5, 3);
 
-    emptyFile<DRAW_POLICY>();
-
     display_TSet_grid<DRAW_POLICY>("N0", N0);
 
     display_TSet_grid<DRAW_POLICY>("N1", N1);
@@ -294,7 +299,7 @@ int main() {
 //        mapped_iPoints.pop();
 //        left_check = isIPointLeftOfSegment(tSet2.N_l, iPoint);
 //        right_check = isIPointRightOfSegment(tSet2.N_r, iPoint);
-//        ribbon_check = isIPointInTheRibbon(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
+//        ribbon_check = isIPointInTheStrip(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
 //        if (onTheLeft and left_check == -1)
 //            onTheLeft = false; // found at least one iPoint on the right
 //        if (onTheRight and right_check == -1)

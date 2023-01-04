@@ -209,12 +209,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "exceptions/EmptyIntersectionWarning.h",
+			"path" : "exceptions/EmptyIntersectionException.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "exceptions/DivisionByZeroIntervalWarning.h",
+			"path" : "exceptions/DivisionByZeroIntervalException.h",
 			"sourceGroupIndex" : 0
 		}
 	],
