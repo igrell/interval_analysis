@@ -12,7 +12,7 @@ public:
 
     DivisionByZeroIntervalException(const Interval &a, const Interval &b) : a(a), b(b) {}
 
-    void warning_message() {
+    void message() {
         cout << "Warning: encountered zero in division between intervals: " << a << " , " << b << "\n";
     }
 

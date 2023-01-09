@@ -37,6 +37,10 @@ SiviaNode::SiviaNode(const Interval &val) : val(val) {}
 SiviaNode::SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator) :
         left(left_parent), right(right_parent), operation(parents_operator) {}
 
+SiviaNode::~SiviaNode() {
+    // TODO
+}
+
 void SiviaNode::setValue(const Interval &interval) {
     val = interval;
 }
@@ -73,16 +77,20 @@ void SiviaNode::contract() {
             return;
         case add:
 //            cout << "before: " << left << right << "\n";
-            try { left->setValue(left->getValue() && (val - right->getValue())); }
-            catch (EmptyIntersectionException &warning) {
-                warning.message();
+            try {
+                left->setValue(left->getValue() && (val - right->getValue()));
+//            }
+//            catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "left add\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
             }
-            try { right->setValue(right->getValue() && (val - left->getValue())); }
-            catch (EmptyIntersectionException &warning) {
-                warning.message();
+            try {
+                right->setValue(right->getValue() && (val - left->getValue()));
+//            }
+//            catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "right add\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
@@ -91,16 +99,20 @@ void SiviaNode::contract() {
             right->contract();
             break;
         case sub:
-            try { left->setValue(left->getValue() && (val + right->getValue())); }
-            catch (EmptyIntersectionException &warning) {
-                warning.message();
+            try {
+                left->setValue(left->getValue() && (val + right->getValue()));
+//            }
+//            catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "left sub\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
             }
-            try { right->setValue(right->getValue() && (left->getValue() - val)); }
-            catch (EmptyIntersectionException &warning) {
-                warning.message();
+            try {
+                right->setValue(right->getValue() && (left->getValue() - val));
+//            }
+//            catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "right sub\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
@@ -111,16 +123,16 @@ void SiviaNode::contract() {
         case mul:
             try {
                 left->setValue(left->getValue() && (val / right->getValue()));
-            } catch (EmptyIntersectionException &warning) {
-                warning.message();
+//            } catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "left mul\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
             }
-            try { // TODO DIVISION BY ZERO HERE - division a*d / a
+            try {
                 right->setValue(right->getValue() && (val / left->getValue()));
-            } catch (EmptyIntersectionException &warning) {
-                warning.message();
+//            } catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "right mul\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
@@ -129,18 +141,20 @@ void SiviaNode::contract() {
             right->contract();
             break;
         case dv:
-            try { left->setValue(left->getValue() && (right->getValue() * val)); }
-            catch (EmptyIntersectionException &warning) {
-                warning.message();
+            try {
+                left->setValue(left->getValue() && (right->getValue() * val));
+//            }
+//            catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "left div\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
             }
             try {
                 right->setValue(right->getValue() && (right->getValue() / val));
-            }
-            catch (EmptyIntersectionException &warning) {
-                warning.message();
+//            }
+//            catch (EmptyIntersectionException &warning) {
+//                warning.message();
 //                cout << "right div\n";
             } catch (DivisionByZeroIntervalException &warning) {
 //                warning.message();
@@ -150,9 +164,7 @@ void SiviaNode::contract() {
     }
 }
 
-Interval SiviaNode::getValue() {
-    return val;
-}
+Interval SiviaNode::getValue() { return val; }
 
 SiviaNode &operator+(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, add); }
 

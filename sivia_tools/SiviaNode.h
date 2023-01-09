@@ -22,7 +22,7 @@ public:
 
     SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator);
 
-    ~SiviaNode() = default;
+    ~SiviaNode();
 
     Interval evaluate();
 
