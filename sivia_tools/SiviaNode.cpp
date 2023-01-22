@@ -2,6 +2,8 @@
 #include "EmptyIntersectionException.h"
 #include "DivisionByZeroIntervalException.h"
 
+using std::find;
+
 ostream &operator<<(ostream &ostream, const Operator parent_operator) {
     switch (parent_operator) {
         case nil:
@@ -164,7 +166,22 @@ void SiviaNode::contract() {
     }
 }
 
+
 Interval SiviaNode::getValue() { return val; }
+
+void SiviaNode::getNodesVector(vector<SiviaNode *> &vector, SiviaNode *nodePtr) {
+    if (find(vector.begin(),vector.end(),nodePtr) != vector.end()) return; // to avoid duplicates
+    vector.push_back(nodePtr);
+    if (nodePtr->left != nullptr) getNodesVector(vector, nodePtr->left);
+    if (nodePtr->right != nullptr) getNodesVector(vector, nodePtr->right);
+
+}
+
+void SiviaNode::free() {
+    vector<SiviaNode*> nodesVector;
+    getNodesVector(nodesVector,this);
+    for (auto& el : nodesVector) delete el;
+}
 
 SiviaNode &operator+(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, add); }
 

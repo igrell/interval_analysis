@@ -2,6 +2,9 @@
 #define INTERVAL_ANALYSIS_SIVIANODE_H
 
 #include "Interval.h"
+#include "vector"
+
+using std::vector;
 
 // respectively + , - , * , / , no operator
 enum Operator {
@@ -35,6 +38,10 @@ public:
     void setValue(double, double);
 
     void contract();
+
+    static void getNodesVector(vector<SiviaNode *>&, SiviaNode *);
+
+    void free();
 
     friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
 
