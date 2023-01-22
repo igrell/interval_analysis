@@ -31,11 +31,14 @@ public:
 
     Interval getValue();
 
+    Operator getOperation();
+
     void setValue(double);
 
     void setValue(const Interval &);
 
     void setValue(double, double);
+
 
     void contract();
 

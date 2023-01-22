@@ -3,21 +3,30 @@
 
 #include "SiviaNode.h"
 
+
 struct SiviaGraphNode {
+    Interval val = Interval();
+    Operator operation = nil;
+    int left = -1;
+    int right = -1;
+
+public:
+    explicit SiviaGraphNode(SiviaNode &node);
+
+    void setLeft(int);
+
+    void setRight(int);
 
 };
 
 
 class SiviaGraph {
-    SiviaNode *graph = nullptr;
+    vector<SiviaGraphNode> nodes;
 
 
 public:
-    explicit SiviaGraph(SiviaNode &head) {
+    SiviaGraph();
 
-
-
-    }
 
 };
 

@@ -183,6 +183,10 @@ void SiviaNode::free() {
     for (auto& el : nodesVector) delete el;
 }
 
+Operator SiviaNode::getOperation() {
+    return operation;
+}
+
 SiviaNode &operator+(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, add); }
 
 SiviaNode &operator-(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, sub); }
