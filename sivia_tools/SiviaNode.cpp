@@ -1,5 +1,4 @@
 #include "SiviaNode.h"
-#include "EmptyIntersectionException.h"
 #include "DivisionByZeroIntervalException.h"
 
 using std::find;
@@ -39,10 +38,6 @@ SiviaNode::SiviaNode(const Interval &val) : val(val) {}
 SiviaNode::SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator) :
         left(left_parent), right(right_parent), operation(parents_operator) {}
 
-SiviaNode::~SiviaNode() {
-    // TODO
-}
-
 void SiviaNode::setValue(const Interval &interval) {
     val = interval;
 }
@@ -73,94 +68,46 @@ Interval SiviaNode::evaluate() {
 
 /* Backwards propagating constrains to narrow down the solution intervals */
 void SiviaNode::contract() {
-//    cout << this->val << "\n";
     switch (operation) {
         case nil:
             return;
         case add:
-//            cout << "before: " << left << right << "\n";
             try {
                 left->setValue(left->getValue() && (val - right->getValue()));
-//            }
-//            catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "left add\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             try {
                 right->setValue(right->getValue() && (val - left->getValue()));
-//            }
-//            catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "right add\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             left->contract();
             right->contract();
             break;
         case sub:
             try {
                 left->setValue(left->getValue() && (val + right->getValue()));
-//            }
-//            catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "left sub\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             try {
                 right->setValue(right->getValue() && (left->getValue() - val));
-//            }
-//            catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "right sub\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             left->contract();
             right->contract();
             break;
         case mul:
             try {
                 left->setValue(left->getValue() && (val / right->getValue()));
-//            } catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "left mul\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             try {
                 right->setValue(right->getValue() && (val / left->getValue()));
-//            } catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "right mul\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             left->contract();
             right->contract();
             break;
         case dv:
             try {
                 left->setValue(left->getValue() && (right->getValue() * val));
-//            }
-//            catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "left div\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             try {
                 right->setValue(right->getValue() && (right->getValue() / val));
-//            }
-//            catch (EmptyIntersectionException &warning) {
-//                warning.message();
-//                cout << "right div\n";
-            } catch (DivisionByZeroIntervalException &warning) {
-//                warning.message();
-            }
+            } catch (DivisionByZeroIntervalException &warning) {}
             left->contract();
             right->contract();
     }
@@ -170,17 +117,16 @@ void SiviaNode::contract() {
 Interval SiviaNode::getValue() { return val; }
 
 void SiviaNode::getNodesVector(vector<SiviaNode *> &vector, SiviaNode *nodePtr) {
-    if (find(vector.begin(),vector.end(),nodePtr) != vector.end()) return; // to avoid duplicates
+    if (find(vector.begin(), vector.end(), nodePtr) != vector.end()) return; // to avoid duplicates
     vector.push_back(nodePtr);
     if (nodePtr->left != nullptr) getNodesVector(vector, nodePtr->left);
     if (nodePtr->right != nullptr) getNodesVector(vector, nodePtr->right);
-
 }
 
 void SiviaNode::free() {
-    vector<SiviaNode*> nodesVector;
-    getNodesVector(nodesVector,this);
-    for (auto& el : nodesVector) delete el;
+    vector<SiviaNode *> nodesVector;
+    getNodesVector(nodesVector, this);
+    for (auto &el: nodesVector) delete el;
 }
 
 Operator SiviaNode::getOperation() {

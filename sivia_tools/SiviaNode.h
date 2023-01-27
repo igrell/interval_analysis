@@ -25,8 +25,6 @@ public:
 
     SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator);
 
-    ~SiviaNode();
-
     Interval evaluate();
 
     Interval getValue();
@@ -39,10 +37,9 @@ public:
 
     void setValue(double, double);
 
-
     void contract();
 
-    static void getNodesVector(vector<SiviaNode *>&, SiviaNode *);
+    static void getNodesVector(vector<SiviaNode *> &, SiviaNode *);
 
     void free();
 
