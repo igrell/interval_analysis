@@ -112,9 +112,8 @@ double applyFunWithRounding(double);
 template<double (*)(double ,double ), int>
 double applyFunWithRounding(double, double);
 
-//template<decltype(lambda1var),double a, double b, int R>
-//double setVal
-
+template<double(*)(double, double)>
+void setVal(Interval &interval, double lo_y, double lo_l, double hi_y, double hi_l);
 
 ostream &operator<<(ostream &ostream, const Interval &interval);
 
