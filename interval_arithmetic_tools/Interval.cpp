@@ -194,7 +194,8 @@ double applyFunWithRounding(double a, double b) {
 
 template<double(*f)(double)>
 Interval applyFunToInterval(const Interval &interval) {
-    return {applyFunWithRounding<f, FE_DOWNWARD>(interval.get_lo()), applyFunWithRounding<f, FE_UPWARD>(interval.get_hi())};
+    return {applyFunWithRounding<f, FE_DOWNWARD>(interval.get_lo()),
+            applyFunWithRounding<f, FE_UPWARD>(interval.get_hi())};
 }
 
 Interval sqrt(const Interval &interval) { return applyFunToInterval<sqrt>(interval); }
@@ -207,21 +208,31 @@ Interval exp(const Interval &interval) { return applyFunToInterval<exp>(interval
 
 Interval pow_naive(const Interval &x, const Interval &y) { return exp(y * log(x)); }
 
+template<double(*f)(double, double)>
+void setVal(Interval &interval, double lo_y, double lo_l, double hi_y, double hi_l) {
+    fesetround(FE_DOWNWARD);
+    interval.set_lo(f(lo_y, lo_l));
+    fesetround(FE_UPWARD);
+    interval.set_hi(f(hi_y, hi_l));
+}
 
-
+auto multiply = [](double a, double b) { return a * b; };
 
 Interval pow1(const Interval &x, const Interval &y) {
     Interval l;
-    if (x.get_lo() < 1 or 0 <= y.get_lo() or y.get_hi() <= 0) l.set_lo(applyFunWithRounding<log, FE_DOWNWARD>(x.get_lo()));
-    if (1 < x.get_hi() or 0 <= y.get_lo() or y.get_hi() <= 0) l.set_hi(applyFunWithRounding<log, FE_UPWARD>(x.get_hi()));
+    if (x.get_lo() < 1 or 0 <= y.get_lo() or y.get_hi() <= 0)
+        l.set_lo(applyFunWithRounding<log, FE_DOWNWARD>(x.get_lo()));
+    if (1 < x.get_hi() or 0 <= y.get_lo() or y.get_hi() <= 0)
+        l.set_hi(applyFunWithRounding<log, FE_UPWARD>(x.get_hi()));
     Interval m;
     const int originalRounding = fegetround();
     if (0 <= y.get_lo()) {
         if (x.get_hi() <= 1) {
-            fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_hi() * l.get_lo());
-            fesetround(FE_UPWARD);
-            m.set_hi(y.get_lo() * l.get_hi());
+            setVal<multiply>(m, y.get_hi(), l.get_lo(), y.get_lo(), l.get_hi());
+//            fesetround(FE_DOWNWARD);
+//            m.set_lo(y.get_hi() * l.get_lo());
+//            fesetround(FE_UPWARD);
+//            m.set_hi(y.get_lo() * l.get_hi());
             fesetround(originalRounding);
         } else if (1 <= x.get_lo()) {
             fesetround(FE_DOWNWARD);
@@ -229,18 +240,20 @@ Interval pow1(const Interval &x, const Interval &y) {
             m.set_hi(y.get_hi() * l.get_hi());
             fesetround(originalRounding);
         } else {
-            fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_hi() * l.get_lo());
-            fesetround(FE_UPWARD);
-            m.set_hi(y.get_hi() * l.get_hi());
+            setVal<multiply>(m, y.get_hi(), l.get_lo(), y.get_hi(), l.get_hi());
+//            fesetround(FE_DOWNWARD);
+//            m.set_lo(y.get_hi() * l.get_lo());
+//            fesetround(FE_UPWARD);
+//            m.set_hi(y.get_hi() * l.get_hi());
             fesetround(originalRounding);
         }
     } else if (y.get_hi() <= 0) {
         if (x.get_hi() <= 1) {
-            fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_hi() * l.get_hi());
-            fesetround(FE_UPWARD);
-            m.set_hi(y.get_lo() * l.get_lo());
+            setVal<multiply>(m, y.get_hi(), l.get_hi(), y.get_lo(), l.get_lo());
+//            fesetround(FE_DOWNWARD);
+//            m.set_lo(y.get_hi() * l.get_hi());
+//            fesetround(FE_UPWARD);
+//            m.set_hi(y.get_lo() * l.get_lo());
             fesetround(originalRounding);
         } else if (1 <= x.get_lo()) {
             fesetround(FE_DOWNWARD);
@@ -248,24 +261,27 @@ Interval pow1(const Interval &x, const Interval &y) {
             m.set_hi(y.get_hi() * l.get_lo());
             fesetround(originalRounding);
         } else {
-            fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_lo() * l.get_hi());
-            fesetround(FE_UPWARD);
-            m.set_hi(y.get_lo() * l.get_lo());
+            setVal<multiply>(m, y.get_lo(), l.get_hi(), y.get_lo(), l.get_lo());
+//            fesetround(FE_DOWNWARD);
+//            m.set_lo(y.get_lo() * l.get_hi());
+//            fesetround(FE_UPWARD);
+//            m.set_hi(y.get_lo() * l.get_lo());
             fesetround(originalRounding);
         }
     } else {
         if (x.get_hi() <= 1) {
-            fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_hi() * l.get_lo());
-            fesetround(FE_UPWARD);
-            m.set_hi(y.get_lo() * l.get_hi());
+            setVal<multiply>(m, y.get_hi(), l.get_lo(), y.get_lo(), l.get_hi());
+//            fesetround(FE_DOWNWARD);
+//            m.set_lo(y.get_hi() * l.get_lo());
+//            fesetround(FE_UPWARD);
+//            m.set_hi(y.get_lo() * l.get_hi());
             fesetround(originalRounding);
         } else if (1 <= x.get_lo()) {
-            fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_lo() * l.get_hi());
-            fesetround(FE_UPWARD);
-            m.set_hi(y.get_hi() * l.get_hi());
+            setVal<multiply>(m, y.get_lo(), l.get_hi(), y.get_hi(), l.get_hi());
+//            fesetround(FE_DOWNWARD);
+//            m.set_lo(y.get_lo() * l.get_hi());
+//            fesetround(FE_UPWARD);
+//            m.set_hi(y.get_hi() * l.get_hi());
             fesetround(originalRounding);
         } else {
             fesetround(FE_DOWNWARD);
