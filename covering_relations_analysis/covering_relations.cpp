@@ -182,11 +182,12 @@ void display_TSet_grid_mapped(T &mapping, TSet &tSet) {
 //    }
 }
 
+
+
 int main() {
     Interval a(2, 5);
     Interval b(2, 2);
     cout << pow_naive(a,b) << "\n" << pow1(a,b);
-
 }
 
 //int main() {

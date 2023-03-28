@@ -102,15 +102,19 @@ Interval sqrt(const Interval &);
 
 Interval cbrt(const Interval &);
 
-enum Rounding {
-    up, down
-};
-
-template<Rounding, double(*)(double)>
+// int parameter -> rounding mode FE_DOWNWARD/FE_UPWARD
+//auto lambda1var = [](double) -> double {};
+template<double(*)(double), int>
 double applyFunWithRounding(double);
 
-template<Rounding, double(*)(double, double)>
+
+//auto lambda2var = [](double, double) -> double {};
+template<double (*)(double ,double ), int>
 double applyFunWithRounding(double, double);
+
+//template<decltype(lambda1var),double a, double b, int R>
+//double setVal
+
 
 ostream &operator<<(ostream &ostream, const Interval &interval);
 

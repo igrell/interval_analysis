@@ -174,19 +174,19 @@ Interval operator*(double a, Interval b) {
 
 }
 
-template<Rounding R, double (*f)(double)>
+template<double (*f)(double), int R>
 double applyFunWithRounding(double a) {
     const int originalRounding = fegetround();
-    fesetround(R == up ? FE_UPWARD : FE_DOWNWARD);
+    fesetround(R);
     double res = f(a);
     fesetround(originalRounding);
     return res;
 }
 
-template<Rounding R, double (*f)(double, double)>
+template<double (*f)(double, double), int R>
 double applyFunWithRounding(double a, double b) {
     const int originalRounding = fegetround();
-    fesetround(R == up ? FE_UPWARD : FE_DOWNWARD);
+    fesetround(R);
     double res = f(a, b);
     fesetround(originalRounding);
     return res;
@@ -194,44 +194,8 @@ double applyFunWithRounding(double a, double b) {
 
 template<double(*f)(double)>
 Interval applyFunToInterval(const Interval &interval) {
-    return {applyFunWithRounding<down, f>(interval.get_lo()), applyFunWithRounding<up, f>(interval.get_hi())};
-//    const int originalRounding = fegetround();
-//    fesetround(FE_DOWNWARD);
-//    double new_lo = f(interval.get_lo());
-//    fesetround(FE_UPWARD);
-//    double new_hi = f(interval.get_hi());
-//    fesetround(originalRounding);
+    return {applyFunWithRounding<f, FE_DOWNWARD>(interval.get_lo()), applyFunWithRounding<f, FE_UPWARD>(interval.get_hi())};
 }
-
-//Interval sqrt(const Interval &interval) {
-//    const int originalRounding = fegetround();
-//    fesetround(FE_DOWNWARD);
-//    double new_lo = sqrt(interval.get_lo());
-//    fesetround(FE_UPWARD);
-//    double new_hi = sqrt(interval.get_hi());
-//    fesetround(originalRounding);
-//    return {new_lo, new_hi};
-//    }
-
-//Interval cbrt(const Interval &interval) {
-//    const int originalRounding = fegetround();
-//    fesetround(FE_DOWNWARD);
-//    double new_lo = cbrt(interval.get_lo());
-//    fesetround(FE_UPWARD);
-//    double new_hi = cbrt(interval.get_hi());
-//    fesetround(originalRounding);
-//    return {new_lo, new_hi};
-//}
-
-//Interval log(const Interval &interval) {
-//    const int originalRounding = fegetround();
-//    fesetround(FE_DOWNWARD);
-//    double new_lo = log(interval.get_lo());
-//    fesetround(FE_UPWARD);
-//    double new_hi = log(interval.get_hi());
-//    fesetround(originalRounding);
-//    return {new_lo, new_hi};
-//}
 
 Interval sqrt(const Interval &interval) { return applyFunToInterval<sqrt>(interval); }
 
@@ -241,26 +205,15 @@ Interval log(const Interval &interval) { return applyFunToInterval<log>(interval
 
 Interval exp(const Interval &interval) { return applyFunToInterval<exp>(interval); }
 
-Interval pow_naive(const Interval &x, const Interval &y) {
-    return exp(y * log(x));
-}
+Interval pow_naive(const Interval &x, const Interval &y) { return exp(y * log(x)); }
+
+
+
 
 Interval pow1(const Interval &x, const Interval &y) {
     Interval l;
-    if (x.get_lo() < 1 or 0 <= y.get_lo() or y.get_hi() <= 0) {
-        l.set_lo(applyFunWithRounding<down, log>(x.get_lo()));
-//        const int originalRounding = fegetround();
-//        fesetround(FE_DOWNWARD);
-//        l.set_lo(log(x.get_lo()));
-//        fesetround(originalRounding);
-    }
-    if (1 < x.get_hi() or 0 <= y.get_lo() or y.get_hi() <= 0) {
-        l.set_hi(applyFunWithRounding<up, log>(x.get_hi()));
-//        const int originalRounding = fegetround();
-//        fesetround(FE_UPWARD);
-//        l.set_hi(log(x.get_hi()));
-//        fesetround(originalRounding);
-    }
+    if (x.get_lo() < 1 or 0 <= y.get_lo() or y.get_hi() <= 0) l.set_lo(applyFunWithRounding<log, FE_DOWNWARD>(x.get_lo()));
+    if (1 < x.get_hi() or 0 <= y.get_lo() or y.get_hi() <= 0) l.set_hi(applyFunWithRounding<log, FE_UPWARD>(x.get_hi()));
     Interval m;
     const int originalRounding = fegetround();
     if (0 <= y.get_lo()) {
@@ -316,9 +269,9 @@ Interval pow1(const Interval &x, const Interval &y) {
             fesetround(originalRounding);
         } else {
             fesetround(FE_DOWNWARD);
-            m.set_lo(std::min(y.get_hi() * l.get_lo(),y.get_lo()*y.get_hi()));
+            m.set_lo(std::min(y.get_hi() * l.get_lo(), y.get_lo() * y.get_hi()));
             fesetround(FE_UPWARD);
-            m.set_hi(std::max(y.get_lo() * l.get_lo(),y.get_hi()*l.get_hi()));
+            m.set_hi(std::max(y.get_lo() * l.get_lo(), y.get_hi() * l.get_hi()));
             fesetround(originalRounding);
         }
     }
