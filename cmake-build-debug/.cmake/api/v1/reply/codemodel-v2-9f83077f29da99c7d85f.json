@@ -15,7 +15,9 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1,
+						2
 					]
 				}
 			],
@@ -30,7 +32,9 @@
 					"name" : "interval_analysis",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1,
+						2
 					]
 				}
 			],
@@ -38,9 +42,23 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "covering_relations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-covering_relations-Debug-027352bc7e2f4339beb7.json",
+					"name" : "covering_relations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "interval_arithmetic::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-interval_arithmetic-Debug-990cd7da91c65d4cd0bf.json",
 					"name" : "interval_arithmetic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sivia::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sivia-Debug-674f9e02b6ba9e92abf1.json",
+					"name" : "sivia",
 					"projectIndex" : 0
 				}
 			]

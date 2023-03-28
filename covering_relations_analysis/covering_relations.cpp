@@ -183,132 +183,125 @@ void display_TSet_grid_mapped(T &mapping, TSet &tSet) {
 }
 
 
-
 int main() {
-    Interval a(2, 5);
-    Interval b(2, 2);
-    cout << pow_naive(a,b) << "\n" << pow1(a,b);
+
+    //data
+    Point a0 = {0.6230, 0.1000};
+    Point b0 = {0.6590, 0.0920};
+    Point c0 = {0.6600, 0.1320};
+    Point d0 = {0.6240, 0.1400};
+    Point a1 = {0.7094, 0.0808};
+    Point b1 = {0.7670, 0.0680};
+    Point c1 = {0.7680, 0.1080};
+    Point d1 = {0.7104, 0.1208};
+    Point a2 = {0.9250, -0.0070};
+    Point b2 = {0.8950, -0.0370};
+    Point c2 = {0.9100, -0.0520};
+    Point d2 = {0.9400, -0.0220};
+
+    Segment N0_l = {a0, d0};
+    Segment N0_r = {b0, c0};
+    Segment N1_l = {a1, d1};
+    Segment N1_r = {b1, c1};
+    Segment N2_l = {b2, c2};
+    Segment N2_r = {a2, d2};
+
+//    double epsilon = 0.006; // 5 of 5 for 0.0006, 4 of 5 for 0.0007,  3 of 5 for 0.01, nothing for 0.1
+//    N0_l = N0_l + epsilon;
+//    N0_r = N0_r + epsilon;
+//    N1_l = N1_l + epsilon;
+//    N1_r = N1_r + epsilon;
+//    N2_l = N2_l + epsilon;
+//    N2_r = N2_r + epsilon;
+
+    TSet N0(N0_l, N0_r);
+    TSet N1(N1_l, N1_r);
+    TSet N2(N2_l, N2_r);
+
+    cout << "N0:\n" << N0 << "\n";
+    cout << "N1:\n" << N1 << "\n";
+    cout << "N2:\n" << N2 << "\n";
+
+    Interval coeff_1 = Interval(38) / Interval(10);
+    Interval coeff_2 = Interval(1) / Interval(10);
+    Interval coeff_3 = Interval(2) / Interval(10);
+    Interval coeff_4 = Interval(12) / Interval(10);
+    Interval coeff_5 = Interval(19) / Interval(10);
+    Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5, 3);
+
+    display_TSet_grid<DRAW_POLICY>(N0);
+    display_TSet_grid<DRAW_POLICY>(N1);
+    display_TSet_grid<DRAW_POLICY>(N2);
+
+    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N0);
+    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N1);
+    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N2);
+
+    // results
+    cout << "N1 => N0 : " << isCovering<FileDrawPolicy>(N1, N0, rossler) << "\n";
+    cout << "N2 => N0 : " << isCovering<FileDrawPolicy>(N2, N0, rossler) << "\n";
+    cout << "N1 => N1 : " << isCovering<FileDrawPolicy>(N1, N1, rossler) << "\n";
+    cout << "N2 => N1 : " << isCovering<FileDrawPolicy>(N2, N1, rossler) << "\n";
+    cout << "N0 => N2 : " << isCovering<FileDrawPolicy>(N0, N2, rossler) << "\n";
+    return 0;
 }
 
+
+
+
 //int main() {
+//    Segment N_l = {{-1, -1},
+//                   {-1, 1}};
+//    Segment N_r = {{1, 0},
+//                   {1, 2}};
+//    TSet tSet2(N_l, N_r);
+//    Segment N2_l = {{0.75, 0.5},
+//                    {0.75, 1}};
+//    Segment N2_r = {{5, 0.5},
+//                    {5, 1}};
+//    TSet tSet1(N2_l, N2_r);
 //
-//    //data
-//    Point a0 = {0.6230, 0.1000};
-//    Point b0 = {0.6590, 0.0920};
-//    Point c0 = {0.6600, 0.1320};
-//    Point d0 = {0.6240, 0.1400};
-//    Point a1 = {0.7094, 0.0808};
-//    Point b1 = {0.7670, 0.0680};
-//    Point c1 = {0.7680, 0.1080};
-//    Point d1 = {0.7104, 0.1208};
-//    Point a2 = {0.9250, -0.0070};
-//    Point b2 = {0.8950, -0.0370};
-//    Point c2 = {0.9100, -0.0520};
-//    Point d2 = {0.9400, -0.0220};
+//    emptyFile<DRAW_POLICY>();
 //
-//    Segment N0_l = {a0, d0};
-//    Segment N0_r = {b0, c0};
-//    Segment N1_l = {a1, d1};
-//    Segment N1_r = {b1, c1};
-//    Segment N2_l = {b2, c2};
-//    Segment N2_r = {a2, d2};
+//    display_TSet_grid<DRAW_POLICY>("1", tSet1);
+//    display_TSet_grid<DRAW_POLICY>("2", tSet2);
 //
-////    double epsilon = 0.006; // 5 of 5 for 0.0006, 4 of 5 for 0.0007,  3 of 5 for 0.01, nothing for 0.1
-////    N0_l = N0_l + epsilon;
-////    N0_r = N0_r + epsilon;
-////    N1_l = N1_l + epsilon;
-////    N1_r = N1_r + epsilon;
-////    N2_l = N2_l + epsilon;
-////    N2_r = N2_r + epsilon;
-//
-//    TSet N0(N0_l, N0_r);
-//    TSet N1(N1_l, N1_r);
-//    TSet N2(N2_l, N2_r);
-//
-//    cout << "N0:\n" << N0 << "\n";
-//    cout << "N1:\n" << N1 << "\n";
-//    cout << "N2:\n" << N2 << "\n";
-//
-//    Interval coeff_1 = Interval(38) / Interval(10);
-//    Interval coeff_2 = Interval(1) / Interval(10);
-//    Interval coeff_3 = Interval(2) / Interval(10);
-//    Interval coeff_4 = Interval(12) / Interval(10);
-//    Interval coeff_5 = Interval(19) / Interval(10);
-//    Rossler rossler(coeff_1, coeff_2, coeff_3, coeff_4, coeff_5, 3);
-//
-//    display_TSet_grid<DRAW_POLICY>(N0);
-//    display_TSet_grid<DRAW_POLICY>(N1);
-//    display_TSet_grid<DRAW_POLICY>(N2);
-//
-//    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N0);
-//    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N1);
-//    display_TSet_grid_mapped<DRAW_POLICY>(rossler, N2);
-//
-//    // results
-//    cout << "N1 => N0 : " << isCovering<FileDrawPolicy>(N1, N0, rossler) << "\n";
-//    cout << "N2 => N0 : " << isCovering<FileDrawPolicy>(N2, N0, rossler) << "\n";
-//    cout << "N1 => N1 : " << isCovering<FileDrawPolicy>(N1, N1, rossler) << "\n";
-//    cout << "N2 => N1 : " << isCovering<FileDrawPolicy>(N2, N1, rossler) << "\n";
-//    cout << "N0 => N2 : " << isCovering<FileDrawPolicy>(N0, N2, rossler) << "\n";
-//    return 0;
+//    bool onTheLeft = true;
+//    bool onTheRight = true;
+//    bool inTheRibbon = true; // 'ribbon' refering to the space between N_u and N_d of tSet2
+//    stack<IPoint> mapped_iPoints;
+//    for (const IPoint &iPoint: tSet1.gridLeftEdge(GRID_PRECISION))
+//        mapped_iPoints.push(iPoint); // push all segments to the stack
+//    for (const IPoint &iPoint: tSet1.gridRightEdge(GRID_PRECISION)) mapped_iPoints.push(iPoint);
+//    for (const IPoint &iPoint: tSet1.gridUpEdge(GRID_PRECISION)) mapped_iPoints.push(iPoint);
+//    for (const IPoint &iPoint: tSet1.gridDownEdge(GRID_PRECISION)) mapped_iPoints.push(iPoint);
+//    IPoint iPoint;
+//    int left_check;
+//    int right_check;
+//    int ribbon_check;
+//    vector<IPoint> iPoint_bisected;
+//    while (!mapped_iPoints.empty()) {
+//        iPoint = mapped_iPoints.top();
+//        mapped_iPoints.pop();
+//        left_check = isIPointLeftOfSegment(tSet2.N_l, iPoint);
+//        right_check = isIPointRightOfSegment(tSet2.N_r, iPoint);
+//        ribbon_check = isIPointInTheStrip(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
+//        if (onTheLeft and left_check == -1)
+//            onTheLeft = false; // found at least one iPoint on the right
+//        if (onTheRight and right_check == -1)
+//            onTheRight = false; // found at least one iPoint on the left
+//        if (inTheRibbon and ribbon_check == -1)
+//            inTheRibbon = false; // found at least one iPoint on the left
+////        if ((left_check == 0 and right_check == 0) or (left_check == 0 and ribbon_check == 0) or
+////            (right_check == 0 and ribbon_check == 0)) {
+//        if (left_check != 1 and right_check != 1 and ribbon_check != 1) { // ambiguities // TODO czy to dobra logika?
+//            iPoint_bisected = iPoint.bisect();
+//            for (const auto &bisection_el: iPoint_bisected) {
+//                if (bisection_el.width() < TOLERANCE) cout << "a\n"; // couldn't resolve the covering
+//                FileDrawPolicy::drawIPoint(bisection_el);
+//                mapped_iPoints.push(bisection_el);
+//            }
+//        }
+//    }
+//    cout << onTheLeft << onTheRight << inTheRibbon;
 //}
-//
-
-
-
-////int main() {
-////    Segment N_l = {{-1, -1},
-////                   {-1, 1}};
-////    Segment N_r = {{1, 0},
-////                   {1, 2}};
-////    TSet tSet2(N_l, N_r);
-////    Segment N2_l = {{0.75, 0.5},
-////                    {0.75, 1}};
-////    Segment N2_r = {{5, 0.5},
-////                    {5, 1}};
-////    TSet tSet1(N2_l, N2_r);
-////
-////    emptyFile<DRAW_POLICY>();
-////
-////    display_TSet_grid<DRAW_POLICY>("1", tSet1);
-////    display_TSet_grid<DRAW_POLICY>("2", tSet2);
-////
-////    bool onTheLeft = true;
-////    bool onTheRight = true;
-////    bool inTheRibbon = true; // 'ribbon' refering to the space between N_u and N_d of tSet2
-////    stack<IPoint> mapped_iPoints;
-////    for (const IPoint &iPoint: tSet1.gridLeftEdge(GRID_PRECISION))
-////        mapped_iPoints.push(iPoint); // push all segments to the stack
-////    for (const IPoint &iPoint: tSet1.gridRightEdge(GRID_PRECISION)) mapped_iPoints.push(iPoint);
-////    for (const IPoint &iPoint: tSet1.gridUpEdge(GRID_PRECISION)) mapped_iPoints.push(iPoint);
-////    for (const IPoint &iPoint: tSet1.gridDownEdge(GRID_PRECISION)) mapped_iPoints.push(iPoint);
-////    IPoint iPoint;
-////    int left_check;
-////    int right_check;
-////    int ribbon_check;
-////    vector<IPoint> iPoint_bisected;
-////    while (!mapped_iPoints.empty()) {
-////        iPoint = mapped_iPoints.top();
-////        mapped_iPoints.pop();
-////        left_check = isIPointLeftOfSegment(tSet2.N_l, iPoint);
-////        right_check = isIPointRightOfSegment(tSet2.N_r, iPoint);
-////        ribbon_check = isIPointInTheStrip(tSet2.getUpEdge(), tSet2.getDownEdge(), iPoint);
-////        if (onTheLeft and left_check == -1)
-////            onTheLeft = false; // found at least one iPoint on the right
-////        if (onTheRight and right_check == -1)
-////            onTheRight = false; // found at least one iPoint on the left
-////        if (inTheRibbon and ribbon_check == -1)
-////            inTheRibbon = false; // found at least one iPoint on the left
-//////        if ((left_check == 0 and right_check == 0) or (left_check == 0 and ribbon_check == 0) or
-//////            (right_check == 0 and ribbon_check == 0)) {
-////        if (left_check != 1 and right_check != 1 and ribbon_check != 1) { // ambiguities // TODO czy to dobra logika?
-////            iPoint_bisected = iPoint.bisect();
-////            for (const auto &bisection_el: iPoint_bisected) {
-////                if (bisection_el.width() < TOLERANCE) cout << "a\n"; // couldn't resolve the covering
-////                FileDrawPolicy::drawIPoint(bisection_el);
-////                mapped_iPoints.push(bisection_el);
-////            }
-////        }
-////    }
-////    cout << onTheLeft << onTheRight << inTheRibbon;
-////}

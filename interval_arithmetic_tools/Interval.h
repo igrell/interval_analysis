@@ -102,18 +102,17 @@ Interval sqrt(const Interval &);
 
 Interval cbrt(const Interval &);
 
-// int parameter -> rounding mode FE_DOWNWARD/FE_UPWARD
-//auto lambda1var = [](double) -> double {};
+/* int parameter -> rounding mode FE_DOWNWARD/FE_UPWARD */
 template<double(*)(double), int>
 double applyFunWithRounding(double);
 
 
-//auto lambda2var = [](double, double) -> double {};
 template<double (*)(double ,double ), int>
 double applyFunWithRounding(double, double);
 
+/* helper function for pow1 to avoid copy-pasting code */
 template<double(*)(double, double)>
-void setVal(Interval &interval, double lo_y, double lo_l, double hi_y, double hi_l);
+void setIntervalEnds(Interval &interval, double lo_y, double lo_l, double hi_y, double hi_l);
 
 ostream &operator<<(ostream &ostream, const Interval &interval);
 
