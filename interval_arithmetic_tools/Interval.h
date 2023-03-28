@@ -8,7 +8,7 @@
 #include <bits/stdc++.h>
 #include "sstream"
 
-using std::cout, std::string,std::ostream, std::pair;
+using std::cout, std::string, std::ostream, std::pair;
 
 
 class Interval {
@@ -27,6 +27,8 @@ public:
 
     Interval(double lo, double hi);
 
+//    Interval(initializer_list<double> list) : lo(*list.begin()), hi(*(list.begin()++)) {}
+
 //    Interval(double lo, double hi, string label);
 
     [[nodiscard]] double get_lo() const { return lo; }
@@ -42,6 +44,8 @@ public:
 //    void set_label(string new_label) { label = std::move(new_label); }
 
     [[nodiscard]] double width() const;
+
+    double center() const;
 
     Interval operator+(const Interval &) const;
 
@@ -75,11 +79,38 @@ public:
 
     Interval operator||(const Interval &) const; //hull
 
+
 };
 
 Interval operator-(double, Interval);
 
 Interval operator*(double, Interval);
+
+template<double(*f)(double, double)>
+Interval applyFunToInterval(const Interval &); // template for all simple interval math. operations with rounding
+
+Interval log(const Interval &);
+
+Interval exp(const Interval &);
+
+/// Power functions by Oliver Heimlich 2013
+Interval pow_naive(const Interval &, const Interval &);
+
+Interval pow1(const Interval &, const Interval &);
+
+Interval sqrt(const Interval &);
+
+Interval cbrt(const Interval &);
+
+enum Rounding {
+    up, down
+};
+
+template<Rounding, double(*)(double)>
+double applyFunWithRounding(double);
+
+template<Rounding, double(*)(double, double)>
+double applyFunWithRounding(double, double);
 
 ostream &operator<<(ostream &ostream, const Interval &interval);
 
