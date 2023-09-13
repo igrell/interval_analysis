@@ -11,3 +11,9 @@ target_include_directories(covering_relations PRIVATE covering_relations_analysi
 
 add_executable(sivia interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp covering_relations_analysis/TSet.h covering_relations_analysis/TSet.cpp interval_arithmetic_tools/IPoint.h interval_arithmetic_tools/IPoint.cpp DrawPolicy.h sivia_tools/SiviaNode.cpp sivia_tools/SiviaNode.h sivia_tools/SiviaGraph.cpp sivia_tools/SiviaGraph.h sivia_tools/sivia.cpp exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
 target_include_directories(sivia PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)
+
+add_executable(newton interval_newton.cpp autodiff/Autodiff.cpp autodiff/Autodiff.h interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
+target_include_directories(newton PRIVATE autodiff/ covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)
+
+add_executable(autodiff autodiff/Autodiff.h autodiff/Autodiff.cpp interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp exceptions/EmptyIntersectionException.h)
+target_include_directories(autodiff PRIVATE interval_arithmetic_tools/ exceptions/ autodiff/ ./)
