@@ -1,6 +1,4 @@
-#ifndef _HENON_H_
 #define _HENON_H_
-
 #include "Mapping.h"
 
 template<typename T>
@@ -17,6 +15,8 @@ public:
     Henon(const T &coeff_a, const T &coeff_b, int composition_constant);
 
 };
+
+#ifndef _HENON_H_
 
 template<class T>
 Henon<T>::Henon(const T &coeff_a, const T &coeff_b, int composition_constant)  : Mapping<T>(composition_constant),

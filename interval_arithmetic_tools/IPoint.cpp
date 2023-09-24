@@ -51,6 +51,19 @@ vector<IPoint> IPoint::bisect() const {
     return {part_1, part_2, part_3, part_4};
 }
 
+// vector<IPoint> IPoint::grid(const unsigned PRECISION) {
+//     vector<IPoint> res;
+//     double width_x = area.first.width() / PRECISION;
+//     double width_y = area.second.width() / PRECISION;
+//     double
+//     for (unsigned i = 0 ; i < PRECISION ; i++) {
+//         res.emplace({},{});
+//     }
+//
+//     return vector<IPoint>();
+//
+// }
+
 bool emptyIntersection(const IPoint &a, const IPoint &b) {
     IPoint inter = a && b;
     return (inter.area.first == Interval(0) and inter.area.second == Interval(0));

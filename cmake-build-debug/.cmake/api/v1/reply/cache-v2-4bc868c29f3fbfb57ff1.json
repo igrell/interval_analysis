@@ -1172,6 +1172,42 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
+		},
+		{
+			"name" : "untitled_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug"
+		},
+		{
+			"name" : "untitled_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "untitled_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
 		}
 	],
 	"kind" : "cache",

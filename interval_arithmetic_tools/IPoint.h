@@ -27,6 +27,8 @@ public:
 
     [[nodiscard]] vector<IPoint> bisect() const; //bisecting the horizontal interval by half
 
+    vector<IPoint> grid(const unsigned);
+
 };
 
 bool emptyIntersection(const IPoint &,const IPoint &);

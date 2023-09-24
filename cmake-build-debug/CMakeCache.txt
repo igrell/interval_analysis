@@ -221,6 +221,15 @@ interval_analysis_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 interval_analysis_SOURCE_DIR:STATIC=/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis
 
+//Value Computed by CMake
+untitled_BINARY_DIR:STATIC=/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
+
+//Value Computed by CMake
+untitled_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+untitled_SOURCE_DIR:STATIC=/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis
+
 
 ########################
 # INTERNAL cache entries
