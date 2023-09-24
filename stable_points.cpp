@@ -1,10 +1,12 @@
 #include "Interval.h"
+#include "SiviaNode.h"
 #include "vector"
 #include "list"
 
 using std::cout, std::vector, std::list;
 
-Interval fun(const Interval &x, const Interval &y) { return x * x * x * y; }
+template<typename T>
+T fun(const T &x, const T &y) { return x * x * x * y; }
 
 list<pair<Interval, Interval>>
 gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigned GRID_FACTOR) {
@@ -21,20 +23,23 @@ gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigne
 }
 
 void
-rootFinder(Interval (*fun)(const Interval &, const Interval &), pair<const Interval &, const Interval &> domain,
+rootFinder(Interval (*fun)(const Interval &, const Interval &),
+           pair<const Interval &, const Interval &> domain,
            const unsigned GRID_FACTOR) {
-    list<pair<Interval, Interval>> domainGridded = gridDomain(domain, GRID_FACTOR);
-    for (const auto &pair: domainGridded) std::cout << pair.first << " " << pair.second << "\n";
-    auto it = domainGridded.begin();
-    while (it != domainGridded.end()) {
+    list<pair<Interval, Interval>> domainCubes = gridDomain(domain, GRID_FACTOR);
+    for (const auto &pair: domainCubes) std::cout << pair.first << " " << pair.second << "\n";
+    auto it = domainCubes.begin();
+    while (it != domainCubes.end()) {
         if (!fun(it->first, it->second).containsZero()) {
-            it = domainGridded.erase(it);
+            it = domainCubes.erase(it);
         } else ++it;
     }
-
-
-//    cout << "\n";
-//    for (const auto &el: domainGridded) cout << el << "\n";
+    SiviaNode &x = *new SiviaNode();
+    SiviaNode &y = *new SiviaNode();
+    for (const auto& domainCube: domainCubes) {
+        x.setValue(domainCube.first);
+        y.setValue(domainCube.second);
+    }
 
 }
 

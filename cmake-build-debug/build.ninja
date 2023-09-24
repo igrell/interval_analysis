@@ -84,13 +84,6 @@ build CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaNode.cpp.o: CXX_COMPIL
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/sivia_tools
 
-build CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaGraph.cpp.o: CXX_COMPILER__interval_arithmetic_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaGraph.cpp || cmake_object_order_depends_target_interval_arithmetic
-  DEP_FILE = CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaGraph.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
-  OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
-  OBJECT_FILE_DIR = CMakeFiles/interval_arithmetic.dir/sivia_tools
-
 build CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o: CXX_COMPILER__interval_arithmetic_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/sivia.cpp || cmake_object_order_depends_target_interval_arithmetic
   DEP_FILE = CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -106,7 +99,7 @@ build CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o: CXX_COMPILER__
 #############################################
 # Link the executable interval_arithmetic
 
-build interval_arithmetic: CXX_EXECUTABLE_LINKER__interval_arithmetic_Debug CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/covering_relations.cpp.o CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaNode.cpp.o CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaGraph.cpp.o CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o
+build interval_arithmetic: CXX_EXECUTABLE_LINKER__interval_arithmetic_Debug CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/covering_relations.cpp.o CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/interval_arithmetic.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/interval_arithmetic.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/interval_arithmetic.dir/sivia_tools/SiviaNode.cpp.o CMakeFiles/interval_arithmetic.dir/sivia_tools/sivia.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/interval_arithmetic.dir
   POST_BUILD = :
@@ -204,13 +197,6 @@ build CMakeFiles/sivia.dir/sivia_tools/SiviaNode.cpp.o: CXX_COMPILER__sivia_unsc
   OBJECT_DIR = CMakeFiles/sivia.dir
   OBJECT_FILE_DIR = CMakeFiles/sivia.dir/sivia_tools
 
-build CMakeFiles/sivia.dir/sivia_tools/SiviaGraph.cpp.o: CXX_COMPILER__sivia_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaGraph.cpp || cmake_object_order_depends_target_sivia
-  DEP_FILE = CMakeFiles/sivia.dir/sivia_tools/SiviaGraph.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
-  OBJECT_DIR = CMakeFiles/sivia.dir
-  OBJECT_FILE_DIR = CMakeFiles/sivia.dir/sivia_tools
-
 build CMakeFiles/sivia.dir/sivia_tools/sivia.cpp.o: CXX_COMPILER__sivia_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/sivia.cpp || cmake_object_order_depends_target_sivia
   DEP_FILE = CMakeFiles/sivia.dir/sivia_tools/sivia.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -226,7 +212,7 @@ build CMakeFiles/sivia.dir/sivia_tools/sivia.cpp.o: CXX_COMPILER__sivia_unscanne
 #############################################
 # Link the executable sivia
 
-build sivia: CXX_EXECUTABLE_LINKER__sivia_Debug CMakeFiles/sivia.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/sivia.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/sivia.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/sivia.dir/sivia_tools/SiviaNode.cpp.o CMakeFiles/sivia.dir/sivia_tools/SiviaGraph.cpp.o CMakeFiles/sivia.dir/sivia_tools/sivia.cpp.o
+build sivia: CXX_EXECUTABLE_LINKER__sivia_Debug CMakeFiles/sivia.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/sivia.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/sivia.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/sivia.dir/sivia_tools/SiviaNode.cpp.o CMakeFiles/sivia.dir/sivia_tools/sivia.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/sivia.dir
   POST_BUILD = :
@@ -363,13 +349,6 @@ build CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o: CXX_COMPILER__st
   OBJECT_DIR = CMakeFiles/stable_points.dir
   OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/sivia_tools
 
-build CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaGraph.cpp || cmake_object_order_depends_target_stable_points
-  DEP_FILE = CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
-  OBJECT_DIR = CMakeFiles/stable_points.dir
-  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/sivia_tools
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target stable_points
@@ -378,7 +357,7 @@ build CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o: CXX_COMPILER__s
 #############################################
 # Link the executable stable_points
 
-build stable_points: CXX_EXECUTABLE_LINKER__stable_points_Debug CMakeFiles/stable_points.dir/stable_points.cpp.o CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o
+build stable_points: CXX_EXECUTABLE_LINKER__stable_points_Debug CMakeFiles/stable_points.dir/stable_points.cpp.o CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/stable_points.dir
   POST_BUILD = :
