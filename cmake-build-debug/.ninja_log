@@ -1,8 +1,24 @@
 # ninja log v5
+2	4604	1695578386738014166	CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o	fdd9897dd06c4ce1
+1	4461	1695578386598015255	CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o	46bf625af0ccc9cb
 3	3474	1695572089813677658	CMakeFiles/covering_relations.dir/covering_relations_analysis/TSet.cpp.o	f99ad57ea0a76dea
+1	116	1695578410825825555	stable_points	5bd0da96e47c9fb4
+2	4756	1695575509707127690	CMakeFiles/sivia.dir/sivia_tools/SiviaGraph.cpp.o	2ce5d38f1113d479
 2	3980	1695572090317672672	CMakeFiles/covering_relations.dir/covering_relations_analysis/covering_relations.cpp.o	5dd032bf542a6f0
 2	3765	1695572090105674759	CMakeFiles/covering_relations.dir/interval_arithmetic_tools/Interval.cpp.o	d7e153f6c83c1a90
+1	4932	1695578387066011615	CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o	b4b5133e7d8febfd
+2	4863	1695575509815129540	CMakeFiles/sivia.dir/interval_arithmetic_tools/Interval.cpp.o	3d04ad5f578e68c6
+1	4877	1695578387014012020	CMakeFiles/stable_points.dir/stable_points.cpp.o	618c4281bf97ddd9
+0	29	1695578412173814928	build.ninja	18867aa98a1f115f
+2	4672	1695578386806013638	CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o	e1e2b8b58f88478
+1	2458	1695575668213852116	CMakeFiles/sivia.dir/interval_arithmetic_tools/IPoint.cpp.o	e24f98d7b980b4fe
 4	3326	1695572089665679135	CMakeFiles/covering_relations.dir/interval_arithmetic_tools/IPoint.cpp.o	909f91a2448e87d0
+2088	2186	1695577889217112642	sivia	c2ac48e729a06f96
 3980	4077	1695572090417671687	covering_relations	f95a0aa82096e088
 508	602	1695571859447863635	test2	8a7f43da31b1025b
+2	4637	1695578386774013886	CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o	b3b0175b47836f1
+1	2088	1695577889117113051	CMakeFiles/sivia.dir/sivia_tools/sivia.cpp.o	cbe25ee41429abea
+2	4896	1695575509847130089	CMakeFiles/sivia.dir/sivia_tools/SiviaNode.cpp.o	342b548ab0d1616e
 422	511	1695571854047720664	untitled	70eda2c3eb1be2d8
+2	4820	1695575509771128786	CMakeFiles/sivia.dir/covering_relations_analysis/TSet.cpp.o	1180d611e8c9a15f
+4462	6804	1695578388937997044	CMakeFiles/stable_points.dir/sivia_tools/sivia.cpp.o	e6303858632182

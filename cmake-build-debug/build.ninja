@@ -319,6 +319,73 @@ build autodiff: CXX_EXECUTABLE_LINKER__autodiff_Debug CMakeFiles/autodiff.dir/au
   TARGET_FILE = autodiff
   TARGET_PDB = autodiff.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target stable_points
+
+
+#############################################
+# Order-only phony target for stable_points
+
+build cmake_object_order_depends_target_stable_points: phony || CMakeFiles/stable_points.dir
+
+build CMakeFiles/stable_points.dir/stable_points.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/stable_points.cpp || cmake_object_order_depends_target_stable_points
+  DEP_FILE = CMakeFiles/stable_points.dir/stable_points.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir
+
+build CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/Interval.cpp || cmake_object_order_depends_target_stable_points
+  DEP_FILE = CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/interval_arithmetic_tools
+
+build CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis/TSet.cpp || cmake_object_order_depends_target_stable_points
+  DEP_FILE = CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/covering_relations_analysis
+
+build CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/IPoint.cpp || cmake_object_order_depends_target_stable_points
+  DEP_FILE = CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/interval_arithmetic_tools
+
+build CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaNode.cpp || cmake_object_order_depends_target_stable_points
+  DEP_FILE = CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/sivia_tools
+
+build CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o: CXX_COMPILER__stable_points_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools/SiviaGraph.cpp || cmake_object_order_depends_target_stable_points
+  DEP_FILE = CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  OBJECT_FILE_DIR = CMakeFiles/stable_points.dir/sivia_tools
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target stable_points
+
+
+#############################################
+# Link the executable stable_points
+
+build stable_points: CXX_EXECUTABLE_LINKER__stable_points_Debug CMakeFiles/stable_points.dir/stable_points.cpp.o CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o CMakeFiles/stable_points.dir/sivia_tools/SiviaGraph.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/stable_points.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = stable_points
+  TARGET_PDB = stable_points.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -353,7 +420,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
 
-build all: phony interval_arithmetic covering_relations sivia newton autodiff
+build all: phony interval_arithmetic covering_relations sivia newton autodiff stable_points
 
 # =============================================================================
 # Built-in targets

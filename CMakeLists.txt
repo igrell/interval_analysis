@@ -17,3 +17,6 @@ target_include_directories(newton PRIVATE autodiff/ covering_relations_analysis/
 
 add_executable(autodiff autodiff/Autodiff.h autodiff/Autodiff.cpp interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp exceptions/EmptyIntersectionException.h)
 target_include_directories(autodiff PRIVATE interval_arithmetic_tools/ exceptions/ autodiff/ ./)
+
+add_executable(stable_points stable_points.cpp interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp covering_relations_analysis/TSet.h covering_relations_analysis/TSet.cpp interval_arithmetic_tools/IPoint.h interval_arithmetic_tools/IPoint.cpp DrawPolicy.h sivia_tools/SiviaNode.cpp sivia_tools/SiviaNode.h sivia_tools/SiviaGraph.cpp sivia_tools/SiviaGraph.h exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
+target_include_directories(stable_points PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)

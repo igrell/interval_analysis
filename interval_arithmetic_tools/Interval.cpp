@@ -158,6 +158,10 @@ double Interval::center() const {
     return ((lo + hi) / 2);
 }
 
+bool Interval::containsZero() const {
+    return lo * hi < 0;
+}
+
 std::ostream &operator<<(std::ostream &stream, const Interval &a) {
     stream << std::setprecision(17) << "[" << a.get_lo() << " , " << a.get_hi() << "]";
     return stream;

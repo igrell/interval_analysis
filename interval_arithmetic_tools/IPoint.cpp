@@ -51,7 +51,7 @@ vector<IPoint> IPoint::bisect() const {
     return {part_1, part_2, part_3, part_4};
 }
 
-// vector<IPoint> IPoint::grid(const unsigned PRECISION) {
+// vector<IPoint> IPoint::gridDomain(const unsigned PRECISION) {
 //     vector<IPoint> res;
 //     double width_x = area.first.width() / PRECISION;
 //     double width_y = area.second.width() / PRECISION;

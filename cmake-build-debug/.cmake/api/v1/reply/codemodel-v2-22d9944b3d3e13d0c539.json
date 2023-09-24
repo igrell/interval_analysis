@@ -19,7 +19,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					]
 				}
 			],
@@ -38,7 +39,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					]
 				}
 			],
@@ -77,6 +79,13 @@
 					"id" : "sivia::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-sivia-Debug-6ec41551ba633197119c.json",
 					"name" : "sivia",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stable_points::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stable_points-Debug-bc2425ec00a0787cba6d.json",
+					"name" : "stable_points",
 					"projectIndex" : 0
 				}
 			]

@@ -79,6 +79,7 @@ public:
 
     Interval operator||(const Interval &) const; //hull
 
+    bool containsZero() const;
 
 };
 

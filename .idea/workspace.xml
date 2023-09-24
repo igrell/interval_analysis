@@ -12,6 +12,7 @@
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="interval_analysis" targetName="covering_relations" />
+      <config projectName="interval_analysis" targetName="stable_points" />
       <config projectName="interval_analysis" targetName="interval_arithmetic" />
       <config projectName="interval_analysis" targetName="newton" />
       <config projectName="interval_analysis" targetName="autodiff" />
@@ -28,7 +29,6 @@
       <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/CMakeLists.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +69,11 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="CMake Application.covering_relations">
+  <component name="RunManager" selected="CMake Application.stable_points">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -99,6 +100,11 @@
       </method>
     </configuration>
     <configuration name="sivia" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="sivia" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="sivia">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="stable_points" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="stable_points" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="stable_points">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -232,6 +238,7 @@
       <item itemvalue="CMake Application.interval_arithmetic" />
       <item itemvalue="CMake Application.newton" />
       <item itemvalue="CMake Application.sivia" />
+      <item itemvalue="CMake Application.stable_points" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -246,7 +253,7 @@
       <workItem from="1695571366830" duration="332000" />
       <workItem from="1695571714604" duration="27000" />
       <workItem from="1695571795848" duration="195000" />
-      <workItem from="1695572074778" duration="54000" />
+      <workItem from="1695572074778" duration="6337000" />
     </task>
     <servers />
   </component>

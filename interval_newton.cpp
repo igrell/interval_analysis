@@ -25,14 +25,6 @@ void IntervalNewton(double (*f)(const double &), FunJet<Interval> (*F)(const Fun
     if (x < x0) std::cout << "There is a unique zero in the final interval.\n";
 }
 
-// TODO
-template<typename T>
-T fun(const T &x) {
-    return x * x + T(-2);
-}
-
 int main() {
-    Interval x{1, 3};
-    IntervalNewton(fun<double>, fun<FunJet<Interval>>, x, static_cast<size_t>(10e-4));
     return 0;
 }
