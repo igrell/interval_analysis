@@ -1,16 +1,16 @@
 #include "Interval.h"
 #include "vector"
+#include "list"
 
-using std::cout, std::vector;
+using std::cout, std::vector, std::list;
 
 Interval fun(const Interval &x, const Interval &y) { return x * x * x * y; }
 
-
-vector<pair<Interval, Interval>>
+list<pair<Interval, Interval>>
 gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigned GRID_FACTOR) {
     double x_dist = domain.first.width() / GRID_FACTOR;
     double y_dist = domain.second.width() / GRID_FACTOR;
-    vector<pair<Interval, Interval>> res;
+    list<pair<Interval, Interval>> res;
     pair<Interval, Interval> pair_temp;
     for (unsigned i = 0; i < GRID_FACTOR; ++i) {
         pair_temp = {{domain.first.get_lo() + i * x_dist,  domain.first.get_lo() + (i + 1) * x_dist},
@@ -23,17 +23,19 @@ gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigne
 void
 rootFinder(Interval (*fun)(const Interval &, const Interval &), pair<const Interval &, const Interval &> domain,
            const unsigned GRID_FACTOR) {
-    vector<pair<Interval, Interval>> domainGridded = gridDomain(domain, GRID_FACTOR);
+    list<pair<Interval, Interval>> domainGridded = gridDomain(domain, GRID_FACTOR);
     for (const auto &pair: domainGridded) std::cout << pair.first << " " << pair.second << "\n";
-    vector<pair < Interval, Interval>>
-            domainContainingZero; // TODO efektywniejsza metoda
-    for (const auto &domainCube: domainGridded) {
-        if (fun(domainCube.first, domainCube.second).containsZero()) {
-            domainContainingZero.emplace_back(domainCube);
-        }
+    auto it = domainGridded.begin();
+    while (it != domainGridded.end()) {
+        if (!fun(it->first, it->second).containsZero()) {
+            it = domainGridded.erase(it);
+        } else ++it;
     }
-//    cout << "\n\n";
-//    for (const auto &el: domainContainingZero) cout << el.first << " " << el.second << "\n";
+
+
+//    cout << "\n";
+//    for (const auto &el: domainGridded) cout << el << "\n";
+
 }
 
 int main() {

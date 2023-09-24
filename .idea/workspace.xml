@@ -29,6 +29,7 @@
       <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/CMakeLists.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stable_points.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/stable_points.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +254,7 @@
       <workItem from="1695571366830" duration="332000" />
       <workItem from="1695571714604" duration="27000" />
       <workItem from="1695571795848" duration="195000" />
-      <workItem from="1695572074778" duration="6337000" />
+      <workItem from="1695572074778" duration="7927000" />
     </task>
     <servers />
   </component>
