@@ -3,14 +3,11 @@
 #include "list"
 #include "EmptyIntersectionException.h"
 
-#define FUN x * x * x * y
-
 using std::cout, std::vector, std::list;
 
+// fun : R2 -> R2
 template<typename T>
-T fun(const T &x, const T &y) { return x * x * x * y; }
-
-
+pair<T, T> fun(const T &x, const T &y) { return {x * x * x * y, x * x * y}; }
 
 list<pair<Interval, Interval>>
 gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigned GRID_FACTOR) {
@@ -19,7 +16,7 @@ gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigne
     list<pair<Interval, Interval>> res;
     pair<Interval, Interval> pair_temp;
     for (unsigned i = 0; i < GRID_FACTOR; ++i) {
-        pair_temp = {{domain.first.get_lo() + i * x_dist,  domain.first.get_lo() + (i + 1) * x_dist},
+        pair_temp = {{domain.first.get_lo() + i * x_dist, domain.first.get_lo() + (i + 1) * x_dist},
                      {domain.second.get_lo() + i * y_dist, domain.second.get_lo() + (i + 1) * y_dist}};
         res.emplace_back(pair_temp);
     }
@@ -27,7 +24,7 @@ gridDomain(const pair<const Interval &, const Interval &> &domain, const unsigne
 }
 
 template<typename T, template<typename> class Fun>
-void rootFinder( Fun<T> &fun,
+void rootFinder(Fun<T> &fun,
                 pair<const Interval &, const Interval &> domain,
                 const unsigned GRID_FACTOR, const unsigned TOL) {
     list<pair<Interval, Interval>> domainCubes = gridDomain(domain, GRID_FACTOR);
@@ -43,9 +40,10 @@ void rootFinder( Fun<T> &fun,
     for (const auto &domainCube: domainCubes) {
         x.setValue(domainCube.first);
         y.setValue(domainCube.second);
-        SiviaNode& f = fun(x,y);
-        f.setValue(0);
-        try { f.contract(); } catch (EmptyIntersectionException &warning) {} // TODO jak to zawęzić?
+        pair<SiviaNode&, SiviaNode&>f = fun(x, y);
+        f.first.setValue(0);
+        f.second.setValue(0);
+        try { f.first.contract(); f.second.contract(); } catch (EmptyIntersectionException &warning) {}
         cout << "x" << x << ", y" << y << "\n";
     }
 }
