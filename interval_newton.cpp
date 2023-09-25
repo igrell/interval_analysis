@@ -8,10 +8,11 @@ Interval
 IntervalNewtonStep(double (*f)(const double &), FunJet<Interval> (*F)(const FunJet<Interval> &), const Interval &x) {
     double mid = x.center(); // enclosure choice
     Interval N = mid - Interval(f(mid)) / autodiff<Interval>(F, x).second;
-    return x && N;
+    return N && x;
 }
+
 // template<typename T>
-void IntervalNewton(double (*f)(const double &), FunJet<Interval> (*F)(const FunJet<Interval> &), Interval x, const size_t TOL) {
+void IntervalNewton(double (*f)(const double &), FunJet<Interval> (*F)(const FunJet<Interval> &), Interval x, const unsigned long TOL) {
     Interval x0 = x;
     while (x.width() > TOL) {
         try {

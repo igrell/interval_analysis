@@ -159,7 +159,8 @@ double Interval::center() const {
 }
 
 bool Interval::containsZero() const {
-    return lo * hi < 0;
+    return lo < 0 and hi > 0;
+    // return lo * hi < 0;
 }
 
 std::ostream &operator<<(std::ostream &stream, const Interval &a) {
