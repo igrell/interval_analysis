@@ -5,11 +5,13 @@
 
 using std::vector, std::pair;
 
+
+
 // abstraction of R2 -> R2 mapping
 template<typename T>
 class Mapping {
 protected:
-    int composition_constant = 0;
+    size_t composition_constant = 0;
 
 public:
 
