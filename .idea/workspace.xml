@@ -28,10 +28,10 @@
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/CMakeLists.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stable_points.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/stable_points.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mappings/varMapping.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mappings/varMapping.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mappings/varMapping.h" beforeDir="false" afterPath="$PROJECT_DIR$/mappings/varMapping.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,15 +67,22 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/igor/Documents/Kod/EMC++P/lab_7_iterators",
+    "last_opened_file_path": "/home/igor/Documents/Kod/EMC++P/lab_6_variadic templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="settings" />
+    </option>
+  </component>
   <component name="RunManager" selected="CMake Application.stable_points">
     <configuration name="autodiff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="autodiff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="autodiff">
       <method v="2">
@@ -254,7 +261,8 @@
       <workItem from="1695572074778" duration="7963000" />
       <workItem from="1695592826732" duration="753000" />
       <workItem from="1695632295490" duration="6193000" />
-      <workItem from="1695649820187" duration="2911000" />
+      <workItem from="1695649820187" duration="3140000" />
+      <workItem from="1695711161881" duration="3364000" />
     </task>
     <servers />
   </component>
