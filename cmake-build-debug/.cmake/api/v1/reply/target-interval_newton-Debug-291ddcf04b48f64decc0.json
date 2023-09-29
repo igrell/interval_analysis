@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "stable_points"
+			"path" : "interval_newton"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 21,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 22,
+				"line" : 16,
 				"parent" : 0
 			}
 		]
@@ -47,6 +47,10 @@
 			],
 			"includes" : 
 			[
+				{
+					"backtrace" : 2,
+					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff"
+				},
 				{
 					"backtrace" : 2,
 					"path" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis"
@@ -84,14 +88,12 @@
 			"sourceIndexes" : 
 			[
 				0,
-				2,
-				4,
-				6,
-				8
+				1,
+				4
 			]
 		}
 	],
-	"id" : "stable_points::@6890427a1f51a3e7e1df",
+	"id" : "interval_newton::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -107,8 +109,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "stable_points",
-	"nameOnDisk" : "stable_points",
+	"name" : "interval_newton",
+	"nameOnDisk" : "interval_newton",
 	"paths" : 
 	{
 		"build" : ".",
@@ -121,23 +123,18 @@
 			"sourceIndexes" : 
 			[
 				0,
-				2,
-				4,
-				6,
-				8
+				1,
+				4
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				1,
+				2,
 				3,
 				5,
-				7,
-				9,
-				10,
-				11
+				6
 			]
 		}
 	],
@@ -146,8 +143,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "stable_points.cpp",
+			"path" : "interval_newton.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "autodiff/Autodiff.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "autodiff/Autodiff.h",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -159,44 +167,6 @@
 			"compileGroupIndex" : 0,
 			"path" : "interval_arithmetic_tools/Interval.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "covering_relations_analysis/TSet.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "covering_relations_analysis/TSet.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "interval_arithmetic_tools/IPoint.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "interval_arithmetic_tools/IPoint.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "DrawPolicy.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "sivia_tools/SiviaNode.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "sivia_tools/SiviaNode.h",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,

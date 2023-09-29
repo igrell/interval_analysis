@@ -83,6 +83,6 @@ template<typename T>
 inline FunJet<T> exp(const FunJet<T> &u);
 
 template<typename T>
-pair<T, T> autodiff(FunJet<T> (*f)(const FunJet<T> &), T x);
+FunJet<T> autodiff(T (*f)(T), T x);
 
 #endif //INTERVAL_ANALYSIS_AUTODIFF_H

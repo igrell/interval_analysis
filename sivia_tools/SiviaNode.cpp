@@ -133,6 +133,21 @@ Operator SiviaNode::getOperation() {
     return operation;
 }
 
+void SiviaNode::setValue(pair<SiviaNode, SiviaNode>& siviaNode, double newVal) {
+    siviaNode.first.setValue(newVal);
+    siviaNode.second.setValue(newVal);
+}
+
+void SiviaNode::contract(pair<SiviaNode, SiviaNode> &siviaNode) {
+    siviaNode.first.contract();
+    siviaNode.second.contract();
+}
+
+void SiviaNode::setValue(pair<SiviaNode&, SiviaNode&>& siviaNode, const pair<Interval, Interval> &newVal) {
+    siviaNode.first.setValue(newVal.first);
+    siviaNode.second.setValue(newVal.second);
+}
+
 SiviaNode &operator+(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, add); }
 
 SiviaNode &operator-(SiviaNode &a, SiviaNode &b) { return *new SiviaNode(&a, &b, sub); }

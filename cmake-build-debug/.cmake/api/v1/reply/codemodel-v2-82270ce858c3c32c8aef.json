@@ -69,9 +69,9 @@
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "newton::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-newton-Debug-fa69be63c1c3af5e85f9.json",
-					"name" : "newton",
+					"id" : "interval_newton::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-interval_newton-Debug-291ddcf04b48f64decc0.json",
+					"name" : "interval_newton",
 					"projectIndex" : 0
 				},
 				{
@@ -84,7 +84,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "stable_points::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-stable_points-Debug-b6693854cf540afef14e.json",
+					"jsonFile" : "target-stable_points-Debug-1622eef585316d9e441a.json",
 					"name" : "stable_points",
 					"projectIndex" : 0
 				}

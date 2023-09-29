@@ -51,6 +51,11 @@ vector<IPoint> IPoint::bisect() const {
     return {part_1, part_2, part_3, part_4};
 }
 
+// TODO or czy and ???
+bool IPoint::containsZero() {
+    return area.first.containsZero() and area.second.containsZero();
+}
+
 // vector<IPoint> IPoint::gridDomain(const unsigned PRECISION) {
 //     vector<IPoint> res;
 //     double width_x = area.first.width() / PRECISION;

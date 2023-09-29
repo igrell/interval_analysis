@@ -95,14 +95,8 @@ template<typename T>
 T FunJet<T>::get_fx() const { return fx; }
 
 template<typename T>
-pair<T, T> autodiff(FunJet<T> (*f)(const FunJet<T> &), T x) {
-    FunJet<T> res = f(FunJet<T>(true, x));
-    return {res.get_fx(), res.get_dx()};
-}
+FunJet<T> autodiff(T (*f)(T), T x) { return f(FunJet<T>(true, x)); }
 
-// template<typename T>
-// T fun(const T &x) { return (x * x); }
-//
 // int main() {
 //     Interval x{1, 3};
 //     auto res2 = autodiff(fun, x);

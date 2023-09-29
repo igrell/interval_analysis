@@ -15,6 +15,8 @@ public:
 
     IPoint(const Interval &x, const Interval &y) : area(x, y) {}
 
+    explicit IPoint(const pair<Interval, Interval>& pair) : area(pair) {}
+
     IPoint(Point point, double diff);
 
     bool operator<=(const IPoint &) const; // set-theory inclusion of this in a
@@ -27,8 +29,7 @@ public:
 
     [[nodiscard]] vector<IPoint> bisect() const; //bisecting the horizontal interval by half
 
-    vector<IPoint> grid(const unsigned);
-
+    bool containsZero();
 };
 
 bool emptyIntersection(const IPoint &,const IPoint &);

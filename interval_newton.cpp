@@ -4,20 +4,21 @@
 
 using std::pair;
 
-Interval
-IntervalNewtonStep(double (*f)(const double &), FunJet<Interval> (*F)(const FunJet<Interval> &), const Interval &x) {
+template<typename T>
+T func(T x) { return exp(x) - 10; }
+
+template<class Fun>
+Interval IntervalNewtonStep(Fun f, const Interval &x) {
     double mid = x.center(); // enclosure choice
-    Interval N = mid - Interval(f(mid)) / autodiff<Interval>(F, x).second;
+    Interval N = mid - (Interval(f(mid)) / autodiff(f, x).get_dx());
     return N && x;
 }
 
-// template<typename T>
-void IntervalNewton(double (*f)(const double &), FunJet<Interval> (*F)(const FunJet<Interval> &), Interval x, const unsigned long TOL) {
+template<class Fun>
+void IntervalNewton(Fun f, Interval x, const unsigned long TOL) {
     Interval x0 = x;
     while (x.width() > TOL) {
-        try {
-            x = IntervalNewtonStep(f, F, x);
-        } catch (EmptyIntersectionException()) {
+        try { x = IntervalNewtonStep(f, x); } catch (EmptyIntersectionException &warning) {
             std::cout << "No zeros in the given domain.\n";
             return;
         }
@@ -27,5 +28,6 @@ void IntervalNewton(double (*f)(const double &), FunJet<Interval> (*F)(const Fun
 }
 
 int main() {
+    IntervalNewton([](auto x) { return func(x); }, Interval(-1, 1), static_cast<unsigned long>(0.001));
     return 0;
 }

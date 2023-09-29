@@ -45,6 +45,11 @@ public:
 
     friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
 
+    static void setValue(pair<SiviaNode, SiviaNode>&, double);
+
+    static void setValue(pair<SiviaNode& , SiviaNode& >&, const pair<Interval, Interval>&);
+
+    static void contract(pair<SiviaNode, SiviaNode>&);
 };
 
 SiviaNode &operator+(SiviaNode &, SiviaNode &);
