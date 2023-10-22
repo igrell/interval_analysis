@@ -16,7 +16,6 @@ public:
 
 };
 
-#ifndef _HENON_H_
 
 template<class T>
 Henon<T>::Henon(const T &coeff_a, const T &coeff_b, int composition_constant)  : Mapping<T>(composition_constant),
@@ -33,4 +32,4 @@ T Henon<T>::map_2(const T &x, const T &y) const {
 }
 
 
-#endif
+//#endif
