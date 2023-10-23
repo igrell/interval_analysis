@@ -16,6 +16,7 @@
       <config projectName="interval_analysis" targetName="stable_points" />
       <config projectName="interval_analysis" targetName="interval_arithmetic" />
       <config projectName="interval_analysis" targetName="autodiff" />
+      <config projectName="interval_analysis" targetName="eigen" />
       <config projectName="interval_analysis" targetName="sivia" />
     </generated>
   </component>
@@ -26,34 +27,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Misc/C++/untitled/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Misc/Rust/test_project/Cargo.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rootFinder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PA/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manifold_parametrization_tools/Vectalg.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manifold_parametrization_tools/eigen/EigenSolver.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manifold_parametrization_tools/eigen/EigenSolver2D.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ML/ml2023-24" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ML/ml2023-24" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_1/lab_1_4_5.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_1/lab_1_4_5.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_1/lab_1_5.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_1/lab_1_5.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_1.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_1.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_2.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_2.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_3.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_4.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_4.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_5.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_5.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_6.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_6.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_7.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_2/lab_2_7.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/Autodiff.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/Autodiff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-4533f06e09cca245d200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-24T22-04-22-0075.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-stable_points-Debug-b6693854cf540afef14e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Matrix.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-82270ce858c3c32c8aef.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-29T13-25-47-0839.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/covering_relations_analysis/TSet.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/interval_arithmetic_tools/IPoint.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/interval_arithmetic_tools/Interval.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/sivia_tools/SiviaNode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/stable_points.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/stable_points.dir/stable_points.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/stable_points" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/stable_points" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interval_arithmetic_tools/IPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/interval_arithmetic_tools/IPoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interval_arithmetic_tools/IPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/interval_arithmetic_tools/IPoint.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interval_newton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/interval_newton.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sivia_tools/SiviaNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sivia_tools/SiviaNode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sivia_tools/SiviaNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/sivia_tools/SiviaNode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stable_points.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eigen/EigenSolver.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eigen/EigenSolver.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/Manifold2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/manifold_parametrization_tools/Manifold2D.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +67,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/include/c++/11/bits/stl_pair.h" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -76,6 +81,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2VqkaVbzob60nVhspqLBgKAX643" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -89,7 +97,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/igor/Documents/Kod/EMC++P/lab_6_variadic templates&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/manifold_parametrization_tools&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -100,15 +108,27 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/manifold_parametrization_tools" />
+      <recent name="$PROJECT_DIR$/manifold_parametrization_tools/matrix" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/manifold_parametrization_tools/eigen" />
+      <recent name="$PROJECT_DIR$/manifold_parametrization_tools/matrix" />
+      <recent name="$PROJECT_DIR$/manifold_parametrization_tools" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="settings" />
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.interval_newton">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.eigen">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="autodiff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="autodiff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="autodiff">
@@ -117,6 +137,11 @@
       </method>
     </configuration>
     <configuration name="covering_relations" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="covering_relations" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="covering_relations">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="eigen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="eigen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="eigen">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -267,6 +292,7 @@
     <list>
       <item itemvalue="CMake Application.autodiff" />
       <item itemvalue="CMake Application.covering_relations" />
+      <item itemvalue="CMake Application.eigen" />
       <item itemvalue="CMake Application.interval_arithmetic" />
       <item itemvalue="CMake Application.interval_newton" />
       <item itemvalue="CMake Application.sivia" />
@@ -292,7 +318,17 @@
       <workItem from="1695711161881" duration="4563000" />
       <workItem from="1695890555618" duration="988000" />
       <workItem from="1695987589808" duration="3843000" />
-      <workItem from="1695991445653" duration="2935000" />
+      <workItem from="1695991445653" duration="3519000" />
+      <workItem from="1697201051983" duration="1072000" />
+      <workItem from="1697204012831" duration="547000" />
+      <workItem from="1697393034084" duration="2000" />
+      <workItem from="1697989657697" duration="1252000" />
+      <workItem from="1698004552469" duration="5060000" />
+      <workItem from="1698009628869" duration="159000" />
+      <workItem from="1698009801657" duration="96000" />
+      <workItem from="1698009939700" duration="1319000" />
+      <workItem from="1698066570439" duration="4116000" />
+      <workItem from="1698091932170" duration="2433000" />
     </task>
     <servers />
   </component>

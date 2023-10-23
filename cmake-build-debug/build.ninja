@@ -365,6 +365,38 @@ build stable_points: CXX_EXECUTABLE_LINKER__stable_points_Debug CMakeFiles/stabl
   TARGET_FILE = stable_points
   TARGET_PDB = stable_points.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target eigen
+
+
+#############################################
+# Order-only phony target for eigen
+
+build cmake_object_order_depends_target_eigen: phony || CMakeFiles/eigen.dir
+
+build CMakeFiles/eigen.dir/manifold_parametrization_tools/eigen/EigenSolver.cpp.o: CXX_COMPILER__eigen_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/manifold_parametrization_tools/eigen/EigenSolver.cpp || cmake_object_order_depends_target_eigen
+  DEP_FILE = CMakeFiles/eigen.dir/manifold_parametrization_tools/eigen/EigenSolver.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/manifold_parametrization_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/manifold_parametrization_tools/eigen -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/eigen.dir
+  OBJECT_FILE_DIR = CMakeFiles/eigen.dir/manifold_parametrization_tools/eigen
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target eigen
+
+
+#############################################
+# Link the executable eigen
+
+build eigen: CXX_EXECUTABLE_LINKER__eigen_Debug CMakeFiles/eigen.dir/manifold_parametrization_tools/eigen/EigenSolver.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/eigen.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = eigen
+  TARGET_PDB = eigen.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -399,7 +431,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
 
-build all: phony interval_arithmetic covering_relations sivia interval_newton autodiff stable_points
+build all: phony interval_arithmetic covering_relations sivia interval_newton autodiff stable_points eigen
 
 # =============================================================================
 # Built-in targets
