@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "interval_arithmetic"
+			"path" : "covering_relations"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 7,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -83,16 +83,14 @@
 			},
 			"sourceIndexes" : 
 			[
-				1,
+				0,
 				2,
-				5,
-				7,
-				11,
-				13
+				4,
+				6
 			]
 		}
 	],
-	"id" : "interval_arithmetic::@6890427a1f51a3e7e1df",
+	"id" : "covering_relations::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -108,8 +106,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "interval_arithmetic",
-	"nameOnDisk" : "interval_arithmetic",
+	"name" : "covering_relations",
+	"nameOnDisk" : "covering_relations",
 	"paths" : 
 	{
 		"build" : ".",
@@ -118,31 +116,28 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				0,
-				3,
-				4,
-				6,
-				8,
-				9,
-				10,
-				12,
-				14,
-				15
-			]
-		},
-		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1,
+				0,
 				2,
+				4,
+				6
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
 				5,
 				7,
+				8,
+				9,
+				10,
 				11,
-				13
+				12
 			]
 		}
 	],
@@ -150,89 +145,72 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "interval_arithmetic_tools/Interval.h",
+			"compileGroupIndex" : 0,
+			"path" : "covering_relations_analysis/covering_relations.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
+			"path" : "covering_relations_analysis/TSet.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "covering_relations_analysis/covering_relations.cpp",
+			"path" : "covering_relations_analysis/TSet.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "interval_arithmetic_tools/Interval.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "interval_arithmetic_tools/Interval.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "mappings/Rossler.h",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "covering_relations_analysis/TSet.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "covering_relations_analysis/TSet.cpp",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"path" : "interval_arithmetic_tools/IPoint.h",
-			"sourceGroupIndex" : 0
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "interval_arithmetic_tools/IPoint.cpp",
-			"sourceGroupIndex" : 1
+			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"path" : "mappings/Mapping.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "mappings/Henon.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "DrawPolicy.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "sivia_tools/SiviaNode.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "sivia_tools/SiviaNode.h",
-			"sourceGroupIndex" : 0
+			"path" : "mappings/Henon.h",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "sivia_tools/sivia.cpp",
+			"path" : "mappings/Rossler.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DrawPolicy.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"path" : "exceptions/EmptyIntersectionException.h",
-			"sourceGroupIndex" : 0
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"path" : "exceptions/DivisionByZeroIntervalException.h",
-			"sourceGroupIndex" : 0
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

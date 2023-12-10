@@ -4,6 +4,6 @@
 /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/interval_newton.dir
 /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/autodiff.dir
 /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/stable_points.dir
-/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/eigen.dir
+/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/manifolds.dir
 /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
