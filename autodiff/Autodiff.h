@@ -20,6 +20,7 @@ public:
     explicit FunJet(const unsigned noOfVars) : fx(0) { std::fill_n(std::back_inserter(diffs), noOfVars, 0); }
 
     // varFlag indicates which element from diffs is a variable
+//    FunJet(const double _fx, const unsigned noOfVars) : FunJet(noOfVars) { fx = _fx; }
     FunJet(const double _fx, const unsigned varFlag, const unsigned noOfVars) : FunJet(noOfVars) {
         fx = _fx;
         diffs[varFlag] = 1;
@@ -45,10 +46,10 @@ public:
         return res;
     }
 
-    inline friend FunJet operator+(const double c, const FunJet &u) {
-        FunJet res = u;
-        res.fx += c;
-        return res;
+    inline friend FunJet operator+(const double c, const FunJet &u) { // check later
+        FunJet res(u.diffs.size());
+        res.fx = c;
+        return res + u;
     }
 
     inline friend FunJet operator+(const FunJet &u, const double c) { return c + u; }
@@ -82,7 +83,7 @@ public:
     inline friend FunJet operator*(const double c, const FunJet &u) { // TODO DOBRZE?
         FunJet res(u.diffs.size());
         res.fx = c;
-        return res - u;
+        return res * u;
     }
 
     inline friend FunJet operator*(const FunJet &u, const double c) { return c * u; }
@@ -104,7 +105,16 @@ public:
     inline friend FunJet operator/(const double c, const FunJet &u) {
         FunJet res(u.diffs.size());
         res.fx = c;
-        return res / u; }
+        return res / u;
+    }
+
+    vector<double> getDiffs() {
+        return diffs;
+    }
+
+    static void setVarOrder(vector<FunJet> &jets, unsigned noOfVars) {
+        for (unsigned i = 0; i < noOfVars; ++i) jets[i].diffs[i] = 0;
+    }
 
 //    inline friend FunJet sin(const FunJet &u) {
 //        double sin_u = std::sin(u.fx);

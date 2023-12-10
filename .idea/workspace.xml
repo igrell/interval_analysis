@@ -27,10 +27,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/autodiff/Autodiff_T.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/autodiff/Autodiff_T.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manifold_parametrization_tools/manifold_input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/funkcja.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/funkcja.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2020/k2020_1.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2020/k2020_1.hs" afterDir="false" />
@@ -41,29 +37,12 @@
       <change beforePath="$PROJECT_DIR$/../../../PF/lab_8/lab_8_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_8/lab_8_3.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PwL/lab_4/lab_4_2.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PwL/lab_4/lab_4_2.pro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/Autodiff.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/Autodiff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-8ae4ba1dd11ede7c5d52.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-23T20-19-19-0448.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-autodiff-Debug-ddae44af9025bbe9651f.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-covering_relations-Debug-dbcbb5a7034abd4863a8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-eigen-Debug-6f1763d490f3222d0e9c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-interval_arithmetic-Debug-aa6b675d6cc660a76316.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-interval_newton-Debug-291ddcf04b48f64decc0.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-sivia-Debug-8d9f0905817bc5b636f1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-stable_points-Debug-1622eef585316d9e441a.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/Manifold2D.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/Manifold2D.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/Vectalg.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/eigen/EigenSolver.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/eigen/EigenSolver2D.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/manifolds" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/manifolds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +325,7 @@
       <workItem from="1700580124313" duration="57000" />
       <workItem from="1702208372508" duration="29000" />
       <workItem from="1702208419677" duration="294000" />
-      <workItem from="1702209047360" duration="11889000" />
+      <workItem from="1702209047360" duration="14879000" />
     </task>
     <servers />
   </component>
@@ -358,5 +337,31 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
+          <line>23</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
+          <line>24</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
+          <line>26</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
+          <line>25</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,5 +1,5 @@
-#ifndef MANIFOLDS
-#define MANIFOLDS
+#ifndef MANIFOLtotalDifferentialS
+#define MANIFOLtotalDifferentialS
 
 #include "iostream"
 #include "vector"
@@ -18,10 +18,24 @@ vector<T> fun(T x, T y, T z) {
     return {(2 * x) + (x * x) + (y * z), (3 * y) + (x * y) - (z * z), (5 * z) + (y * y) + (2 * x * z)};
 }
 
-template<typename T>
-vector<T> fun2(T x, T y, T z) {
-    return {x, y, z};
+vector<vector<double>> totalDifferential(const vector<FunJet> &jets) {
+    vector<vector<double>> res;
+    for (auto el: jets) res.emplace_back(el.getDiffs());
+    return res;
 }
+
+FunJet funJetWrapper(double x, unsigned& id, const unsigned N) { return {x, id, N}; }
+
+template<typename F, typename... Args>
+auto diffAtPoint(F f, Args... args) {
+    return f(args...);
+}
+
+//template<typename F, typename... Args>
+//vector<vector<double>> D(F f, Args... args) {
+//    vector<vector<double>> res;
+//    return ();
+//}
 
 // f(x,y) = ( (0 + x + y + x2 - 5xy - 2y2)/(1 + x - 4y), (1 + 2x - y + x2 - 4xy + 8y2)/(1 - 2x + 8y) )
 int main() {
@@ -37,11 +51,19 @@ int main() {
     double y = 0;
     double z = 0;
     unsigned noOfVars = 3;
-    auto resVec = fun2(FunJet(x, 0, noOfVars), FunJet(y, 1, noOfVars), FunJet(z, 2, noOfVars));
-    cout << "f x  y z\n";
-    for (auto &res: resVec) {
-        cout << res << "\n";
+//    auto jets = vector{FunJet(x, noOfVars), FunJet(y, noOfVars), FunJet(z, noOfVars)};
+//    FunJet::setVarOrder(jets,noOfVars);
+//    auto differential = totalDifferential(fun();
+    auto differential = totalDifferential(fun(FunJet(x, 0, noOfVars), FunJet(y, 1, noOfVars), FunJet(z, 2, noOfVars)));
+    for (auto &row: differential) {
+        for (auto &el: row) {
+            cout << el << " ";
+        }
+        cout << "\n";
     }
+
+//    auto res = diffAtPoint(fun<double>, 1, 2, 3);
+//    for (auto el: res) cout << el << " ";
 }
 
 #endif
