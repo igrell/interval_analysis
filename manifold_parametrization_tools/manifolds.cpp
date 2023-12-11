@@ -10,16 +10,25 @@
 using namespace Eigen;
 using std::cout, std::cin, std::endl, std::vector, std::tuple, std::string;
 
-
-vector<vector<double>> totalDifferential(const vector<FunJet> &jets) {
-    vector<vector<double>> res;
-    for (auto el: jets) res.emplace_back(el.getDiffs());
-    return res;
+MatrixXd totalDifferential(const vector<FunJet> &jets) {
+    vector<double> diffVec;
+    MatrixXd resMatrix;
+    for (auto el: jets) for (auto diff: el.getDiffs()) diffVec.emplace_back(diff);
+    return MatrixXd::Map(&diffVec[0], jets.size(), jets[0].getDiffSize()).transpose();
 }
 
 /// @name funJetWrapper
 /// @brief Calls FunJest constructor with decrement of varFlag
 FunJet funJetWrapper(unsigned &varFlag, const unsigned &noOfVars, const double &x) { return {x, varFlag--, noOfVars}; }
+
+/// @brief computes eigenvalues and eigenvectors of a matrix
+/// @name computeEigens
+/// @result pair = {eigenvalues, eigenvectors}
+auto computeEigens(const MatrixXd &matrix) {
+    return std::pair<VectorXd, Matrix<std::complex<double>, -1, -1, 0, -1, -1>>{
+            matrix.selfadjointView<Lower>().eigenvalues(),
+            EigenSolver<MatrixXd>(matrix).eigenvectors()};
+}
 
 //template<typename F, typename... Args>
 //auto applyFun(F f, Args... args) {
@@ -63,10 +72,16 @@ FunJet funJetWrapper(unsigned &varFlag, const unsigned &noOfVars, const double &
 //    return result;
 //}
 
+
 // f(x,y) = ( (0 + x + y + x2 - 5xy - 2y2)/(1 + x - 4y), (1 + 2x - y + x2 - 4xy + 8y2)/(1 - 2x + 8y) )
 template<typename T>
 vector<T> fun(T x, T y, T z) {
     return {(2 * x) + (x * x) + (y * z), (3 * y) + (x * y) - (z * z), (5 * z) + (y * y) + (2 * x * z)};
+}
+
+template<typename T>
+vector<T> fun2(T x, T y, T z) {
+    return {2 * x + 3 * y + 4 * z, 5 * x + 6 * y + 7 * z, 8 * x + 9 * y + 10 * z};
 }
 
 int main() {
@@ -84,17 +99,17 @@ int main() {
     unsigned noOfVars = 3;
     unsigned varFlag =
             noOfVars - 1; // as for some reason funJets are initialized from the last one, this flag goes from 2 to 0
-    auto differential = convert_vvd_to_matrix( // convertion to Eigen format
-            totalDifferential( // computes differential from vector of jets
+    auto differential =
+            totalDifferential( // computes differential from vector of jets, outputs MatrixXd
                     fun(funJetWrapper(varFlag, noOfVars, x),
                         funJetWrapper(varFlag, noOfVars, y),
                         funJetWrapper(varFlag, noOfVars, z))
-            )
-    );
-    cout << differential << "\n";
-    EigenSolver<MatrixXd> eigenSolver(differential);
-    cout << eigenSolver.eigenvalues().col(0);
-    // TODO biggest eigenvalue etc
+            );
+    cout << "p = (" << x << "," << y << "," << z << ")\nDf(p):\n" << differential << "\n";
+    auto eigens = computeEigens(differential);
+    auto &eigenvals = eigens.first;
+    auto &eigenvecs = eigens.second;
+    cout << "Eigenvalues:\n" << eigenvals << "\nEigenvectors:\n" << eigenvecs << "\n";
 }
 
 #endif

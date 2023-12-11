@@ -36,13 +36,6 @@
       <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2022/k2022_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2022/k2022_3.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PF/lab_8/lab_8_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_8/lab_8_3.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PwL/lab_4/lab_4_2.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PwL/lab_4/lab_4_2.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/Autodiff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/manifolds" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/manifolds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +78,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff",
+    "last_opened_file_path": "/home/igor/Documents/Kod/EMC++P/lab_6_variadic templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -325,7 +318,7 @@
       <workItem from="1700580124313" duration="57000" />
       <workItem from="1702208372508" duration="29000" />
       <workItem from="1702208419677" duration="294000" />
-      <workItem from="1702209047360" duration="14879000" />
+      <workItem from="1702209047360" duration="21669000" />
     </task>
     <servers />
   </component>
@@ -344,22 +337,22 @@
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
           <line>23</line>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
           <line>24</line>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
           <line>26</line>
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/autodiff/Autodiff.h</url>
           <line>25</line>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
