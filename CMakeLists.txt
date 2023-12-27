@@ -26,12 +26,12 @@ add_executable(sivia interval_arithmetic_tools/Interval.h interval_arithmetic_to
 target_include_directories(sivia PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)
 
 add_executable(interval_newton interval_newton.cpp
-        autodiff/Autodiff.cpp autodiff/Autodiff.h
+        autodiff/FAD.cpp autodiff/FAD.h
         interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp
         exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
 target_include_directories(interval_newton PRIVATE autodiff/ covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)
 
-add_executable(autodiff autodiff/Autodiff.h autodiff/Autodiff.cpp
+add_executable(autodiff autodiff/FAD.h autodiff/FAD.cpp
         interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp
         exceptions/EmptyIntersectionException.h)
 target_include_directories(autodiff PRIVATE interval_arithmetic_tools/ exceptions/ autodiff/ ./)
@@ -46,6 +46,14 @@ target_include_directories(stable_points PRIVATE covering_relations_analysis/ ex
 
 add_executable(manifolds manifold_parametrization_tools/manifolds.cpp
         interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp
-        autodiff/Autodiff.h autodiff/Autodiff.cpp
+        autodiff/FAD.h autodiff/FAD.cpp
         exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
 target_include_directories(manifolds PRIVATE autodiff/ interval_arithmetic_tools/ exceptions/ ./)
+
+add_executable(testing testing.cpp
+        covering_relations_analysis/TSet.h covering_relations_analysis/TSet.cpp
+        interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp interval_arithmetic_tools/IPoint.h interval_arithmetic_tools/IPoint.cpp
+        mappings/Mapping.h mappings/Henon.h mappings/Rossler.h
+        DrawPolicy.h
+        exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
+target_include_directories(testing PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)

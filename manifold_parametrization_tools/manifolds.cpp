@@ -4,7 +4,7 @@
 #include "iostream"
 #include "vector"
 #include "Eigen/Eigen"
-#include "autodiff/Autodiff.h"
+#include "autodiff/FAD.h"
 
 using namespace Eigen;
 using std::cout, std::cin, std::endl, std::vector;

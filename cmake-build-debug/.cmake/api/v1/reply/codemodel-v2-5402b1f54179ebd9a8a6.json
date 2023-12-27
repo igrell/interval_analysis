@@ -1,0 +1,123 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "interval_analysis",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "autodiff::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-autodiff-Debug-ca3d1a81f7d32e409a3a.json",
+					"name" : "autodiff",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "covering_relations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-covering_relations-Debug-9bc28e2b3f78ab12c65e.json",
+					"name" : "covering_relations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "interval_arithmetic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-interval_arithmetic-Debug-34cdd91a12822a1f958d.json",
+					"name" : "interval_arithmetic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "interval_newton::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-interval_newton-Debug-985738f0ea0f942805e4.json",
+					"name" : "interval_newton",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "manifolds::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-manifolds-Debug-41a0fffe6928ec71c1c8.json",
+					"name" : "manifolds",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sivia::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sivia-Debug-0fb686c9fed1412f8f3d.json",
+					"name" : "sivia",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stable_points::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stable_points-Debug-d4496ccc1134f4fcaf97.json",
+					"name" : "stable_points",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testing-Debug-f0e19e5a6d018db8f923.json",
+					"name" : "testing",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug",
+		"source" : "/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

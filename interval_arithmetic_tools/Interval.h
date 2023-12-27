@@ -87,6 +87,7 @@ Interval operator-(double, Interval);
 
 Interval operator*(double, Interval);
 
+
 template<double(*f)(double, double)>
 Interval applyFunToInterval(const Interval &); // template for all simple interval math. operations with rounding
 

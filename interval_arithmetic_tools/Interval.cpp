@@ -174,9 +174,7 @@ Interval operator-(double b, Interval a) {
 }
 
 Interval operator*(double a, Interval b) {
-//    return {a * b.get_lo(), a * b.get_hi(), b.get_label()};
     return {a * b.get_lo(), a * b.get_hi()};
-
 }
 
 template<double (*f)(double), int R>

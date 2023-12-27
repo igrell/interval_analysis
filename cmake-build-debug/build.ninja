@@ -236,8 +236,8 @@ build CMakeFiles/interval_newton.dir/interval_newton.cpp.o: CXX_COMPILER__interv
   OBJECT_DIR = CMakeFiles/interval_newton.dir
   OBJECT_FILE_DIR = CMakeFiles/interval_newton.dir
 
-build CMakeFiles/interval_newton.dir/autodiff/Autodiff.cpp.o: CXX_COMPILER__interval_newton_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/Autodiff.cpp || cmake_object_order_depends_target_interval_newton
-  DEP_FILE = CMakeFiles/interval_newton.dir/autodiff/Autodiff.cpp.o.d
+build CMakeFiles/interval_newton.dir/autodiff/FAD.cpp.o: CXX_COMPILER__interval_newton_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/FAD.cpp || cmake_object_order_depends_target_interval_newton
+  DEP_FILE = CMakeFiles/interval_newton.dir/autodiff/FAD.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/interval_newton.dir
@@ -258,7 +258,7 @@ build CMakeFiles/interval_newton.dir/interval_arithmetic_tools/Interval.cpp.o: C
 #############################################
 # Link the executable interval_newton
 
-build interval_newton: CXX_EXECUTABLE_LINKER__interval_newton_Debug CMakeFiles/interval_newton.dir/interval_newton.cpp.o CMakeFiles/interval_newton.dir/autodiff/Autodiff.cpp.o CMakeFiles/interval_newton.dir/interval_arithmetic_tools/Interval.cpp.o
+build interval_newton: CXX_EXECUTABLE_LINKER__interval_newton_Debug CMakeFiles/interval_newton.dir/interval_newton.cpp.o CMakeFiles/interval_newton.dir/autodiff/FAD.cpp.o CMakeFiles/interval_newton.dir/interval_arithmetic_tools/Interval.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/interval_newton.dir
   POST_BUILD = :
@@ -275,8 +275,8 @@ build interval_newton: CXX_EXECUTABLE_LINKER__interval_newton_Debug CMakeFiles/i
 
 build cmake_object_order_depends_target_autodiff: phony || CMakeFiles/autodiff.dir
 
-build CMakeFiles/autodiff.dir/autodiff/Autodiff.cpp.o: CXX_COMPILER__autodiff_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/Autodiff.cpp || cmake_object_order_depends_target_autodiff
-  DEP_FILE = CMakeFiles/autodiff.dir/autodiff/Autodiff.cpp.o.d
+build CMakeFiles/autodiff.dir/autodiff/FAD.cpp.o: CXX_COMPILER__autodiff_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/FAD.cpp || cmake_object_order_depends_target_autodiff
+  DEP_FILE = CMakeFiles/autodiff.dir/autodiff/FAD.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/autodiff.dir
@@ -297,7 +297,7 @@ build CMakeFiles/autodiff.dir/interval_arithmetic_tools/Interval.cpp.o: CXX_COMP
 #############################################
 # Link the executable autodiff
 
-build autodiff: CXX_EXECUTABLE_LINKER__autodiff_Debug CMakeFiles/autodiff.dir/autodiff/Autodiff.cpp.o CMakeFiles/autodiff.dir/interval_arithmetic_tools/Interval.cpp.o
+build autodiff: CXX_EXECUTABLE_LINKER__autodiff_Debug CMakeFiles/autodiff.dir/autodiff/FAD.cpp.o CMakeFiles/autodiff.dir/interval_arithmetic_tools/Interval.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/autodiff.dir
   POST_BUILD = :
@@ -388,8 +388,8 @@ build CMakeFiles/manifolds.dir/interval_arithmetic_tools/Interval.cpp.o: CXX_COM
   OBJECT_DIR = CMakeFiles/manifolds.dir
   OBJECT_FILE_DIR = CMakeFiles/manifolds.dir/interval_arithmetic_tools
 
-build CMakeFiles/manifolds.dir/autodiff/Autodiff.cpp.o: CXX_COMPILER__manifolds_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/Autodiff.cpp || cmake_object_order_depends_target_manifolds
-  DEP_FILE = CMakeFiles/manifolds.dir/autodiff/Autodiff.cpp.o.d
+build CMakeFiles/manifolds.dir/autodiff/FAD.cpp.o: CXX_COMPILER__manifolds_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/FAD.cpp || cmake_object_order_depends_target_manifolds
+  DEP_FILE = CMakeFiles/manifolds.dir/autodiff/FAD.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/manifolds.dir
@@ -403,13 +403,66 @@ build CMakeFiles/manifolds.dir/autodiff/Autodiff.cpp.o: CXX_COMPILER__manifolds_
 #############################################
 # Link the executable manifolds
 
-build manifolds: CXX_EXECUTABLE_LINKER__manifolds_Debug CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o CMakeFiles/manifolds.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/manifolds.dir/autodiff/Autodiff.cpp.o
+build manifolds: CXX_EXECUTABLE_LINKER__manifolds_Debug CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o CMakeFiles/manifolds.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/manifolds.dir/autodiff/FAD.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/manifolds.dir
   POST_BUILD = :
   PRE_LINK = :
   TARGET_FILE = manifolds
   TARGET_PDB = manifolds.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target testing
+
+
+#############################################
+# Order-only phony target for testing
+
+build cmake_object_order_depends_target_testing: phony || CMakeFiles/testing.dir
+
+build CMakeFiles/testing.dir/testing.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/testing.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/testing.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir
+
+build CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis/TSet.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir/covering_relations_analysis
+
+build CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/Interval.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir/interval_arithmetic_tools
+
+build CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/IPoint.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir/interval_arithmetic_tools
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target testing
+
+
+#############################################
+# Link the executable testing
+
+build testing: CXX_EXECUTABLE_LINKER__testing_Debug CMakeFiles/testing.dir/testing.cpp.o CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/testing.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = testing
+  TARGET_PDB = testing.dbg
 
 
 #############################################
@@ -445,7 +498,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug
 
-build all: phony interval_arithmetic covering_relations sivia interval_newton autodiff stable_points manifolds
+build all: phony interval_arithmetic covering_relations sivia interval_newton autodiff stable_points manifolds testing
 
 # =============================================================================
 # Built-in targets
