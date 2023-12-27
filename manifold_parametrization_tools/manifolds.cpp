@@ -9,6 +9,8 @@
 using namespace Eigen;
 using std::cout, std::cin, std::endl, std::vector;
 
+/// @name totalDifferential
+/// @brief computes differential from vector of jets, outputs MatrixXd
 MatrixXd totalDifferential(const vector<FunJet> &jets) {
     vector<double> diffVec;
     MatrixXd resMatrix;
@@ -88,7 +90,7 @@ int main() {
     double z = 0;
     unsigned noOfVars = 3;
     auto differential =
-            totalDifferential( // computes differential from vector of jets, outputs MatrixXd
+            totalDifferential(
                     fun(FunJet(x, 0, noOfVars),
                         FunJet(y, 1, noOfVars),
                         FunJet(z, 2, noOfVars))

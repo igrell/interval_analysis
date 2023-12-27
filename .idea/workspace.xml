@@ -27,20 +27,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/funkcja.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/funkcja.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MN/BACA/BACA_E/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2020/k2020_1.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2020/k2020_1.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2020/k2020_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2020/k2020_3.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2021/k2021_1.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2021/k2021_1.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2022/k2022_2.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2022/k2022_2.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/2022/k2022_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/kolokwia/2022/k2022_3.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PF/lab_8/lab_8_3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/lab_8/lab_8_3.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PwL/lab_4/lab_4_2.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PwL/lab_4/lab_4_2.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/manifolds" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/manifolds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mappings/Henon.h" beforeDir="false" afterPath="$PROJECT_DIR$/mappings/Henon.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,11 +105,6 @@
     </option>
   </component>
   <component name="RunManager" selected="CMake Application.manifolds">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="autodiff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="autodiff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="autodiff">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -325,6 +311,7 @@
       <workItem from="1702208419677" duration="294000" />
       <workItem from="1702209047360" duration="21669000" />
       <workItem from="1702282043145" duration="8121000" />
+      <workItem from="1703700936369" duration="141000" />
     </task>
     <servers />
   </component>
