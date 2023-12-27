@@ -28,21 +28,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/autodiff/TaylorAD.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/autodiff/TaylorAD.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/autodiff/TaylorPol.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/autodiff/TaylorPol.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-testing-Debug-f0e19e5a6d018db8f923.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autodiff/TaylorPol.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/TaylorPol.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/testing.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/testing.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/testing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/testing" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/testing.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +327,7 @@
       <workItem from="1702208419677" duration="294000" />
       <workItem from="1702209047360" duration="21669000" />
       <workItem from="1702282043145" duration="8121000" />
-      <workItem from="1703700936369" duration="7703000" />
+      <workItem from="1703700936369" duration="9073000" />
     </task>
     <servers />
   </component>
@@ -346,16 +339,5 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/autodiff/TaylorPol.h</url>
-          <line>8</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
