@@ -55,5 +55,7 @@ add_executable(testing testing.cpp
         interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp interval_arithmetic_tools/IPoint.h interval_arithmetic_tools/IPoint.cpp
         mappings/Mapping.h mappings/Henon.h mappings/Rossler.h
         DrawPolicy.h
-        exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
-target_include_directories(testing PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ ./)
+        exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h
+        autodiff/FAD.h autodiff/FAD.cpp autodiff/TaylorPol.h autodiff/TaylorPol.cpp autodiff/TaylorAD.h autodiff/TaylorAD.cpp
+)
+target_include_directories(testing PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ autodiff/ ./)

@@ -423,30 +423,51 @@ build cmake_object_order_depends_target_testing: phony || CMakeFiles/testing.dir
 build CMakeFiles/testing.dir/testing.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/testing.cpp || cmake_object_order_depends_target_testing
   DEP_FILE = CMakeFiles/testing.dir/testing.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/testing.dir
   OBJECT_FILE_DIR = CMakeFiles/testing.dir
 
 build CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis/TSet.cpp || cmake_object_order_depends_target_testing
   DEP_FILE = CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/testing.dir
   OBJECT_FILE_DIR = CMakeFiles/testing.dir/covering_relations_analysis
 
 build CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/Interval.cpp || cmake_object_order_depends_target_testing
   DEP_FILE = CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/testing.dir
   OBJECT_FILE_DIR = CMakeFiles/testing.dir/interval_arithmetic_tools
 
 build CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools/IPoint.cpp || cmake_object_order_depends_target_testing
   DEP_FILE = CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
   OBJECT_DIR = CMakeFiles/testing.dir
   OBJECT_FILE_DIR = CMakeFiles/testing.dir/interval_arithmetic_tools
+
+build CMakeFiles/testing.dir/autodiff/FAD.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/FAD.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/autodiff/FAD.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir/autodiff
+
+build CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/TaylorPol.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir/autodiff
+
+build CMakeFiles/testing.dir/autodiff/TaylorAD.cpp.o: CXX_COMPILER__testing_unscanned_Debug /home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff/TaylorAD.cpp || cmake_object_order_depends_target_testing
+  DEP_FILE = CMakeFiles/testing.dir/autodiff/TaylorAD.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/covering_relations_analysis -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/exceptions -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/interval_arithmetic_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/mappings -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/sivia_tools -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/autodiff -I/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/.
+  OBJECT_DIR = CMakeFiles/testing.dir
+  OBJECT_FILE_DIR = CMakeFiles/testing.dir/autodiff
 
 
 # =============================================================================
@@ -456,7 +477,7 @@ build CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o: CXX_COMPILE
 #############################################
 # Link the executable testing
 
-build testing: CXX_EXECUTABLE_LINKER__testing_Debug CMakeFiles/testing.dir/testing.cpp.o CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o
+build testing: CXX_EXECUTABLE_LINKER__testing_Debug CMakeFiles/testing.dir/testing.cpp.o CMakeFiles/testing.dir/covering_relations_analysis/TSet.cpp.o CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o CMakeFiles/testing.dir/interval_arithmetic_tools/IPoint.cpp.o CMakeFiles/testing.dir/autodiff/FAD.cpp.o CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o CMakeFiles/testing.dir/autodiff/TaylorAD.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/testing.dir
   POST_BUILD = :

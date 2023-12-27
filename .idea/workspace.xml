@@ -28,29 +28,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/testing.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/autodiff/TaylorAD.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/autodiff/TaylorAD.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/autodiff/TaylorPol.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/autodiff/TaylorPol.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/FAD.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/FAD.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c6bcda39563fcc95e274.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-10T15-15-47-0746.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-autodiff-Debug-d64772638bdaa1d2ffa7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-interval_newton-Debug-26e58601b6c4496b6af8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-manifolds-Debug-df26cab5299ae73e4a93.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-testing-Debug-f0e19e5a6d018db8f923.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/manifolds.dir/manifold_parametrization_tools/manifolds.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/interval_arithmetic_tools/Interval.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/testing.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/testing.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/manifolds" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/manifolds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interval_newton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/interval_newton.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/manifold_parametrization_tools/manifolds.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mappings/Henon.h" beforeDir="false" afterPath="$PROJECT_DIR$/mappings/Henon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mappings/Mapping.h" beforeDir="false" afterPath="$PROJECT_DIR$/mappings/Mapping.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/testing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/testing" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/testing.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,7 +334,7 @@
       <workItem from="1702208419677" duration="294000" />
       <workItem from="1702209047360" duration="21669000" />
       <workItem from="1702282043145" duration="8121000" />
-      <workItem from="1703700936369" duration="4005000" />
+      <workItem from="1703700936369" duration="7703000" />
     </task>
     <servers />
   </component>
@@ -353,5 +346,16 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/autodiff/TaylorPol.h</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

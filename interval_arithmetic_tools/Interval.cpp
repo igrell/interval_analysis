@@ -2,7 +2,7 @@
 #include "EmptyIntersectionException.h"
 #include "DivisionByZeroIntervalException.h"
 
-using std::min, std::max, std::abs;
+using std::min, std::max, std::abs, std::ostream;
 
 
 Interval Interval::operator-(const Interval &b) const {
@@ -163,7 +163,7 @@ bool Interval::containsZero() const {
     // return lo * hi < 0;
 }
 
-std::ostream &operator<<(std::ostream &stream, const Interval &a) {
+ostream &operator<<(ostream &stream, const Interval &a) {
     stream << std::setprecision(17) << "[" << a.get_lo() << " , " << a.get_hi() << "]";
     return stream;
 }
@@ -271,9 +271,9 @@ Interval pow1(const Interval &x, const Interval &y) {
 }
 
 // explicit instantiation of <<
-template<> std::ostream &operator
+template<> ostream &operator
 <<<Interval>(
-std::ostream &ostream,
+ostream &ostream,
 const std::pair<Interval, Interval> &pair
 ) {
 ostream << "{ " << pair.first << " ; " << pair.second << " }\n";
@@ -281,9 +281,9 @@ return
 ostream;
 }
 
-template<> std::ostream &operator
+template<> ostream &operator
 <<<double>(
-std::ostream &ostream,
+ostream &ostream,
 const std::pair<double, double> &pair
 ) {
 ostream << "[ " << pair.first << " ; " << pair.second << " ]\n";
