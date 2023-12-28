@@ -30,12 +30,19 @@
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autodiff/TaylorAD.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/TaylorAD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autodiff/TaylorPol.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/TaylorPol.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-4b48ff6c18fbebb622ff.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-27T19-58-54-0776.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-testing-Debug-78ded9582c1b0d30ed6c.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/autodiff/TaylorPol.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/testing.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testing.dir/testing.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/testing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/testing" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.h" beforeDir="false" afterPath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/testing.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,9 +117,9 @@
     </option>
   </component>
   <component name="RunManager" selected="CMake Application.testing">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="autodiff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="autodiff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="autodiff">
@@ -327,7 +334,8 @@
       <workItem from="1702208419677" duration="294000" />
       <workItem from="1702209047360" duration="21669000" />
       <workItem from="1702282043145" duration="8121000" />
-      <workItem from="1703700936369" duration="9073000" />
+      <workItem from="1703700936369" duration="9598000" />
+      <workItem from="1703758568705" duration="10182000" />
     </task>
     <servers />
   </component>

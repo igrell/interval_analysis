@@ -57,5 +57,6 @@ add_executable(testing testing.cpp
         DrawPolicy.h
         exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h
         autodiff/FAD.h autodiff/FAD.cpp autodiff/TaylorPol.h autodiff/TaylorPol.cpp
+        autodiff/TaylorAD.h
 )
 target_include_directories(testing PRIVATE covering_relations_analysis/ exceptions/ interval_arithmetic_tools/ mappings/ sivia_tools/ autodiff/ ./)

@@ -16,19 +16,17 @@ public:
 
     explicit TaylorPol(const size_t _order) : coeffs(vector<T>(_order + 1)) {}
 
-    vector<T> getCoeffs() const { return coeffs; }
-
     [[nodiscard]] size_t getOrder() const { return coeffs.size() - 1; }
 
-    T &operator[](unsigned id);
+    T &operator[](unsigned);
 
-    T operator[](unsigned id) const;
+    T operator[](unsigned) const;
 
-    TaylorPol<T> operator+(const TaylorPol<T> &q) const;
+    TaylorPol<T> operator+(const TaylorPol<T> &) const;
 
-    TaylorPol<T> operator-(const TaylorPol<T> &q) const;
+    TaylorPol<T> operator-(const TaylorPol<T> &) const;
 
-    TaylorPol<T> operator*(const TaylorPol<T> &q) const;
+    TaylorPol<T> operator*(const TaylorPol<T> &) const;
 };
 
 /* Operators */
@@ -66,10 +64,8 @@ template<class T>
 TaylorPol<T> TaylorPol<T>::operator*(const TaylorPol<T> &q) const {
     const TaylorPol<T> &p = *this;
     assert(p.getOrder() == q.getOrder());
-    TaylorPol<T> r(p.getOrder());
-    T tmpSum = 0;
-    for (unsigned i = 0; i <= p.getOrder(); ++i)
-        for (unsigned j = 0; j <= i; ++j) r[i] += p[j] * q[i - j];
+    TaylorPol<T> r = p;
+    for (unsigned i = 0; i <= p.getOrder(); ++i) r[i] *= q[i];
     return r;
 }
 

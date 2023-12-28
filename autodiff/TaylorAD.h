@@ -13,7 +13,7 @@ using std::vector, std::ostream;
 template<class T>
 class TaylorJet {
     vector<TaylorPol<T>> pols; // p^[i] (t)
-    vector<vector<T>> diffs; // p^(i) (t)
+//    vector<vector<T>> diffs; // p^(i) (t)
 
 public:
 
@@ -21,7 +21,7 @@ public:
         pols = vector<TaylorPol<T>>(order);
     }
 
-    explicit TaylorJet(const vector<TaylorPol<T>> _pols) : pols(_pols), diffs(vector<vector<T>>(_pols.size())) {}
+    explicit TaylorJet(const vector<TaylorPol<T>> _pols) : pols(_pols) {}
 
     [[nodiscard]] size_t getOrder() const;
 
@@ -29,12 +29,47 @@ public:
 
     TaylorPol<T> &polAt(const unsigned int k) { return pols.at(k); };
 
-    vector<T> diffAt(const unsigned int k) const { return diffs.at(k); }
+    vector<T> diffAt(const unsigned int k) const { return polAt(k) * fact(k); }
 
-    vector<T> &diffAt(const unsigned int k) { return diffs.at(k); }
+    vector<T> &diffAt(const unsigned int k) { return polAt(k) * fact(k); }
 
-    TaylorJet<T> operator+(TaylorJet<T> &q) const;
+    TaylorJet<T> operator+(TaylorJet<T> &) const;
+
+    TaylorJet<T> operator-(TaylorJet<T> &) const;
+
+    TaylorJet<T> operator*(TaylorJet<T> &) const;
+
 };
+
+// Helper factorial evaluator
+unsigned fact(unsigned long long k) {
+    if (k == 0) return 1;
+    else return k * fact(k - 1);
+}
+
+template<class T>
+TaylorJet<T> TaylorJet<T>::operator*(TaylorJet<T> &q) const {
+    const TaylorJet<T> &p = *this;
+    assert(p.getOrder() == q.getOrder());
+    vector<TaylorPol<T>> newpols;
+    for (unsigned i = 0; i <= p.getOrder(); ++i) {
+        TaylorPol<T> tmpSum(p.polAt(0).getOrder());
+        for (unsigned j = 0; j <= i; ++j)
+            tmpSum = tmpSum +
+                     p.polAt(j) * q.polAt(i - j);
+        newpols.emplace_back(tmpSum);
+    }
+    return TaylorJet<T>(newpols);
+}
+
+template<class T>
+TaylorJet<T> TaylorJet<T>::operator-(TaylorJet<T> &q) const {
+    const TaylorJet<T> &p = *this;
+    assert(p.getOrder() == q.getOrder());
+    vector<TaylorPol<T>> newpols;
+    for (unsigned i = 0; i <= p.getOrder(); ++i) newpols.emplace_back(p.polAt(i) - q.polAt(i));
+    return TaylorJet<T>(newpols);
+}
 
 template<class T>
 TaylorJet<T> TaylorJet<T>::operator+(TaylorJet<T> &q) const {
