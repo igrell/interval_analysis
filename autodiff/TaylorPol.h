@@ -22,6 +22,8 @@ public:
 
     T &operator[](unsigned id);
 
+    T operator[](unsigned id) const;
+
     TaylorPol<T> operator+(const TaylorPol<T> &q) const;
 
     TaylorPol<T> operator-(const TaylorPol<T> &q) const;
@@ -38,11 +40,16 @@ T &TaylorPol<T>::operator[](const unsigned int id) {
 }
 
 template<class T>
+T TaylorPol<T>::operator[](unsigned int id) const {
+    return coeffs[id];
+}
+
+template<class T>
 TaylorPol<T> TaylorPol<T>::operator+(const TaylorPol<T> &q) const {
     const TaylorPol<T> &p = *this;
     assert(p.getOrder() == q.getOrder());
     TaylorPol<T> r = p;
-    for (unsigned i = 0; i <= p.getOrder(); ++i) r[i] += q.getCoeffs()[i];
+    for (unsigned i = 0; i <= p.getOrder(); ++i) r[i] += q[i];
     return r;
 }
 
@@ -51,7 +58,7 @@ TaylorPol<T> TaylorPol<T>::operator-(const TaylorPol<T> &q) const {
     const TaylorPol<T> &p = *this;
     assert(p.getOrder() == q.getOrder());
     TaylorPol<T> r = p;
-    for (unsigned i = 0; i <= p.getOrder(); ++i) r[i] -= q.getCoeffs()[i];
+    for (unsigned i = 0; i <= p.getOrder(); ++i) r[i] -= q[i];
     return r;
 }
 
@@ -62,15 +69,15 @@ TaylorPol<T> TaylorPol<T>::operator*(const TaylorPol<T> &q) const {
     TaylorPol<T> r(p.getOrder());
     T tmpSum = 0;
     for (unsigned i = 0; i <= p.getOrder(); ++i)
-        for (unsigned j = 0; j <= i; ++j) r[i] += p.getCoeffs()[j] * q.getCoeffs()[i - j];
+        for (unsigned j = 0; j <= i; ++j) r[i] += p[j] * q[i - j];
     return r;
 }
 
 template<class T>
 ostream &operator<<(ostream &ostream, const TaylorPol<T> &p) {
     ostream << "[";
-    for (unsigned i = 0; i < p.getOrder(); ++i) ostream << p.getCoeffs()[i] << " ";
-    ostream << p.getCoeffs()[p.getOrder()] << "]";
+    for (unsigned i = 0; i < p.getOrder(); ++i) ostream << p[i] << " ";
+    ostream << p[p.getOrder()] << "]";
     return ostream;
 }
 
