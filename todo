@@ -1,0 +1,13 @@
+SIVIA W PRAKTYCE
+x 1. dzielimy dziedzinę na ileś kostek
+x 2. obliczamy wartość f w każdej z kostek (zakres wartości za pomocą przedziału!)
+x 3. odrzucamy te w których nie ma zera
+4. dla pozostałych (tych w których może być zero) wywołujemy sivie żeby odrzucić wsteczną propagacją te które nie zawierają zera
+5. dostajemy zawężone kostki
+6. dzielimy je bisekcją i powtarzamy aż do jakiejś tolerancji
+7. w tych dostatecznie małych wykonujemy bardziej efektywne metody (newton/krawczyk)
+
+ZADANIE: mając dany układ dynamiczny, chcemy znaleźć  jego punkty stałe/okresowe (czyli zera funkcji F1(x) = f(x) - x
+Dla danej funkcji oszacować gdzie są punkty okresowe.
+
+zrobić abstrakcyjny algorytm znajdujący miejsca zerowe przez sivie 
