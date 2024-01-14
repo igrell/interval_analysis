@@ -12,7 +12,6 @@ using std::cout, std::string, std::ostream, std::pair;
 
 
 class Interval {
-//    string label = " ";
     double lo, hi;
 
 public:
@@ -21,27 +20,17 @@ public:
 
     explicit Interval(double number) : lo(number), hi(number) {} //for a thin interval - no label
 
-//    Interval(double number, string label) : lo(number), hi(number), label(std::move(label)) {} //with label
-
     Interval(const Interval &interval) : lo(interval.get_lo()), hi(interval.get_hi()) {} //copying constructor
 
     Interval(double lo, double hi);
-
-//    Interval(initializer_list<double> list) : lo(*list.begin()), hi(*(list.begin()++)) {}
-
-//    Interval(double lo, double hi, string label);
 
     [[nodiscard]] double get_lo() const { return lo; }
 
     [[nodiscard]] double get_hi() const { return hi; }
 
-//    string get_label() { return label; }
-
     void set_lo(double new_lo) { lo = new_lo; }
 
     void set_hi(double new_hi) { hi = new_hi; }
-
-//    void set_label(string new_label) { label = std::move(new_label); }
 
     [[nodiscard]] double width() const;
 

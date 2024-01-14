@@ -13,8 +13,6 @@ Interval Interval::operator-(const Interval &b) const {
     fesetround(FE_UPWARD);
     double new_hi = this->hi - b.lo;
     fesetround(originalRounding);
-//    std::string new_label = this->label + " - " + b.label;
-//    return {new_lo, new_hi, new_label};
     return {new_lo, new_hi};
 }
 
@@ -25,8 +23,6 @@ Interval Interval::operator+(const Interval &b) const {
     fesetround(FE_UPWARD);
     double new_hi = this->hi + b.hi;
     fesetround(originalRounding);
-//    std::string new_label = this->label + " + " + b.label;
-//    return {new_lo, new_hi, new_label};
     return {new_lo, new_hi};
 }
 
@@ -41,8 +37,6 @@ Interval Interval::operator*(const Interval &b) const {
     fesetround(FE_UPWARD);
     double new_hi = max(res1, std::max(res2, std::max(res3, res4)));
     fesetround(originalRounding);
-//    std::string new_label = this->label + " * " + b.label;
-//    return {new_lo, new_hi, new_label};
     return {new_lo, new_hi};
 }
 
@@ -66,23 +60,18 @@ Interval Interval::operator/(const Interval &b) const {
     res4 = this->hi / b.hi;
     double new_hi = max(res1, max(res2, max(res3, res4)));
     fesetround(originalRounding);
-//    std::string new_label = this->label + " / " + b.label;
-//    return {new_lo, new_hi, new_label};
     return {new_lo, new_hi};
 }
 
 Interval Interval::operator+(const double &a) const {
-//    return {get_lo() + a, get_hi() + a, get_label()};
     return {get_lo() + a, get_hi() + a};
 }
 
 Interval Interval::operator-(const double &a) const {
-//    return {get_lo() - a, get_hi() - a, get_label()};
     return {get_lo() - a, get_hi() - a};
 }
 
 Interval Interval::operator*(const double &a) const { //not sure if it should work like that
-//    return {get_lo() * a, get_hi() * a, this->get_label()};
     return {get_lo() * a, get_hi() * a};
 }
 
@@ -94,7 +83,6 @@ Interval Interval::operator/(const double &a) {
     fesetround(FE_UPWARD);
     double new_hi = get_hi() / a;
     fesetround(originalRounding);
-//    return {new_lo, new_hi, get_label()};
     return {new_lo, new_hi};
 }
 
@@ -135,13 +123,6 @@ Interval::Interval(double lo, double hi) : lo(lo), hi(hi) {
 //    }
 }
 
-//Interval::Interval(double lo, double hi, std::string label) : lo(lo), hi(hi), label(std::move(label)) {
-////    if (lo > hi and (lo > 0 and hi > 0)) {
-////        std::cout << "The endpoints of interval: " << *this << "do not define an interval." << std::endl;
-////        return;
-////    }
-//}
-
 Interval Interval::operator-() const {
     return {(-1) * get_hi(), (-1) * get_lo()};
 }
@@ -170,7 +151,6 @@ ostream &operator<<(ostream &stream, const Interval &a) {
 }
 
 Interval operator-(double b, Interval a) {
-//    return {b - a.get_lo(), b - a.get_hi(), a.get_label()};
     return {b - a.get_lo(), b - a.get_hi()};
 }
 
