@@ -1,5 +1,6 @@
 #include "Interval.h"
 #include "EmptyIntersectionException.h"
+#include "bits/stdc++.h"
 #include "DivisionByZeroIntervalException.h"
 
 using std::min, std::max, std::abs, std::ostream;

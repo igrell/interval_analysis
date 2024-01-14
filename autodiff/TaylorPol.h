@@ -1,7 +1,6 @@
 #ifndef TAYLORPOL_H
 #define TAYLORPOL_H
 
-#include <gmpxx.h>
 #include "vector"
 #include "sstream"
 #include "cassert"

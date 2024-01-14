@@ -13,7 +13,6 @@ using std::cout, std::cin, std::endl, std::vector;
 /// @brief computes differential from vector of jets, outputs MatrixXd
 MatrixXd totalDifferential(const vector<FunJet> &jets) {
     vector<double> diffVec;
-    MatrixXd resMatrix;
     for (const auto& el: jets) for (auto diff: el.getDiffs()) diffVec.emplace_back(diff);
     return MatrixXd::Map(&diffVec[0], jets.size(), jets[0].getDiffSize()).transpose();
 }

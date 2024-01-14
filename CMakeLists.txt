@@ -34,7 +34,7 @@ target_include_directories(interval_newton PRIVATE autodiff/ covering_relations_
 add_executable(autodiff autodiff/FAD.h autodiff/FAD.cpp
         interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp
         exceptions/EmptyIntersectionException.h)
-target_include_directories(autodiff PRIVATE interval_arithmetic_tools/ exceptions/ autodiff/ ./)
+target_include_directories(autodiff PRIVATE interval_arithmetic_tools/ exceptions/ autodiff/ ./ ${/opt/homebrew/Cellar/eigen/3.4.0_1/include/eigen3/})
 
 add_executable(stable_points rootFinder.cpp
         interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp interval_arithmetic_tools/IPoint.h interval_arithmetic_tools/IPoint.cpp

@@ -29,9 +29,9 @@ public:
 
     TaylorPol<T> &polAt(const unsigned int k) { return pols.at(k); };
 
-    vector<T> diffAt(const unsigned int k) const { return polAt(k) * fact(k); }
+//    vector<T> diffAt(const unsigned int k) const { return polAt(k) * fact(k); }
 
-    vector<T> &diffAt(const unsigned int k) { return polAt(k) * fact(k); }
+//    vector<T> &diffAt(const unsigned int k) { return polAt(k) * fact(k); }
 
     TaylorJet<T> operator+(TaylorJet<T> &) const;
 

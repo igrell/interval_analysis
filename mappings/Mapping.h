@@ -16,11 +16,15 @@ public:
 
     explicit Mapping(int composition_constant) : composition_constant(composition_constant) {}
 
-    template<class Vector>
-    Vector map_1(const Vector& obj);
+    virtual T map_1(const T&, const T&) const  = 0;
 
-    template<class Vector>
-    Vector map_2(const Vector& obj);
+    virtual T map_2(const T&, const T&) const = 0;
+
+//    template<class Vector>
+//    Vector map_1(const Vector& obj);
+//
+//    template<class Vector>
+//    Vector map_2(const Vector& obj);
 
     pair<T, T> map(const T &x, const T &y) const;
 
