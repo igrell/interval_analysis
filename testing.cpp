@@ -4,24 +4,12 @@
 #include "iostream"
 #include "TaylorPol.h"
 #include "TaylorAD.h"
+#include "cmath"
 
 int main() {
-    double a = 4.0;
-    double b = 3.0;
-    Interval aint(a/b,b/a);
-    std::cout << aint;
-//    TaylorPol<double> p({1,1,1});
-//    TaylorPol<double> q({2,2,2});
-//    std::cout << p * q << "\n";
-//    TaylorJet<double> jet1({p,q});
-//    TaylorJet<double> jet2({q,p});
-//    auto order = jet1.getOrder();
-//    TaylorJet<double> jet3(order);
-//    jet1.polAt(0) = q;
-//    std::cout << jet1 * jet2 << "\n";
-//    for (auto el : jet1.diffAt(0)) std::cout << el;
-//    Henon henon(1.0,1.0,1);
-//    std::vector<Interval> vec{Interval(1,2), Interval(3,4)};
-
-//    std::cout << henon(vec)[0] << " " << henon(vec)[1];
+    TaylorPol<double> p0({1,2,3});
+    TaylorPol<double> p1({4,5,6});
+    TaylorPol<double> p2({7,8,9});
+    TaylorJet<double> jet({p0,p1,p2});
+    std::cout << jet.diffAt(2);
 }

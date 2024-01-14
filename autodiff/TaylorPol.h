@@ -13,6 +13,8 @@ class TaylorPol {
 public:
     explicit TaylorPol(const vector<T> &_coeffs) : coeffs(_coeffs) {}
 
+    explicit TaylorPol(const vector<T> &&_coeffs) : coeffs(_coeffs) {}
+
     explicit TaylorPol(const size_t _order) : coeffs(vector<T>(_order + 1)) {}
 
     [[nodiscard]] size_t getOrder() const { return coeffs.size() - 1; }
@@ -26,7 +28,16 @@ public:
     TaylorPol<T> operator-(const TaylorPol<T> &) const;
 
     TaylorPol<T> operator*(const TaylorPol<T> &) const;
+
+    TaylorPol<T> operator*(const unsigned) const;
 };
+
+template<class T>
+TaylorPol<T> TaylorPol<T>::operator*(const unsigned int c) const {
+   TaylorPol<T> res = *this;
+   for (auto& el : res.coeffs) el *= c;
+   return res;
+}
 
 /* Operators */
 

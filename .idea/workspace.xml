@@ -35,8 +35,10 @@
       <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff_T.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autodiff/Autodiff_T.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autodiff/TaylorAD.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/TaylorAD.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autodiff/TaylorPol.h" beforeDir="false" afterPath="$PROJECT_DIR$/autodiff/TaylorPol.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sivia_tools/sivia.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sivia_tools/sivia.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/testing.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +77,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;CMake Application.covering_relations.executor&quot;: &quot;Run&quot;,
     &quot;CMake Application.manifolds.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.sivia.executor&quot;: &quot;Run&quot;,
     &quot;CMake Application.testing.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -114,10 +117,10 @@
       <command value="settings" />
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.covering_relations">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.testing">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="autodiff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="autodiff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="autodiff">
@@ -349,6 +352,7 @@
       <workItem from="1704794969012" duration="4000" />
       <workItem from="1705241384702" duration="3972000" />
       <workItem from="1705247320974" duration="2000" />
+      <workItem from="1705254973374" duration="2902000" />
     </task>
     <servers />
   </component>

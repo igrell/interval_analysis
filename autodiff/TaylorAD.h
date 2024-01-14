@@ -4,22 +4,24 @@
 #include "vector"
 #include "TaylorPol.h"
 #include "cassert"
+#include "cmath"
 #include "sstream"
 
 using std::vector, std::ostream;
+
+// Helper factorial evaluator
+unsigned fact(unsigned long long k) { return tgamma(k + 1); }
+
 
 /// @class TaylorJet
 /// @brief Implementing FAD of any order for function p : R -> R^n
 template<class T>
 class TaylorJet {
     vector<TaylorPol<T>> pols; // p^[i] (t)
-//    vector<vector<T>> diffs; // p^(i) (t)
 
 public:
 
-    explicit TaylorJet(const size_t order) {
-        pols = vector<TaylorPol<T>>(order);
-    }
+    explicit TaylorJet(const size_t order) { pols = vector<TaylorPol<T>>(order); }
 
     explicit TaylorJet(const vector<TaylorPol<T>> _pols) : pols(_pols) {}
 
@@ -29,9 +31,9 @@ public:
 
     TaylorPol<T> &polAt(const unsigned int k) { return pols.at(k); };
 
-//    vector<T> diffAt(const unsigned int k) const { return polAt(k) * fact(k); }
+    TaylorPol<T> diffAt(const unsigned int k) const { return pols.at(k) * fact(k); }
 
-//    vector<T> &diffAt(const unsigned int k) { return polAt(k) * fact(k); }
+    // vector<T> &diffAt(const unsigned int k) { return pols.at(k) * fact(k); }
 
     TaylorJet<T> operator+(TaylorJet<T> &) const;
 
@@ -41,11 +43,6 @@ public:
 
 };
 
-// Helper factorial evaluator
-unsigned fact(unsigned long long k) {
-    if (k == 0) return 1;
-    else return k * fact(k - 1);
-}
 
 template<class T>
 TaylorJet<T> TaylorJet<T>::operator*(TaylorJet<T> &q) const {
