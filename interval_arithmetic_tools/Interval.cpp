@@ -203,11 +203,11 @@ void setIntervalEnds(Interval &interval, double lo_y, double lo_l, double hi_y, 
 auto multiply = [](double a, double b) { return a * b; };
 
 Interval pow1(const Interval &x, const Interval &y) {
-    Interval l;
     auto x_lo = x.get_lo();
     auto x_hi = x.get_hi();
     auto y_hi = y.get_hi();
     auto y_lo = y.get_lo();
+    Interval l;
     if (x_lo < 1 or 0 <= y_lo or y_hi <= 0)
         l.set_lo(applyFunWithRounding<log, FE_DOWNWARD>(x_lo));
     if (1 < x_hi or 0 <= y_lo or y_hi <= 0)
