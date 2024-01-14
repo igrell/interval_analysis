@@ -204,42 +204,48 @@ auto multiply = [](double a, double b) { return a * b; };
 
 Interval pow1(const Interval &x, const Interval &y) {
     Interval l;
-    if (x.get_lo() < 1 or 0 <= y.get_lo() or y.get_hi() <= 0)
-        l.set_lo(applyFunWithRounding<log, FE_DOWNWARD>(x.get_lo()));
-    if (1 < x.get_hi() or 0 <= y.get_lo() or y.get_hi() <= 0)
-        l.set_hi(applyFunWithRounding<log, FE_UPWARD>(x.get_hi()));
+    auto x_lo = x.get_lo();
+    auto x_hi = x.get_hi();
+    auto y_hi = y.get_hi();
+    auto y_lo = y.get_lo();
+    if (x_lo < 1 or 0 <= y_lo or y_hi <= 0)
+        l.set_lo(applyFunWithRounding<log, FE_DOWNWARD>(x_lo));
+    if (1 < x_hi or 0 <= y_lo or y_hi <= 0)
+        l.set_hi(applyFunWithRounding<log, FE_UPWARD>(x_hi));
+    auto l_lo = l.get_lo();
+    auto l_hi = l.get_hi();
     Interval m;
     const int originalRounding = fegetround();
-    if (0 <= y.get_lo()) {
-        if (x.get_hi() <= 1) {
-            setIntervalEnds<multiply>(m, y.get_hi(), l.get_lo(), y.get_lo(), l.get_hi());
-        } else if (1 <= x.get_lo()) {
+    if (0 <= y_lo) {
+        if (x_hi <= 1) {
+            setIntervalEnds<multiply>(m, y_hi, l_lo, y_lo, l_hi);
+        } else if (1 <= x_lo) {
             fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_lo() * l.get_lo());
-            m.set_hi(y.get_hi() * l.get_hi());
+            m.set_lo(y_lo * l_lo);
+            m.set_hi(y_hi * l_hi);
         } else {
-            setIntervalEnds<multiply>(m, y.get_hi(), l.get_lo(), y.get_hi(), l.get_hi());
+            setIntervalEnds<multiply>(m, y_hi, l_lo, y_hi, l_hi);
         }
-    } else if (y.get_hi() <= 0) {
-        if (x.get_hi() <= 1) {
-            setIntervalEnds<multiply>(m, y.get_hi(), l.get_hi(), y.get_lo(), l.get_lo());
-        } else if (1 <= x.get_lo()) {
+    } else if (y_hi <= 0) {
+        if (x_hi <= 1) {
+            setIntervalEnds<multiply>(m, y_hi, l_hi, y_lo, l_lo);
+        } else if (1 <= x_lo) {
             fesetround(FE_DOWNWARD);
-            m.set_lo(y.get_lo() * l.get_hi());
-            m.set_hi(y.get_hi() * l.get_lo());
+            m.set_lo(y_lo * l_hi);
+            m.set_hi(y_hi * l_lo);
         } else {
-            setIntervalEnds<multiply>(m, y.get_lo(), l.get_hi(), y.get_lo(), l.get_lo());
+            setIntervalEnds<multiply>(m, y_lo, l_hi, y_lo, l_lo);
         }
     } else {
-        if (x.get_hi() <= 1) {
-            setIntervalEnds<multiply>(m, y.get_hi(), l.get_lo(), y.get_lo(), l.get_hi());
-        } else if (1 <= x.get_lo()) {
-            setIntervalEnds<multiply>(m, y.get_lo(), l.get_hi(), y.get_hi(), l.get_hi());
+        if (x_hi <= 1) {
+            setIntervalEnds<multiply>(m, y_hi, l_lo, y_lo, l_hi);
+        } else if (1 <= x_lo) {
+            setIntervalEnds<multiply>(m, y_lo, l_hi, y_hi, l_hi);
         } else {
             fesetround(FE_DOWNWARD);
-            m.set_lo(std::min(y.get_hi() * l.get_lo(), y.get_lo() * y.get_hi()));
+            m.set_lo(std::min(y_hi * l_lo, y_lo * y_hi));
             fesetround(FE_UPWARD);
-            m.set_hi(std::max(y.get_lo() * l.get_lo(), y.get_hi() * l.get_hi()));
+            m.set_hi(std::max(y_lo * l_lo, y_hi * l_hi));
         }
     }
     Interval res;
