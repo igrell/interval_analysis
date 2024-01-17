@@ -18,7 +18,7 @@ public:
 
     Interval() : lo(0), hi(0) {};
 
-    explicit Interval(double number) : lo(number), hi(number) {} //for a thin interval - no label
+    explicit Interval(double number) : lo(number), hi(number) {} //for a thin interval
 
     Interval(const Interval &interval) : lo(interval.get_lo()), hi(interval.get_hi()) {} //copying constructor
 

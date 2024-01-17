@@ -18,5 +18,5 @@ def plot_rectangles(rectangles):
     plt.show()
 
 if __name__ == '__main__':
-    rectangles = parse_rectangles("/home/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/cmake-build-debug/output.txt")
+    rectangles = parse_rectangles("/Users/igor/Documents/Kod/Tutorial/Validated_numerics/interval_analysis/output.txt")
     plot_rectangles(rectangles)

@@ -20,19 +20,18 @@ public:
 
     virtual T map_2(const T&, const T&) const = 0;
 
-//    template<class Vector>
-//    Vector map_1(const Vector& obj);
-//
-//    template<class Vector>
-//    Vector map_2(const Vector& obj);
-
     pair<T, T> map(const T &x, const T &y) const;
 
     pair<T, T> compose_map(const T &x, const T &y) const;
 
     IPoint operator()(IPoint &iPoint) const;
-
 };
+
+//    template<class Vector>
+//    Vector map_1(const Vector& obj);
+//
+//    template<class Vector>
+//    Vector map_2(const Vector& obj);
 
 template<class T>
 pair<T, T> Mapping<T>::map(const T &x, const T &y) const {
@@ -49,7 +48,6 @@ pair<T, T> Mapping<T>::compose_map(const T &x, const T &y) const {
 
 template<class T>
 IPoint Mapping<T>::operator()(IPoint &iPoint) const {
-    //     IPoint res = {Interval((iPoint.area.first.get_lo() + iPoint.area.first.get_hi()) / 2),Interval((iPoint.area.second.get_lo() + iPoint.area.second.get_hi()) / 2) };
     pair<T, T> res = compose_map(iPoint.area.first, iPoint.area.second);
     return {res.first, res.second};
 }

@@ -42,8 +42,6 @@ Interval Interval::operator*(const Interval &b) const {
 Interval Interval::operator/(const Interval &b) const {
     if ((b.lo <= 0 and b.hi >= 0) or (b.lo >= 0 and b.hi <= 0)) { //if 'b' contains 0
         throw DivisionByZeroIntervalException(*this, b);
-//        cout << "Division by interval containing zero: " << *this << " , " << b << "\n";
-//        return Interval(0);
     }
     const int originalRounding = fegetround();
     fesetround(FE_DOWNWARD);
@@ -70,7 +68,7 @@ Interval Interval::operator-(const double &a) const {
     return {get_lo() - a, get_hi() - a};
 }
 
-Interval Interval::operator*(const double &a) const { //not sure if it should work like that
+Interval Interval::operator*(const double &a) const {
     return {get_lo() * a, get_hi() * a};
 }
 
@@ -113,14 +111,7 @@ Interval Interval::operator||(const Interval &a) const {
     return {min(get_lo(), a.get_lo()), max(get_hi(), a.get_hi())};
 }
 
-Interval::Interval(double lo, double hi) : lo(lo), hi(hi) {
-//    if (lo > hi and (lo > 0 and hi > 0)) {
-//        this->set_lo(lo);
-//        this->set_hi(hi);
-//        std::cout << "The endpoints of interval: " << *this << " do not define an interval." << std::endl;
-//        return;
-//    }
-}
+Interval::Interval(double lo, double hi) : lo(lo), hi(hi) {}
 
 Interval Interval::operator-() const {
     return {(-1) * get_hi(), (-1) * get_lo()};
@@ -141,7 +132,6 @@ double Interval::center() const {
 
 bool Interval::containsZero() const {
     return lo < 0 and hi > 0;
-    // return lo * hi < 0;
 }
 
 ostream &operator<<(ostream &stream, const Interval &a) {

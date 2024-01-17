@@ -30,48 +30,6 @@ auto computeEigens(const MatrixXd &matrix) {
             EigenSolver<MatrixXd>(matrix).eigenvectors()};
 }
 
-//template<typename F, typename... Args>
-//auto applyFun(F f, Args... args) {
-//    return f(args...);
-//}
-
-// TODO
-//template<unsigned noOfVars, typename F, typename...Args>
-//vector<vector<double>> differentialAtPoint(F f, Args...args) {
-//    unsigned varFlag = noOfVars - 1;
-//    vector<vector<double>> res;
-//    res.emplace_back(funJetWrapper(noOfVars,varFlag,args)...);
-//}
-
-// Convert a 2-D vector<vector<double> > into an Eigen MatrixXd.
-// Throws exception if rows do not have same length.
-//MatrixXd convert_vvd_to_matrix(vector<vector<double>> vvd) {
-//
-//    std::size_t n_rows = vvd.size();
-//    std::size_t n_cols = vvd.at(0).size();
-//
-//    MatrixXd result(n_rows, n_cols);
-//    result.row(0) = VectorXd::Map(&vvd[0][0], n_cols);
-//
-//     Add each vector row to the MatrixXd.
-//    for (std::size_t i = 1; i < n_rows; i++) {
-//
-//         Make sure that every row of vvd has the same size.
-//        if (n_cols != vvd.at(i).size()) {
-//            char buffer[200];
-//            snprintf(buffer, 200,
-//                     "vvd[%ld] size (%ld) does not match vvd[0] size (%ld)",
-//                     i, vvd.at(i).size(), n_cols);
-//            string err_mesg(buffer);
-//            throw std::invalid_argument(err_mesg);
-//        }
-//
-//        result.row(i) = VectorXd::Map(&vvd[i][0], n_cols);
-//    }
-//
-//    return result;
-//}
-
 // f(x,y) = ( (0 + x + y + x2 - 5xy - 2y2)/(1 + x - 4y), (1 + 2x - y + x2 - 4xy + 8y2)/(1 - 2x + 8y) )
 template<typename T>
 vector<T> fun(T x, T y, T z) {

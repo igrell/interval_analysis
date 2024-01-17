@@ -3,8 +3,6 @@
 using std::min, std::max;
 
 IPoint::IPoint() {
-//    Interval a = Interval();
-//    Interval b = Interval();
     area.first = Interval();
     area.second = Interval();
 }
@@ -23,23 +21,18 @@ bool IPoint::operator<(const IPoint &a) const {
 
 IPoint IPoint::operator&&(const IPoint &a) const {
     if ((area.first && a.area.first) == Interval(0)) {
-//        cout << "Warning: empty intersection.";
         return {};
     }
     return {area.first && a.area.first, area.second && a.area.second};
 }
 
 double IPoint::width() const {
-//    return min(area.first.width(), area.second.width());
     return max(area.first.width(), area.second.width());
 }
 
 vector<IPoint> IPoint::bisect() const {
     double x_diff = area.first.width() / 2;
     double y_diff = area.second.width() / 2;
-//    IPoint part_1(Interval(area.first.get_lo(),area.first.get_lo() + x_diff),Interval(area.second.get_lo(),area.second.get_hi()));
-//    IPoint part_2(Interval(area.first.get_lo() + x_diff,area.first.get_hi()),Interval(area.second.get_lo(),area.second.get_hi()));
-//    return {part_1,part_2};
     IPoint part_1(Interval(area.first.get_lo(), area.first.get_lo() + x_diff),
                   Interval(area.second.get_lo(), area.second.get_lo() + y_diff));
     IPoint part_2(Interval(area.first.get_lo() + x_diff, area.first.get_hi()),
@@ -51,23 +44,9 @@ vector<IPoint> IPoint::bisect() const {
     return {part_1, part_2, part_3, part_4};
 }
 
-// TODO or czy and ???
 bool IPoint::containsZero() {
     return area.first.containsZero() and area.second.containsZero();
 }
-
-// vector<IPoint> IPoint::gridDomain(const unsigned PRECISION) {
-//     vector<IPoint> res;
-//     double width_x = area.first.width() / PRECISION;
-//     double width_y = area.second.width() / PRECISION;
-//     double
-//     for (unsigned i = 0 ; i < PRECISION ; i++) {
-//         res.emplace({},{});
-//     }
-//
-//     return vector<IPoint>();
-//
-// }
 
 bool emptyIntersection(const IPoint &a, const IPoint &b) {
     IPoint inter = a && b;

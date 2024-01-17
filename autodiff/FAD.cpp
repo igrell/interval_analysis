@@ -51,7 +51,7 @@ FunJet operator*(const FunJet &u, const FunJet &v) {
     return res;
 }
 
-FunJet operator*(const double c, const FunJet &u) { // TODO DOBRZE?
+FunJet operator*(const double c, const FunJet &u) {
     FunJet res(u.getDiffSize());
     res.fx = c;
     return res * u;

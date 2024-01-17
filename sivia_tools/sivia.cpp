@@ -26,24 +26,4 @@ int main() {
      cout << "c " << c << "\n";
      cout << "d " << d << "\n";
      det.free();
-
-
-
-    // TODO coś nie tak tutaj
-//    SiviaNode &x = *new SiviaNode();
-//    SiviaNode &y = *new SiviaNode();
-//    SiviaNode &x2 = *new SiviaNode();
-//    SiviaNode &y2 = *new SiviaNode();
-//    SiviaNode &cons = *new SiviaNode();
-//    x.setValue(-100, 100);
-//    y.setValue(-300, 300);
-//    pair<SiviaNode &, SiviaNode &> f = {x*x, y*y};
-//    cout << f.first.evaluate() << " , " << f.second.evaluate() << "\n";
-//    f.first.setValue(1);
-//    f.second.setValue(1);
-//    try { f.first.contract(); } catch (EmptyIntersectionException &warning) {} // TODO program się zatrzymuje przez divisionByZeroException
-//    try { f.second.contract(); } catch (EmptyIntersectionException &warning) {}
-//    cout << x << "\n" << y;
-//    f.first.free();
-//    f.second.free();
 }

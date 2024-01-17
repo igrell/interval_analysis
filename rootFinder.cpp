@@ -47,19 +47,16 @@ void rootFinder(Fun fun,
             it = domainCubes.erase(it);
         else ++it;
     }
-//    pair < SiviaNode & , SiviaNode &> args = {*new SiviaNode(), *new SiviaNode()};
-//    SiviaNode &x = args.first, &y = args.second;
     SiviaNode &x = *new SiviaNode(); SiviaNode &y = *new SiviaNode();
     for (const auto &domainCube: domainCubes) {
-//        SiviaNode::setValue(args, domainCube);
         x.setValue(domainCube.first);
         y.setValue(domainCube.second);
         pair < SiviaNode, SiviaNode > f = fun(x, y);
         SiviaNode::setValue(f, 0);
         try { SiviaNode::contract(f); } catch (EmptyIntersectionException &warning) {}
-        cout << "from domainCube:" << domainCube << "restriction: " << "x" << x << ", y" << y << "\n"; // TODO nie reaguje na stałą?
+        cout << "from domainCube:" << domainCube << "restriction: " << "x" << x << ", y" << y << "\n";
     }
-    // TODO ciąg dalszy
+    // cdn
 }
 
 int main() {
@@ -67,5 +64,4 @@ int main() {
                                        {-10,  10}};
 
     rootFinder([](auto x, auto y) { return fun(x, y); }, domain, 11, static_cast<unsigned int>(10e-5));
-//    cout << Interval(-0.90909090909091006 , 0.90909090909090828) * Interval(-0.90909090909091006 , 0.90909090909090828) * Interval(-0.90909090909091006 , 0.90909090909090828) * Interval(-0.90909090909091006 , 0.90909090909090828);
 }

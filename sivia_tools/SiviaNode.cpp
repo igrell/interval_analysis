@@ -38,18 +38,11 @@ SiviaNode::SiviaNode(const Interval &val) : val(val) {}
 SiviaNode::SiviaNode(SiviaNode *left_parent, SiviaNode *right_parent, Operator parents_operator) :
         left(left_parent), right(right_parent), operation(parents_operator) {}
 
-void SiviaNode::setValue(const Interval &interval) {
-    val = interval;
-}
+void SiviaNode::setValue(const Interval &interval) { val = interval; }
 
-void SiviaNode::setValue(const double value) {
-    setValue(Interval(value));
-}
+void SiviaNode::setValue(const double value) { setValue(Interval(value)); }
 
-void SiviaNode::setValue(const double lo, const double hi) {
-    setValue(Interval(lo, hi));
-
-}
+void SiviaNode::setValue(const double lo, const double hi) { setValue(Interval(lo, hi)); }
 
 Interval SiviaNode::evaluate() {
     switch (operation) {
