@@ -5,7 +5,6 @@
 
 using std::min, std::max, std::abs, std::ostream;
 
-
 Interval Interval::operator-(const Interval &b) const {
     const int originalRounding = fegetround();
     fesetround(FE_DOWNWARD);

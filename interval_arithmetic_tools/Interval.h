@@ -89,7 +89,8 @@ Interval pow_naive(const Interval &, const Interval &);
 
 Interval pow1(const Interval &, const Interval &);
 
-Interval sqrt(const Interval &);
+template<typename F>
+Interval sqrt(F f, const Interval &);
 
 Interval cbrt(const Interval &);
 
