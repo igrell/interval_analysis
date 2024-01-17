@@ -6,10 +6,21 @@
 #include "TaylorAD.h"
 #include "cmath"
 
+double fun(double x) { return x*x; }
+
+template<int R, typename F>
+double applyFun(F f, double a) {
+    const int originalRounding = fegetround();
+    fesetround(R);
+    double res = f(a);
+    fesetround(originalRounding);
+    return res;
+}
+
 int main() {
-    TaylorPol<double> p0({1,2,3});
-    TaylorPol<double> p1({4,5,6});
-    TaylorPol<double> p2({7,8,9});
-    TaylorJet<double> jet({p0,p1,p2});
-    std::cout << jet.diffAt(2);
+    std::cout << applyFun<0>(fun, 4);
+
+//    TaylorPol<double> p0({0,1,0,-0.1666667,0,0.0083333333,0,-0.000198413});
+//    TaylorJet<double> jet({p0});
+//    std::cout << jet.diffAt(1);
 }

@@ -28,12 +28,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IntervalFormatPolicy.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/DivisionByZeroIntervalException.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/EmptyIntersectionException.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/Interval.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/Interval.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/kolokwium_2/test" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PwL/projekty/tabica.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PwL/projekty/tabica.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/interval_arithmetic_tools/Interval.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/testing.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,11 +118,6 @@
     </option>
   </component>
   <component name="RunManager" selected="CMake Application.testing">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="autodiff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="interval_analysis" TARGET_NAME="autodiff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="interval_analysis" RUN_TARGET_NAME="autodiff">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -347,7 +347,8 @@
       <workItem from="1704794969012" duration="4000" />
       <workItem from="1705241384702" duration="3972000" />
       <workItem from="1705247320974" duration="2000" />
-      <workItem from="1705254973374" duration="3332000" />
+      <workItem from="1705254973374" duration="3769000" />
+      <workItem from="1705487768758" duration="1473000" />
     </task>
     <servers />
   </component>

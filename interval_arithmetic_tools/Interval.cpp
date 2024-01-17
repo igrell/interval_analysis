@@ -158,6 +158,8 @@ Interval operator*(double a, Interval b) {
     return {a * b.get_lo(), a * b.get_hi()};
 }
 
+/* Abstract functions for algorithm clarity */
+
 template<double (*f)(double), int R>
 double applyFunWithRounding(double a) {
     const int originalRounding = fegetround();
