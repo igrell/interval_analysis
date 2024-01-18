@@ -28,6 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d37063cf-81aa-4ec0-b4cf-c978843769a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/plot/.idea/other.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/DivisionByZeroIntervalException.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/EmptyIntersectionException.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../interval_test/Interval.cpp" afterDir="false" />
@@ -35,9 +36,8 @@
       <change beforePath="$PROJECT_DIR$/../../../PF/kolokwia/kolokwium_2/test" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PF/projekt/PolyominoSolver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PwL/projekty/tabica.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PwL/projekty/tabica.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sivia_tools/SiviaNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sivia_tools/SiviaNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mappings/Rossler.h" beforeDir="false" afterPath="$PROJECT_DIR$/mappings/Rossler.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +347,8 @@
       <workItem from="1705241384702" duration="3972000" />
       <workItem from="1705247320974" duration="2000" />
       <workItem from="1705254973374" duration="3769000" />
-      <workItem from="1705487768758" duration="4479000" />
+      <workItem from="1705487768758" duration="8296000" />
+      <workItem from="1705608861011" duration="2562000" />
     </task>
     <servers />
   </component>

@@ -15,16 +15,16 @@ class Henon : public Mapping<T>
 public:
     Henon(const T &coeff_a, const T &coeff_b, int composition_constant);
 
-    template<class Vector>
-    Vector operator()(const Vector &obj);
+//    template<class Vector>
+//    Vector operator()(const Vector &obj);
 
 };
 
-template<typename T>
-template<class Vector>
-Vector Henon<T>::operator()(const Vector &obj) {
-    return {map_1(obj[0], obj[1]), map_2(obj[0], obj[1])};
-}
+//template<typename T>
+//template<class Vector>
+//Vector Henon<T>::operator()(const Vector &obj) {
+//    return {map_1(obj[0], obj[1]), map_2(obj[0], obj[1])};
+//}
 
 template<class T>
 Henon<T>::Henon(const T &coeff_a, const T &coeff_b, int composition_constant)  :
