@@ -17,7 +17,6 @@ public:
 
 //    template<class Vector>
 //    Vector operator()(const Vector &obj);
-
 };
 
 //template<typename T>

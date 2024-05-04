@@ -5,7 +5,7 @@
 using std::pair, std::vector;
 
 int main() {
-//// przykład z macierzą 2x2
+/// przykład z macierzą 2x2
      SiviaNode &a = *new SiviaNode();
      SiviaNode &b = *new SiviaNode();
      SiviaNode &c = *new SiviaNode();

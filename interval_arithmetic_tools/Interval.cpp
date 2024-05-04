@@ -1,7 +1,9 @@
+#include <iomanip>
 #include "Interval.h"
 #include "EmptyIntersectionException.h"
 #include "bits/stdc++.h"
 #include "DivisionByZeroIntervalException.h"
+
 
 using std::min, std::max, std::abs, std::ostream;
 
@@ -135,7 +137,13 @@ bool Interval::containsZero() const {
 }
 
 ostream &operator<<(ostream &stream, const Interval &a) {
-    stream << std::setprecision(17) << "[" << a.get_lo() << " , " << a.get_hi() << "]";
+    stream << std::setprecision(17) << "[";
+    if (a.get_lo() == -0) stream << std::setprecision(17) << 0;
+    else stream << std::setprecision(17) << a.get_lo();
+    stream << ",";
+    if (a.get_hi() == -0) stream << std::setprecision(17) << 0;
+    else stream << std::setprecision(17) << a.get_hi();
+    stream << "]";
     return stream;
 }
 

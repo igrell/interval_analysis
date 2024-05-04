@@ -31,7 +31,7 @@ pair<T, T> fun(T& x, T& y) { return {x * x * x * y ,  x + y}; }
   *  @tparam Fun    R2 -> R2 function.
   *  @param fun     Function of the form Fun.
   *  @param domain  Domain of fun().
-  *  @param GRID_FACTOR      How coarsely the griding of the domain.
+  *  @param GRID_FACTOR      How coarse the griding of the domain.
   *  @param TOL    Tolerance for root finding in the grided domain.
 */
 template<class Fun>
