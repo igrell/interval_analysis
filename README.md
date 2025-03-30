@@ -1,4 +1,3 @@
-# ![image](./plot/out_all_bisections.png)
 # Interval analysis
 This project comprises of several modules implementing [interval arithmetic](https://en.wikipedia.org/wiki/Interval_arithmetic) and its applications for rigorous numerical computation and computational dynamics.
 
