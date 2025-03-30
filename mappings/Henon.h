@@ -13,7 +13,7 @@ class Henon : public Mapping<T>
     [[nodiscard]] T map_2(const T&, const T&) const override;
 
 public:
-    Henon(const T &coeff_a, const T &coeff_b, int composition_constant);
+    Henon(const T &coeff_a, const T &coeff_b, size_t composition_constant);
 
 //    template<class Vector>
 //    Vector operator()(const Vector &obj);
@@ -26,7 +26,7 @@ public:
 //}
 
 template<class T>
-Henon<T>::Henon(const T &coeff_a, const T &coeff_b, int composition_constant)  :
+Henon<T>::Henon(const T &coeff_a, const T &coeff_b, size_t composition_constant)  :
         coeff_a(coeff_a), coeff_b(coeff_b) {}
 
 template<class T>

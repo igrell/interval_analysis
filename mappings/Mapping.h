@@ -14,15 +14,15 @@ protected:
 
 public:
 
-    explicit Mapping(int composition_constant) : composition_constant(composition_constant) {}
+    explicit Mapping(size_t composition_constant) : composition_constant(composition_constant) {}
 
     virtual T map_1(const T&, const T&) const  = 0;
 
     virtual T map_2(const T&, const T&) const = 0;
 
-    pair<T, T> map(const T &x, const T &y) const;
+    pair<T, T> map(const T&, const T&) const;
 
-    pair<T, T> compose_map(const T &x, const T &y) const;
+    pair<T, T> compose_map(const T&, const T&) const;
 
     IPoint operator()(IPoint &iPoint) const;
 };

@@ -2,22 +2,24 @@
 #include "EmptyIntersectionException.h"
 #include "vector"
 
-using std::pair, std::vector;
+using std::pair, std::vector, std::cin;
 
 int main() {
-/// przykład z macierzą 2x2
+
      SiviaNode &a = *new SiviaNode();
      SiviaNode &b = *new SiviaNode();
      SiviaNode &c = *new SiviaNode();
      SiviaNode &d = *new SiviaNode();
-     a.setValue(0, 4);
-     b.setValue(-1, 1);
-     c.setValue(-1, -0.5);
-     d.setValue(-3, -2);
-
+     double a_lo, a_hi, b_lo, b_hi, c_lo, c_hi, d_lo, d_hi, det_val;
+     cin >> a_lo >> a_hi >> b_lo >> b_hi >> c_lo >> c_hi >> d_lo >> d_hi;
+     a.setValue(a_lo, a_hi);
+     b.setValue(b_lo, b_hi);
+     c.setValue(c_lo, c_hi);
+     d.setValue(d_lo, d_hi);
      SiviaNode &det = (a * d) - (b * c); // computation path
      cout << "Graph evaluation: " << det.evaluate() << "\n";
-     det.setValue(1);
+     cin >> det_val;
+     det.setValue(det_val);
      try { det.contract(); } catch (EmptyIntersectionException &warning) {}
 
      cout << "Constrains: \n";

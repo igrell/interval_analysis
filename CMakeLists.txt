@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.26)
 project(interval_analysis)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 
 add_executable(interval_arithmetic interval_arithmetic_tools/Interval.h interval_arithmetic_tools/Interval.cpp  interval_arithmetic_tools/IPoint.h interval_arithmetic_tools/IPoint.cpp
         covering_relations_analysis/covering_relations.cpp covering_relations_analysis/TSet.h covering_relations_analysis/TSet.cpp
@@ -49,6 +49,7 @@ add_executable(manifolds manifold_parametrization_tools/manifolds.cpp
         autodiff/FAD.h autodiff/FAD.cpp
         exceptions/EmptyIntersectionException.h exceptions/DivisionByZeroIntervalException.h)
 target_include_directories(manifolds PRIVATE autodiff/ interval_arithmetic_tools/ exceptions/ ./)
+
 
 add_executable(testing testing.cpp
         covering_relations_analysis/TSet.h covering_relations_analysis/TSet.cpp

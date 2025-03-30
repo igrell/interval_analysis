@@ -36,6 +36,8 @@ public:
 
     double center() const;
 
+    bool containsZero() const;
+
     Interval operator+(const Interval &) const;
 
     Interval &operator+=(const Interval &);
@@ -68,7 +70,6 @@ public:
 
     Interval operator||(const Interval &) const; //hull
 
-    bool containsZero() const;
 
 };
 

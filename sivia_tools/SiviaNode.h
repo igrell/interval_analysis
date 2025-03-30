@@ -27,9 +27,15 @@ public:
 
     Interval evaluate();
 
+    void contract();
+
+    static void contract(pair<SiviaNode, SiviaNode>&);
+
     Interval getValue();
 
     Operator getOperation();
+
+    static void getNodesVector(vector<SiviaNode *> &, SiviaNode *);
 
     void setValue(double);
 
@@ -37,19 +43,14 @@ public:
 
     void setValue(double, double);
 
-    void contract();
+    static void setValue(pair<SiviaNode, SiviaNode>&, double);
 
-    static void getNodesVector(vector<SiviaNode *> &, SiviaNode *);
+    static void setValue(pair<SiviaNode& , SiviaNode& >&, const pair<Interval, Interval>&);
 
     void free();
 
     friend ostream &operator<<(ostream &ostream, const SiviaNode &siviaNode);
 
-    static void setValue(pair<SiviaNode, SiviaNode>&, double);
-
-    static void setValue(pair<SiviaNode& , SiviaNode& >&, const pair<Interval, Interval>&);
-
-    static void contract(pair<SiviaNode, SiviaNode>&);
 };
 
 SiviaNode &operator+(SiviaNode &, SiviaNode &);
