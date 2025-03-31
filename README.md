@@ -12,3 +12,6 @@ The `sivia_tools` module implements the [Set Inversion Via Interval Analysis (SI
 
 ### Manifold parametrization (unfinished)
 The `manifold_parametrization_tools` module implements the parametrization of a topological manifold. It is in progress as of now.
+
+## Note
+This project was written as part of a tutoring program at Jagiellonian University, and is summarized in the following (article)[https://ujchmura-my.sharepoint.com/:b:/g/personal/igor_piechowiak_student_uj_edu_pl/EQIxjgifqeZBlpc30EnveUsBvtLjr5vxy_O7rmKT0CL8Uw?e=NbjX4n] (in Polish).
